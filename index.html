@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -339,7 +339,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-06-07 15:46:23 / 修改时间：23:04:28" itemprop="dateCreated datePublished" datetime="2024-06-07T15:46:23+08:00">2024-06-07</time>
+      <time title="创建时间：2024-06-07 15:46:23 / 修改时间：23:06:13" itemprop="dateCreated datePublished" datetime="2024-06-07T15:46:23+08:00">2024-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -409,6 +409,95 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/4dbff0f4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/4dbff0f4.html" class="post-title-link" itemprop="url">在ubuntu-24-04上安装vmware-workstation-17-5-2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-07 14:54:19" itemprop="dateCreated datePublished" datetime="2024-06-07T14:54:19+08:00">2024-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件应用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vmware workstation 17.5.2这个版本，是博通在收购vmware之后发布的，最大的亮点在于这个版本对于个人使用是完全免费的，省去了上网找序列号的麻烦。</p>
+<p>ubuntu 24.04刚发布没多久，在它上面安装vmware workstaion不出意外的遇到了问题，具体来说就是在安装完成vmware workstation后，因为有些内核模块无法编译，所以无法启动。</p>
+<p>下面介绍解决方法</p>
+<h2 id="下载vmware的内核补丁"><a href="#下载vmware的内核补丁" class="headerlink" title="下载vmware的内核补丁"></a>下载vmware的内核补丁</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mkubecek/vmware-host-modules/archive/workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+<p>别看上面的下载地址，针对的是17.5.1版本，约实测，对于17.5.2一样有效。</p>
+<h2 id="解压补丁"><a href="#解压补丁" class="headerlink" title="解压补丁"></a>解压补丁</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="进入补丁目录"><a href="#进入补丁目录" class="headerlink" title="进入补丁目录"></a>进入补丁目录</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="打包2个模块"><a href="#打包2个模块" class="headerlink" title="打包2个模块"></a>打包2个模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cf vmmon.tar vmmon-only/</span><br><span class="line">tar -cf vmnet.tar vmnet-only/</span><br></pre></td></tr></table></figure>
+<h2 id="拷贝到相应位置"><a href="#拷贝到相应位置" class="headerlink" title="拷贝到相应位置"></a>拷贝到相应位置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> -v vmmon.tar vmnet.tar  /usr/lib/vmware/modules/source/</span><br></pre></td></tr></table></figure>
+<h2 id="编译vmware内核模块"><a href="#编译vmware内核模块" class="headerlink" title="编译vmware内核模块"></a>编译vmware内核模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vmware-modconfig --console --install-all</span><br></pre></td></tr></table></figure>
+<p>这次，可以看到编译成功了，vmware workstation正常启动和使用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/posts/4dbd6b59.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -439,7 +528,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-06-07 09:11:18 / 修改时间：23:04:28" itemprop="dateCreated datePublished" datetime="2024-06-07T09:11:18+08:00">2024-06-07</time>
+      <time title="创建时间：2024-06-07 09:11:18 / 修改时间：23:06:13" itemprop="dateCreated datePublished" datetime="2024-06-07T09:11:18+08:00">2024-06-07</time>
     </span>
 
   
