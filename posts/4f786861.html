@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="安装hexo1npm install hexo-cli -g 建站123hexo init &lt;folder&gt;cd &lt;folder&gt;npm install 主题安装NexT主题12cd hexo-sitenpm install hexo-theme-next  启用NexT主题编辑网站根目录下的_config.yml，在99行左右，改成下面样子 1theme: next  设">
+    <meta name="description" content="安装hexo1npm install hexo-cli -g 建站123hexo init &lt;folder&gt;cd &lt;folder&gt;npm install 主题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo安装和配置主题">
 <meta property="og:url" content="http://example.com/posts/4f786861.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="安装hexo1npm install hexo-cli -g 建站123hexo init &lt;folder&gt;cd &lt;folder&gt;npm install 主题安装NexT主题12cd hexo-sitenpm install hexo-theme-next  启用NexT主题编辑网站根目录下的_config.yml，在99行左右，改成下面样子 1theme: next  设">
+<meta property="og:description" content="安装hexo1npm install hexo-cli -g 建站123hexo init &lt;folder&gt;cd &lt;folder&gt;npm install 主题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-07T07:46:23.000Z">
-<meta property="article:modified_time" content="2024-06-07T22:10:39.085Z">
+<meta property="article:modified_time" content="2024-06-07T22:30:16.484Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="theme">
@@ -201,7 +201,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 06:10:39" itemprop="dateModified" datetime="2024-06-08T06:10:39+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 06:30:16" itemprop="dateModified" datetime="2024-06-08T06:30:16+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,19 +227,19 @@
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装<code>NexT</code>主题</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 
 <h3 id="启用NexT主题"><a href="#启用NexT主题" class="headerlink" title="启用NexT主题"></a>启用NexT主题</h3><p>编辑网站根目录下的<code>_config.yml</code>，在99行左右，改成下面样子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">theme:</span> <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="设置Next主题的配置文件"><a href="#设置Next主题的配置文件" class="headerlink" title="设置Next主题的配置文件"></a>设置Next主题的配置文件</h3><p>站点根目录下执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cp</span> node_modules/hexo-theme-<span class="keyword">next</span>/_config.yml _config.<span class="keyword">next</span>.yml</span><br></pre></td></tr></table></figure>
 <p>以后所有修改都使用网站根目录下的<code>_config.next.yml</code>文件。</p>
 <h3 id="启用categories、archives、tags、about等链接"><a href="#启用categories、archives、tags、about等链接" class="headerlink" title="启用categories、archives、tags、about等链接"></a>启用categories、archives、tags、about等链接</h3><h4 id="修改-config-next-yml文件"><a href="#修改-config-next-yml文件" class="headerlink" title="修改_config.next.yml文件"></a>修改<code>_config.next.yml</code>文件</h4><p>在第100行左右，去掉categories、archives、tags、about前面的#，保存即可。</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  #home: / || fa fa-home</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  #commonweal: /404/ || fa fa-heartbeat</span><br></pre></td></tr></table></figure>
 <h4 id="添加相应的页面"><a href="#添加相应的页面" class="headerlink" title="添加相应的页面"></a>添加相应的页面</h4><p>以<code>categories</code>为例，其它几个链接对应着修改即可。<br>生成<code>categories</code>页面：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type">page</span> categories</span><br></pre></td></tr></table></figure>
 <p>生成的页面位置：<code>网站根目录/source/categories/index.md</code><br>修改上面的<code>index.md</code>,原内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2021-01-25 22:37:25</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2021-01-25 22:37:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 <p>添加上<code>type: &quot;categories&quot;</code>这段代码就能让主题识别该页面为分类页面了,如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2021-01-25 22:37:25</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2021-01-25 22:37:25</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 <p>archives、tags、about等链接照着上述<code>categories</code>的例子来生成和修改<code>type</code>即可。</p>
 <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;my first post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>文章名称中有空格，必须使用<code>&quot; &quot;</code>包括起来。</p>
