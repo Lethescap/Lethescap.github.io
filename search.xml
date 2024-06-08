@@ -35,6 +35,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo的NexT主题添加favicon</title>
+    <url>/posts/2bd96118.html</url>
+    <content><![CDATA[<p>折腾了半天，成功在<code>hexo</code>的<code>NexT</code>主题上应用了站点favicon，记录下具体步骤。</p>
+<p>首先要说明的是，中文网站的教程，都是教你把<code>favicon.ico</code>放在<code>theme/next/source/images</code>下，但是现在<code>NexT</code>主题推出<code>npm</code>的安装方式，站点的<code>theme</code>目录下根本没有<code>next</code>文件夹。所以网上的教程早就过时了。</p>
+<p>最终还是在<code>NexT</code>官方博客上找到了答案。</p>
+<h2 id="生成favicon"><a href="#生成favicon" class="headerlink" title="生成favicon"></a>生成favicon</h2><p>准备好图片，到这个网站在线生成：<a href="https://realfavicongenerator.net/">https://realfavicongenerator.net/</a></p>
+<h2 id="存放favico"><a href="#存放favico" class="headerlink" title="存放favico"></a>存放favico</h2><p>把生成的favicon文件放在<code>hexo-site/source</code>目录，即网站根目录的<code>source</code>文件夹下。</p>
+<h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>编辑<code>_config.next.yml</code>，修改成下面的内容：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta"># Site Information Settings</span></span><br><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">favicon:</span> </span><br><span class="line"><span class="symbol">  small:</span> /favicon<span class="number">-16</span>x16-next.png</span><br><span class="line"><span class="symbol">  medium:</span> /favicon<span class="number">-32</span>x32-next.png</span><br><span class="line"><span class="symbol">  apple_touch_icon:</span> /apple-touch-icon-next.png</span><br><span class="line"><span class="symbol">  safari_pinned_tab:</span> /logo.svg</span><br><span class="line">  <span class="meta">#android_manifest: /manifest.json</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意，放在<code>source</code>目录下的图片名称要和上面配置里的一一对应。</p>
+<p>打开网站，强制刷新网站，即可看见效果。</p>
+]]></content>
+      <categories>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<p>下面介绍安装<code>docker</code>和<code>docker-compose</code>的方法，实测支持Ubuntu 24.04</p>
