@@ -1270,7 +1270,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #e921ff;
+  background: #ff906f;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1667,6 +1667,7 @@ pre code {
   color: #f00;
   display: inline-block;
   margin: 0 5px;
+  animation: icon-animate 1.33s ease-in-out infinite;
 }
 @keyframes icon-animate {
   0%, 100% {
@@ -2136,6 +2137,24 @@ pre code {
 }
 .post-block:last-of-type .post-eof {
   display: none;
+}
+.post-copyright ul {
+  list-style: none;
+  overflow: hidden;
+  padding: 0.5em 1em;
+  position: relative;
+  background: var(--card-bg-color);
+  border-left: 3px solid #ff2a2a;
+  margin: 1em 0 0;
+}
+.post-copyright ul::after {
+  content: '\f25e';
+  font-family: 'Font Awesome 6 Brands';
+  font-size: 200px;
+  opacity: 0.1;
+  position: absolute;
+  right: -50px;
+  top: -150px;
 }
 .post-tags {
   margin-top: 40px;
@@ -2751,4 +2770,24 @@ code {
   background: #f9f2f4;
   border-radius: 3px;
   font-size: 18px;
+}
+a,
+span.exturl {
+  border-bottom: none;
+}
+a:hover,
+span.exturl:hover {
+  color: #ff106c;
+}
+::selection {
+  background: #26a69a;
+  color: #fff;
+  font-weight: 900;
+  font-size: 32px;
+}
+::-moz-selection {
+  background: #26a69a;
+  color: #fff;
+  font-weight: 900;
+  font-size: 32px;
 }
