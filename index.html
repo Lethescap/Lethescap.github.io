@@ -216,7 +216,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-06-08 08:26:31 / 修改时间：08:37:08" itemprop="dateCreated datePublished" datetime="2024-06-08T08:26:31+08:00">2024-06-08</time>
+      <time title="创建时间：2024-06-08 08:26:31 / 修改时间：08:48:08" itemprop="dateCreated datePublished" datetime="2024-06-08T08:26:31+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,6 +256,8 @@
 <h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改站点配置文件-config-yml"><a href="#修改站点配置文件-config-yml" class="headerlink" title="修改站点配置文件_config.yml"></a>修改站点配置文件_config.yml</h2><p>在<code>_config.yml</code>中添加下面内容</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="修改NexT配置文件-config-next-yml"><a href="#修改NexT配置文件-config-next-yml" class="headerlink" title="修改NexT配置文件_config.next.yml"></a>修改NexT配置文件_config.next.yml</h2><p>搜索并修改成如下样式：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/d4489ce4.html#more" rel="contents">
@@ -325,7 +327,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 08:37:08" itemprop="dateModified" datetime="2024-06-08T08:37:08+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 08:48:08" itemprop="dateModified" datetime="2024-06-08T08:48:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -367,14 +369,8 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> vmware-host-modules-workstation-17.5.1/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cf vmmon.tar vmmon-only/</span><br><span class="line">tar -cf vmnet.tar vmnet-only/</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> -v vmmon.tar vmnet.tar  /usr/lib/vmware/modules/source/</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/7d0c9221.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vmware-modconfig --console --install-all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -436,7 +432,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 08:37:08" itemprop="dateModified" datetime="2024-06-08T08:37:08+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 08:48:08" itemprop="dateModified" datetime="2024-06-08T08:48:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -475,14 +471,7 @@
           <p><code>NexT</code>主题最新版本已经不支持自动摘要设置了，需要用的第三方插件<code>hexo-abbrlink</code></p>
 <h2 id="安装hexo-exerpt"><a href="#安装hexo-exerpt" class="headerlink" title="安装hexo-exerpt"></a>安装hexo-exerpt</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-excerpt <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <h2 id="设置hexo-excerpt"><a href="#设置hexo-excerpt" class="headerlink" title="设置hexo-excerpt"></a>设置hexo-excerpt</h2><p>在<code>hexo</code>的配置文件<code>_config.yml</code>中，加入下面的内容：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/31ada5df.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -544,7 +533,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 08:37:08" itemprop="dateModified" datetime="2024-06-08T08:37:08+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 08:48:08" itemprop="dateModified" datetime="2024-06-08T08:48:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -584,15 +573,8 @@
 <p>能避免很多麻烦</p>
 <h2 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱:"></a>配置邮箱:</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/3f67efa6.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱:"></a>配置邮箱:</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看git配置信息"><a href="#查看git配置信息" class="headerlink" title="查看git配置信息"></a>查看git配置信息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -654,7 +636,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 08:37:08" itemprop="dateModified" datetime="2024-06-08T08:37:08+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 08:48:08" itemprop="dateModified" datetime="2024-06-08T08:48:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -692,7 +674,9 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装<code>NexT</code>主题</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<h3 id="启用NexT主题"><a href="#启用NexT主题" class="headerlink" title="启用NexT主题"></a>启用NexT主题</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/4f786861.html#more" rel="contents">
@@ -762,7 +746,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-08 08:37:08" itemprop="dateModified" datetime="2024-06-08T08:37:08+08:00">2024-06-08</time>
+      <time title="修改时间：2024-06-08 08:48:08" itemprop="dateModified" datetime="2024-06-08T08:48:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -801,14 +785,8 @@
           <p>使用<code>hexo-abbrlink</code>插件即可。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
 <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在<code>_config.yml</code>中修改添加下面内容：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/4dbd6b59.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> </span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> </span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
 
