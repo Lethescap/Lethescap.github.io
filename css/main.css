@@ -1343,7 +1343,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #595e9c;
+  background: #5326ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2838,4 +2838,13 @@ header.header {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+code {
+  padding: 2px 4px;
+  overflow-wrap: break-word;
+  color: #ff1397;
+  background: #fbf7f8;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bolder;
 }
