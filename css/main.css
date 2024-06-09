@@ -1270,7 +1270,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #c3afec;
+  background: #984aff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2765,32 +2765,4 @@ header.header {
 }
 .sub-menu .menu-item {
   display: inline-block;
-}
-code {
-  padding: 2px 4px;
-  overflow-wrap: break-word;
-  color: #c7254e;
-  background: #f9f2f4;
-  border-radius: 3px;
-  font-size: 18px;
-}
-a,
-span.exturl {
-  border-bottom: none;
-}
-a:hover,
-span.exturl:hover {
-  color: #ff106c;
-}
-::selection {
-  background: #26a69a;
-  color: #fff;
-  font-weight: 900;
-  font-size: 32px;
-}
-::-moz-selection {
-  background: #26a69a;
-  color: #fff;
-  font-weight: 900;
-  font-size: 32px;
 }
