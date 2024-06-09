@@ -75,6 +75,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu24.04开启RDP远程桌面访问</title>
+    <url>/posts/c466930e.html</url>
+    <content><![CDATA[<p>Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。</p>
+<p>下面介绍设置方法</p>
+<p>打开<code>设置</code>，左侧最下方找到<code>系统</code>，右侧点击<code>远程桌面</code>：<br><img src="/images/17179236170199.jpg"><br><code>桌面共享</code>这里不用管，点击<code>远程登录</code>，看下图设置：<br><img src="/images/17179236351583.jpg"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>RDP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo安装和配置主题</title>
     <url>/posts/4f786861.html</url>
     <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
