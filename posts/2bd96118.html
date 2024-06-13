@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="折腾了半天，成功在hexo的NexT主题上应用了站点favicon，记录下具体步骤。 首先要说明的是，中文网站的教程，都是教你把favicon.ico放在theme&#x2F;next&#x2F;source&#x2F;images下，但是现在NexT主题推出npm的安装方式，站点的theme目录下根本没有next文件夹。所以网上的教程早就过时了。 最终还是在NexT官方博客上找到了答案。 生成favicon准备好图片，到这个">
+    <meta name="description" content="折腾了半天，成功在hexo的NexT主题上应用了站点favicon，记录下具体步骤。 首先要说明的是，中文网站的教程，都是教你把favicon.ico放在theme&#x2F;next&#x2F;source&#x2F;images下，但是现在NexT主题推出npm的安装方式，站点的theme目录下根本没有next文件夹。所以网上的教程早就过时了。 其次，NexT官方博客上的说明极其具有误导性。如果按照它的说明操作，无法怎么设">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的NexT主题添加favicon">
 <meta property="og:url" content="https://lethescap.com/posts/2bd96118.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="折腾了半天，成功在hexo的NexT主题上应用了站点favicon，记录下具体步骤。 首先要说明的是，中文网站的教程，都是教你把favicon.ico放在theme&#x2F;next&#x2F;source&#x2F;images下，但是现在NexT主题推出npm的安装方式，站点的theme目录下根本没有next文件夹。所以网上的教程早就过时了。 最终还是在NexT官方博客上找到了答案。 生成favicon准备好图片，到这个">
+<meta property="og:description" content="折腾了半天，成功在hexo的NexT主题上应用了站点favicon，记录下具体步骤。 首先要说明的是，中文网站的教程，都是教你把favicon.ico放在theme&#x2F;next&#x2F;source&#x2F;images下，但是现在NexT主题推出npm的安装方式，站点的theme目录下根本没有next文件夹。所以网上的教程早就过时了。 其次，NexT官方博客上的说明极其具有误导性。如果按照它的说明操作，无法怎么设">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-08T03:43:10.000Z">
-<meta property="article:modified_time" content="2024-06-13T08:29:38.709Z">
+<meta property="article:modified_time" content="2024-06-13T08:43:20.565Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-13 16:29:38" itemprop="dateModified" datetime="2024-06-13T16:29:38+08:00">2024-06-13</time>
+      <time title="修改时间：2024-06-13 16:43:20" itemprop="dateModified" datetime="2024-06-13T16:43:20+08:00">2024-06-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,12 +251,17 @@
     
     <div class="post-body" itemprop="articleBody"><p>折腾了半天，成功在<code>hexo</code>的<code>NexT</code>主题上应用了站点favicon，记录下具体步骤。</p>
 <p>首先要说明的是，中文网站的教程，都是教你把<code>favicon.ico</code>放在<code>theme/next/source/images</code>下，但是现在<code>NexT</code>主题推出<code>npm</code>的安装方式，站点的<code>theme</code>目录下根本没有<code>next</code>文件夹。所以网上的教程早就过时了。</p>
-<p>最终还是在<code>NexT</code>官方博客上找到了答案。</p>
-<h2 id="生成favicon"><a href="#生成favicon" class="headerlink" title="生成favicon"></a>生成favicon</h2><p>准备好图片，到这个网站在线生成：<a target="_blank" rel="noopener" href="https://realfavicongenerator.net/">https://realfavicongenerator.net/</a></p>
-<h2 id="存放favico"><a href="#存放favico" class="headerlink" title="存放favico"></a>存放favico</h2><p>把生成的favicon文件放在<code>hexo-site/source</code>目录，即网站根目录的<code>source</code>文件夹下。</p>
+<p>其次，<code>NexT</code>官方博客上的说明极其具有误导性。如果按照它的说明操作，无法怎么设置，都是使用主题自带的图标。具体表现在：</p>
+<ul>
+<li>favicon图标格式只能使用<code>.ico</code>，才能替代<code>NexT</code>主题自带的图标。而主题设置里却是使用的<code>.png</code>格式</li>
+<li>没必要把主题设置里<code>favicon</code>部分全部启用，只使用<code>small</code>和<code>medium</code>即可。</li>
+</ul>
+<p>下面是具体设置方法</p>
+<h2 id="生成favicon"><a href="#生成favicon" class="headerlink" title="生成favicon"></a>生成favicon</h2><p>准备好图片，到这个网站：<a target="_blank" rel="noopener" href="https://www.bitbug.net/">https://www.bitbug.net/</a> ,分别生成<code>16x16</code>和<code>32x32</code>大小的<code>.ico</code>文件。</p>
+<h2 id="存放favico"><a href="#存放favico" class="headerlink" title="存放favico"></a>存放favico</h2><p>把生成的favicon文件放在<code>hexo-site/source/images</code>目录下，<code>images</code>目录如果没有则新建。</p>
 <h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>编辑<code>_config.next.yml</code>，修改成下面的内容：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta"># Site Information Settings</span></span><br><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">favicon:</span> </span><br><span class="line"><span class="symbol">  small:</span> /favicon<span class="number">-16</span>x16-next.png</span><br><span class="line"><span class="symbol">  medium:</span> /favicon<span class="number">-32</span>x32-next.png</span><br><span class="line"><span class="symbol">  apple_touch_icon:</span> /apple-touch-icon-next.png</span><br><span class="line"><span class="symbol">  safari_pinned_tab:</span> /logo.svg</span><br><span class="line">  <span class="meta">#android_manifest: /manifest.json</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>注意，放在<code>source</code>目录下的图片名称要和上面配置里的一一对应。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta"># Site Information Settings</span></span><br><span class="line"><span class="meta"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">favicon:</span> </span><br><span class="line"><span class="symbol">  small:</span> <span class="keyword">/images/</span>favicon16.ico</span><br><span class="line"><span class="symbol">  medium:</span> <span class="keyword">/images/</span>favicon32.ico</span><br><span class="line">  <span class="meta">#apple_touch_icon: /apple-touch-icon-next.png</span></span><br><span class="line">  <span class="meta">#safari_pinned_tab: /logo.svg</span></span><br><span class="line">  <span class="meta">#android_manifest: /manifest.json</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意，放在<code>images</code>目录下的图片名称要和上面配置里的一一对应。</p>
 <p>打开网站，强制刷新网站，即可看见效果。</p>
 
     </div>
