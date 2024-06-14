@@ -159,14 +159,13 @@
   <entry>
     <title>在ubuntu 24.04上安装vmware workstation 17.5.2</title>
     <url>/posts/7d0c9221.html</url>
-    <content><![CDATA[<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">wget https://github.com/mkubecek/vmware-host-modules/archive/workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -xzf workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vmware-host-modules-workstation-17.5.1/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -cf vmmon.tar vmmon-only/</span><br><span class="line">tar -cf vmnet.tar vmnet-only/</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> -v vmmon.tar vmnet.tar  /usr/lib/vmware/modules/source/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo vmware-modconfig --console --install-all</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<h3 id="下载vmware内核补丁"><a href="#下载vmware内核补丁" class="headerlink" title="下载vmware内核补丁"></a>下载vmware内核补丁</h3><p>虽然是17.5.1版本的，但经实测，完全兼容17.5.2</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">wget https://github.com/mkubecek/vmware-host-modules/archive/workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -xzf workstation-17.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="进入解压后的文件目录"><a href="#进入解压后的文件目录" class="headerlink" title="进入解压后的文件目录"></a>进入解压后的文件目录</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vmware-host-modules-workstation-17.5.1/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="打包需要的内容"><a href="#打包需要的内容" class="headerlink" title="打包需要的内容"></a>打包需要的内容</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -cf vmmon.tar vmmon-only/</span><br><span class="line">tar -cf vmnet.tar vmnet-only/</span><br></pre></td></tr></table></figure>
+<h3 id="把打包后的文件拷贝到对应的位置"><a href="#把打包后的文件拷贝到对应的位置" class="headerlink" title="把打包后的文件拷贝到对应的位置"></a>把打包后的文件拷贝到对应的位置</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> -v vmmon.tar vmnet.tar  /usr/lib/vmware/modules/source/</span><br></pre></td></tr></table></figure>
+<h3 id="开始编译需要的vmware内核组件"><a href="#开始编译需要的vmware内核组件" class="headerlink" title="开始编译需要的vmware内核组件"></a>开始编译需要的vmware内核组件</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo vmware-modconfig --console --install-all</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>软件应用</category>
       </categories>
