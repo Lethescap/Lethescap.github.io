@@ -237,4 +237,24 @@
         <tag>markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>让Lightdm的登录界面默认显示用户账号</title>
+    <url>/posts/c0c4bf60.html</url>
+    <content><![CDATA[<p>使用kali的xfce发行版时，发现默认设置下，登录界面不会显示你自己创建的账户。</p>
+<p>类似下面的效果：<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184416.png"></p>
+<p>如此一来，每次登录都得手动填写用户名，挺麻烦的。而我想要实现的效果是：用户名自动填写，密码手动填写。所以这和自动登录设置还是不一样的。</p>
+<p>一番搜索，找到了答案。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>终端下执行下面命令：</p>
+<p><code>sudo vi /etc/lightdm/lightdm.conf</code></p>
+<p>在<code>103</code>左右，取消<code>greeter-hide-users=false</code>的注释:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184448.png"></p>
+<p>保存退出。重启后即可看到效果:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184505.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
+        <tag>xfce</tag>
+      </tags>
+  </entry>
 </search>
