@@ -184,6 +184,37 @@
       </tags>
   </entry>
   <entry>
+    <title>修改日版MacbookPro的键盘为英文键盘布局</title>
+    <url>/posts/2c9a14c8.html</url>
+    <content><![CDATA[<p>日文键盘的MacbookPro最主要的问题有两个：</p>
+<ol>
+<li>日常使用时，特殊符号的位置和英文键盘不一样，比如@，需要重新适应。</li>
+<li>远程连接虚拟机或vps后，本机的日语键盘和远程电脑一般默认的英文键盘存在冲突。这会导致在编辑文件或输入密码时，实际输入的内容和你以为输入的内容不一致。</li>
+</ol>
+<p>如果只是第1个问题倒是还好，适应一番就行了。</p>
+<p>但是第2个问题可太要命了，总不能把所有的远程电脑都改成日语键盘吧？先不说麻烦的问题，真要是改了，别人连接后该怎么办呢？</p>
+<p>所以最佳方案，还是把MacbookPro的日语键盘改成英文键盘。</p>
+<p>所幸的是，无论在外观上还是功能上，现在都已经可以完美实现了。</p>
+<h2 id="外观修改"><a href="#外观修改" class="headerlink" title="外观修改"></a>外观修改</h2><p>上某宝上搜索日文键盘修正贴，25元左右，帖上即可。</p>
+<h2 id="功能修改"><a href="#功能修改" class="headerlink" title="功能修改"></a>功能修改</h2><h3 id="安装karabiner-elements"><a href="#安装karabiner-elements" class="headerlink" title="安装karabiner-elements"></a>安装karabiner-elements</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">brew install karabiner-elements</span><br></pre></td></tr></table></figure>
+<h3 id="修改键盘类型"><a href="#修改键盘类型" class="headerlink" title="修改键盘类型"></a>修改键盘类型</h3><p>打开karabiner-elements，在<code>Vitual keyboard</code>里，把键盘改成<code>ANSI</code>：<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185035.png"></p>
+<h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><p>访问<a href="https://ke-complex-modifications.pqrs.org/">Karabiner-Elements complex_modifications rules</a>，输入<code>jis ansi</code>,找到下图的规则，点击<code>Import</code><br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185115.png"></p>
+<h3 id="启用规则"><a href="#启用规则" class="headerlink" title="启用规则"></a>启用规则</h3><p>打开karabiner-elements，选择Complex Modifications，右侧最下方点击Add rule，找到上面导入的规则，选择Enable All<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185127.png"><br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185135.png"></p>
+<h3 id="关于-这个符号"><a href="#关于-这个符号" class="headerlink" title="关于&#96;这个符号"></a>关于&#96;这个符号</h3><p>当键盘类型使用JIS时，使用上面的规则，此符号位于+右侧，DEL键的左侧。</p>
+<p>当把日文键盘从JIS改成ANSI后，使用上面规则，此符号并没有对应的位置，需要我们手动添加。</p>
+<p>看不懂没关系，照着下面做就行了。</p>
+<p>这个键，对应的键值是international3，按照下图操作：<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185153.png"></p>
+<p>至此，日文键盘就完美修改成英文键盘布局了。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+        <tag>键盘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在ubuntu 24.04上安装vmware workstation 17.5.2</title>
     <url>/posts/7d0c9221.html</url>
     <content><![CDATA[<h3 id="下载vmware内核补丁"><a href="#下载vmware内核补丁" class="headerlink" title="下载vmware内核补丁"></a>下载vmware内核补丁</h3><p>虽然是17.5.1版本的，但经实测，完全兼容17.5.2</p>
