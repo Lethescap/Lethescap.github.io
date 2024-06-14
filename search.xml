@@ -184,6 +184,38 @@
       </tags>
   </entry>
   <entry>
+    <title>tmux安装和设置</title>
+    <url>/posts/8e710f05.html</url>
+    <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
+<p><code>tmux</code>设置完成后，完全可以把远程服务器当成本地电脑来使用。<code>ssh</code>登录到远程Linux服务器后，进行调试、维护、开发等工作非常方便。</p>
+<p><code>tmux</code>有<code>引导键</code>(<code>prefix</code>)的概念，默认的<code>引导键</code>是<code>CTRL</code>+<code>b</code>。即需要先按下<code>CTRL</code>+<code>b</code>，再按其它按键来执行<code>tmux</code>的一些操作。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>各大linux发行版软件仓库里自带，目前最新版本是3.0a。</p>
+<p>在<code>debian</code>下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在用户主目录<code>~</code>下新建一个<code>.tmux.conf</code>文件，这也是<code>tmux</code>默认的配置文件。</p>
+<h3 id="安装tpm插件管理器"><a href="#安装tpm插件管理器" class="headerlink" title="安装tpm插件管理器"></a>安装<code>tpm</code>插件管理器</h3><p><code>tpm</code>是<code>tmux</code>的插件管理器，用来安装其它的插件、主题等。地址在<a href="https://github.com/tmux-plugins/tpm">这里</a>。</p>
+<ol>
+<li>安装<code>tpm</code>：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在<code>.tmux.conf</code>中加入下面内容：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># change PREFIX from CTRL+B to CTRL+S</span><br><span class="line">set -g prefix C-s   ## 更改引导键，使用ctrl+s替代默认的ctrl+b</span><br><span class="line"></span><br><span class="line"># Use vim key binding</span><br><span class="line">setw -g mode-keys vi    ## 默认是使用emacs的按键绑定</span><br><span class="line"></span><br><span class="line">## 使用prefix + h/j/k/l在不同的pane间切换</span><br><span class="line">bind-key h select-pane -L</span><br><span class="line">bind-key j select-pane -D</span><br><span class="line">bind-key k select-pane -U</span><br><span class="line">bind-key l select-pane -R</span><br><span class="line"></span><br><span class="line">set-option -g mouse on  #启用鼠标支持</span><br><span class="line"></span><br><span class="line"># List of plugins</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tpm&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-sensible&#x27;</span><br><span class="line"></span><br><span class="line"># dracula theme for tmux</span><br><span class="line">## install dracula theme</span><br><span class="line">set -g @plugin &#x27;dracula/tmux&#x27;</span><br><span class="line">## dracula theme config</span><br><span class="line">set -g @dracula-plugins &quot;ssh-session cpu-usage ram-usage time&quot;  #状态栏显示的内容</span><br><span class="line">set -g @dracula-show-flags true </span><br><span class="line">set -g @dracula-show-left-icon session  # 最左侧的图标显示当前tmux session名称</span><br><span class="line">set -g @dracula-show-powerline true # 显示powerline,更美观</span><br><span class="line">set -g @dracula-time-format &quot;%F %R&quot; # 时间格式 </span><br><span class="line"></span><br><span class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span><br><span class="line">run &#x27;~/.tmux/plugins/tpm/tpm&#x27;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>新建一个<code>tmux</code>会话<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
+然后按下<code>prefix</code>+<code>I</code>(注意，是大写的i),来安装所有插件。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>tmux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改日版MacbookPro的键盘为英文键盘布局</title>
     <url>/posts/2c9a14c8.html</url>
     <content><![CDATA[<p>日文键盘的MacbookPro最主要的问题有两个：</p>
@@ -255,8 +287,8 @@
 </ul>
 <p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
 <p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
-<h2 id="配图全流程管理"><a href="#配图全流程管理" class="headerlink" title="配图全流程管理"></a>配图全流程管理</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
-<p>F1截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
+<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
+<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
 <p>非常的方便和流畅。</p>
 ]]></content>
       <categories>
