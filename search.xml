@@ -70,8 +70,8 @@
 <h2 id="微软日历"><a href="#微软日历" class="headerlink" title="微软日历"></a>微软日历</h2><p><strong>问题</strong>：</p>
 <p>添加微软账号后，无法在iphone的日历里选择使用微软日历。</p>
 <p><strong>原因</strong>：</p>
-<p>在iphone里添加账号的时候，邮箱类型选择了 exchange，而不是outlook。</p>
-<p>解决方法：选择outlook类型即可。</p>
+<p>在iphone里添加账号的时候，邮箱类型选择了 <code>exchange</code>，而不是<code>outlook</code>。</p>
+<p>解决方法：选择<code>outlook</code>类型即可。</p>
 <p><img src="/../images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171953.png"></p>
 <h2 id="微软邮箱"><a href="#微软邮箱" class="headerlink" title="微软邮箱"></a>微软邮箱</h2><p><strong>问题</strong></p>
 <p>iphone自带的<code>邮件</code>客户端，无法收取hotmail邮箱的邮件</p>
@@ -198,6 +198,40 @@
       </categories>
       <tags>
         <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在vscode里配置hexo粘贴图片</title>
+    <url>/posts/8e4647c9.html</url>
+    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
+<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<code>一图胜千言</code>。因此有一个方便易用的图片插入方式就很重要了。</p>
+<p>下面介绍使用<code>vscode</code>管理博客时，如何方便的插图。</p>
+<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
+<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
+<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
+<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
+<p>有两种设置方式：</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
+<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
+<ul>
+<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
+<li>自动在博客里插入图片链接</li>
+<li>插入的图片名称是当前文章名+插入时间。</li>
+</ul>
+<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
+<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
