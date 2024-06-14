@@ -60,6 +60,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Iphone上设置微软日历和微软邮箱</title>
+    <url>/posts/2cadad79.html</url>
+    <content><![CDATA[<p>设备：iphone 14 plus</p>
+<p>IOS:  16.7.2</p>
+<p>微软账号：@hotmail.com </p>
+<hr>
+<p>折腾了一下午，终于弄好了。</p>
+<h2 id="微软日历"><a href="#微软日历" class="headerlink" title="微软日历"></a>微软日历</h2><p><strong>问题</strong>：</p>
+<p>添加微软账号后，无法在iphone的日历里选择使用微软日历。</p>
+<p><strong>原因</strong>：</p>
+<p>在iphone里添加账号的时候，邮箱类型选择了 exchange，而不是outlook。</p>
+<p>解决方法：选择outlook类型即可。</p>
+<p><img src="/../images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171953.png"></p>
+<h2 id="微软邮箱"><a href="#微软邮箱" class="headerlink" title="微软邮箱"></a>微软邮箱</h2><p><strong>问题</strong></p>
+<p>iphone自带的<code>邮件</code>客户端，无法收取hotmail邮箱的邮件</p>
+<p><strong>解决方法</strong>：</p>
+<p>登录页面版hotmail，在<code>设置</code>–<code>同步电子邮件</code>里，关闭<code>允许设备和应用使用POP</code>即可。</p>
+<p><img src="/../images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171859.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>iphone</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<p>下面介绍安装<code>docker</code>和<code>docker-compose</code>的方法，实测支持Ubuntu 24.04</p>
