@@ -20,35 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="日文键盘的MacbookPro最主要的问题有两个：  日常使用时，特殊符号的位置和英文键盘不一样，比如@，需要重新适应。 远程连接虚拟机或vps后，本机的日语键盘和远程电脑一般默认的英文键盘存在冲突。这会导致在编辑文件或输入密码时，实际输入的内容和你以为输入的内容不一致。  如果只是第1个问题倒是还好，适应一番就行了。 但是第2个问题可太要命了，总不能把所有的远程电脑都改成日语键盘吧？先不说麻烦的">
+    <meta name="description" content="opensuse在我心目中，一直是一个很特别的发行版。 长久以来，我基本使用过所有主流的linux发行版，从最开始的尝鲜，到后来的慢慢把linux当成主力操作系统。在这个过程中，openususe自然也少不了要尝试。但是一方面，我对opensuse非常有好感，另一方面，却也是用的最少的。 最初印象对opensuse最初印象来自网络宣传。当然最初它也不叫opensuse,好像就叫suse(具体大小忘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改日版MacbookPro的键盘为英文键盘布局">
-<meta property="og:url" content="https://lethescap.com/posts/2c9a14c8.html">
+<meta property="og:title" content="opensuse的一些回忆和体验">
+<meta property="og:url" content="https://lethescap.com/posts/9f386ded.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="日文键盘的MacbookPro最主要的问题有两个：  日常使用时，特殊符号的位置和英文键盘不一样，比如@，需要重新适应。 远程连接虚拟机或vps后，本机的日语键盘和远程电脑一般默认的英文键盘存在冲突。这会导致在编辑文件或输入密码时，实际输入的内容和你以为输入的内容不一致。  如果只是第1个问题倒是还好，适应一番就行了。 但是第2个问题可太要命了，总不能把所有的远程电脑都改成日语键盘吧？先不说麻烦的">
+<meta property="og:description" content="opensuse在我心目中，一直是一个很特别的发行版。 长久以来，我基本使用过所有主流的linux发行版，从最开始的尝鲜，到后来的慢慢把linux当成主力操作系统。在这个过程中，openususe自然也少不了要尝试。但是一方面，我对opensuse非常有好感，另一方面，却也是用的最少的。 最初印象对opensuse最初印象来自网络宣传。当然最初它也不叫opensuse,好像就叫suse(具体大小忘">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185035.png">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185115.png">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185127.png">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185135.png">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185153.png">
-<meta property="article:published_time" content="2023-11-10T10:48:25.000Z">
+<meta property="article:published_time" content="2024-07-02T08:38:31.000Z">
 <meta property="article:modified_time" content="2024-07-02T10:00:01.032Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="keyboard">
-<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="opensuse">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185035.png">
 
 
-<link rel="canonical" href="https://lethescap.com/posts/2c9a14c8.html">
+<link rel="canonical" href="https://lethescap.com/posts/9f386ded.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/2c9a14c8.html","path":"posts/2c9a14c8.html","title":"修改日版MacbookPro的键盘为英文键盘布局"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/9f386ded.html","path":"posts/9f386ded.html","title":"opensuse的一些回忆和体验"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>修改日版MacbookPro的键盘为英文键盘布局 | 寂静·流年</title>
+<title>opensuse的一些回忆和体验 | 寂静·流年</title>
   
 
 
@@ -148,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E8%A7%82%E4%BF%AE%E6%94%B9"><span class="nav-number">1.</span> <span class="nav-text">外观修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E4%BF%AE%E6%94%B9"><span class="nav-number">2.</span> <span class="nav-text">功能修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85karabiner-elements"><span class="nav-number">2.1.</span> <span class="nav-text">安装karabiner-elements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%94%AE%E7%9B%98%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">修改键盘类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99"><span class="nav-number">2.3.</span> <span class="nav-text">添加规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E8%A7%84%E5%88%99"><span class="nav-number">2.4.</span> <span class="nav-text">启用规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-%E8%BF%99%E4%B8%AA%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.5.</span> <span class="nav-text">关于&#96;这个符号</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%88%9D%E5%8D%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">最初印象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">发展之路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E4%BB%8A%E4%BD%93%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">当今体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,7 +193,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/2c9a14c8.html">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/9f386ded.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -212,12 +206,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="修改日版MacbookPro的键盘为英文键盘布局 | 寂静·流年">
+      <meta itemprop="name" content="opensuse的一些回忆和体验 | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          修改日版MacbookPro的键盘为英文键盘布局
+          opensuse的一些回忆和体验
         </h1>
 
         <div class="post-meta-container">
@@ -227,15 +221,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-11-10 18:48:25" itemprop="dateCreated datePublished" datetime="2023-11-10T18:48:25+08:00">2023-11-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-02 18:00:01" itemprop="dateModified" datetime="2024-07-02T18:00:01+08:00">2024-07-02</time>
+      <time title="创建时间：2024-07-02 16:38:31 / 修改时间：18:00:01" itemprop="dateCreated datePublished" datetime="2024-07-02T16:38:31+08:00">2024-07-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -243,7 +231,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+          <a href="/categories/%E9%9A%8F%E7%AC%94%E6%84%9F%E6%82%9F/" itemprop="url" rel="index"><span itemprop="name">随笔感悟</span></a>
         </span>
     </span>
 
@@ -256,25 +244,36 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>日文键盘的MacbookPro最主要的问题有两个：</p>
-<ol>
-<li>日常使用时，特殊符号的位置和英文键盘不一样，比如@，需要重新适应。</li>
-<li>远程连接虚拟机或vps后，本机的日语键盘和远程电脑一般默认的英文键盘存在冲突。这会导致在编辑文件或输入密码时，实际输入的内容和你以为输入的内容不一致。</li>
-</ol>
-<p>如果只是第1个问题倒是还好，适应一番就行了。</p>
-<p>但是第2个问题可太要命了，总不能把所有的远程电脑都改成日语键盘吧？先不说麻烦的问题，真要是改了，别人连接后该怎么办呢？</p>
-<p>所以最佳方案，还是把MacbookPro的日语键盘改成英文键盘。</p>
-<p>所幸的是，无论在外观上还是功能上，现在都已经可以完美实现了。</p>
-<h2 id="外观修改"><a href="#外观修改" class="headerlink" title="外观修改"></a>外观修改</h2><p>上某宝上搜索日文键盘修正贴，25元左右，帖上即可。</p>
-<h2 id="功能修改"><a href="#功能修改" class="headerlink" title="功能修改"></a>功能修改</h2><h3 id="安装karabiner-elements"><a href="#安装karabiner-elements" class="headerlink" title="安装karabiner-elements"></a>安装karabiner-elements</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install karabiner-elements</span><br></pre></td></tr></table></figure>
-<h3 id="修改键盘类型"><a href="#修改键盘类型" class="headerlink" title="修改键盘类型"></a>修改键盘类型</h3><p>打开karabiner-elements，在<code>Vitual keyboard</code>里，把键盘改成<code>ANSI</code>：<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185035.png"></p>
-<h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><p>访问<a target="_blank" rel="noopener" href="https://ke-complex-modifications.pqrs.org/">Karabiner-Elements complex_modifications rules</a>，输入<code>jis ansi</code>,找到下图的规则，点击<code>Import</code><br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185115.png"></p>
-<h3 id="启用规则"><a href="#启用规则" class="headerlink" title="启用规则"></a>启用规则</h3><p>打开karabiner-elements，选择Complex Modifications，右侧最下方点击Add rule，找到上面导入的规则，选择Enable All<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185127.png"><br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185135.png"></p>
-<h3 id="关于-这个符号"><a href="#关于-这个符号" class="headerlink" title="关于&#96;这个符号"></a>关于&#96;这个符号</h3><p>当键盘类型使用JIS时，使用上面的规则，此符号位于+右侧，DEL键的左侧。</p>
-<p>当把日文键盘从JIS改成ANSI后，使用上面规则，此符号并没有对应的位置，需要我们手动添加。</p>
-<p>看不懂没关系，照着下面做就行了。</p>
-<p>这个键，对应的键值是international3，按照下图操作：<br><img src="/../images/%E4%BF%AE%E6%94%B9%E6%97%A5%E7%89%88MacbookPro%E7%9A%84%E9%94%AE%E7%9B%98%E4%B8%BA%E8%8B%B1%E6%96%87%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80_185153.png"></p>
-<p>至此，日文键盘就完美修改成英文键盘布局了。</p>
+    <div class="post-body" itemprop="articleBody"><p><code>opensuse</code>在我心目中，一直是一个很特别的发行版。</p>
+<p>长久以来，我基本使用过所有主流的linux发行版，从最开始的尝鲜，到后来的慢慢把linux当成主力操作系统。在这个过程中，<code>openususe</code>自然也少不了要尝试。但是一方面，我对<code>opensuse</code>非常有好感，另一方面，却也是用的最少的。</p>
+<h2 id="最初印象"><a href="#最初印象" class="headerlink" title="最初印象"></a>最初印象</h2><p>对opensuse最初印象来自网络宣传。当然最初它也不叫<code>opensuse</code>,好像就叫<code>suse</code>(具体大小忘记了。不过由于再次使用已经叫<code>opensuse</code>了，本文就<code>opensuse</code>和<code>suse</code>混用了)。</p>
+<p>记得当时网上对它的宣传是：</p>
+<ul>
+<li>德国制造，严谨</li>
+<li>大公司支持，企业级稳定性</li>
+<li>最好的kde发行版</li>
+<li>最好用的linux系统管理工具，yast</li>
+</ul>
+<p>在那个linux刚在中国传播的年代，redhat占据了绝对的主流。（顺便说一下，redhat9.0版本是我使用linux的启蒙发行版。）不过在当时的<code>linuxsir.org</code>论坛上已经开始出现了<code>debian</code>的小规模讨论了。<code>suse</code>有没有讨论区我记不清了，好像是<code>scim</code>的作者苏哲有在<code>suse</code>讨论区发过帖子。由于上面的宣传，我又是对于linux刚入门，到处找linux发行版尝鲜，于是也用过一段时间的<code>suse</code>。现在回想一下对它的印象，就是一个印象：<strong>平平无奇</strong>。</p>
+<p>具体来说，就是没觉得yast多方便、没觉得系统稳定在哪里、没觉得kde有多漂亮，反而是因为对开源软件的过于苛刻的坚持，系统软件源少很多软件，导致安装一些常用软件很不方便。</p>
+<h2 id="发展之路"><a href="#发展之路" class="headerlink" title="发展之路"></a>发展之路</h2><p>以现在的眼光来看，<code>suse</code>在中国的发展颇有些<code>命不逢时</code>的意味。举2个例子：一是redhat;二是ubuntu。</p>
+<p><code>suse</code>从始至终都在宣传自己的企业级稳定性，可就是在进入中国的那几年，它被频繁收购，我印象中换了4到5次母公司。这让国内的企业怎么敢用？所以来企业级市场竞争不过redhat。</p>
+<p><code>suse</code>一直有种<code>自视甚高</code>的意味，具体来说，就是一直给人<code>你爱用不用</code>、<code>用不好是你水平不行，多从自身找原因</code>的感觉。这就导致了和后来的ubuntu相比，对linux初学者毫无吸引力。</p>
+<p>企业级和民用级的市场都没有发展起来，<code>suse</code>在中国的波澜不惊也就不足为奇了。</p>
+<p>再拿一个和<code>suse</code>相反的例子<code>debian</code>做个对比。</p>
+<p>在<code>v2ex</code>论坛上，搜索服务器用什么linux操作系统时，看看结果，基本上是centos、debian、ubuntu这三种。是的，我感觉推荐debian的比推荐ubuntu的还多。debian就是个纯开源的发行版，背后连个商业公司都没有，国内连个官方论坛都没有，为啥到了今天依然能够保持生命力？我想一个重要原因，就是2000年初那批linux爱好者，如今都是公司或者行业主力了。在需要使用linux时，自然会把当初的使用经验和印象带入到工作中，无论是个人还是公司的项目。这就是发展用户群体的重要性了。而<code>suse</code>在这方面做的确实很差。</p>
+<p>by the way:说来有些搞笑，这么多年以来，我对<code>suse</code>的印象一直和2个人连系(非错别字)在一起：一个是<code>scim</code>的作者苏哲，我记得他在suse区回过我的帖子；另一个是<code>玛格丽特</code>，她的自称<code>奴家</code>让我觉得很有趣。</p>
+<h2 id="当今体验"><a href="#当今体验" class="headerlink" title="当今体验"></a>当今体验</h2><p>上面说了很多<code>suse</code>的“坏话”，但文章开头我也说了，我对opensuse的印象一直不差。</p>
+<p>这篇文章就是在opensuse上写的。从最初知道opensuse到现在，也就是在<code> </code>opensuse 42&#96;发布的时候用过一次，感觉和最初印象也没区别。</p>
+<p>去年的时候安装过一次<code>opensuse Tumbleweed</code>,易用性有了很大的进步，顺便也多查了些资料多了解些。现在opensuse功能上变化挺大的。全面向容器化和不可变操作系统转型，默认采用btrfs。但这些功能和普通用户关系不大，我还是想等ubuntu 24.04,12年的支持让人期待。</p>
+<p>那么最近为什么又装了上opensuse呢？直接原因是gnome让我很失望，具体原因是其他发行版搞不定在kde和wayland环境下fcitx5在gtk程序里无法输入的问题。</p>
+<p>ubuntu 24.04挺好的，就是无法在wayland下使用fcitx5输入法。虽有解决方案，但是时灵时不灵的。</p>
+<p>kubuntu 24.04就是半成品，翻译都还没弄完，历代最差的kubuntu了。</p>
+<p>kde neon 同样有调出fcitx5输入法时灵时不灵的问题。</p>
+<p>唯独<code>opensuse Tumbleweed</code>给了我惊喜，kde+wayland+fcitx5+chrome，不用任何多余设置，输入完全正常。最新的kde6也非常漂亮和稳定，比gnome强多了。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>现在使用linux，早已不是当初的那种心态了。</p>
+<p>当时恨不得所有工作都用linux完成，现在是哪个操作系统好用用哪个。</p>
+<p>现在电脑这么便宜，我常备3台台式机和2台笔记本。台式机是1台16G的m1的mac mini,1台10850k+6600xt+32G的电脑装linux，1台13700kf+3090+128G装windows玩游戏。笔记本方面1台mackbook air m1，1台华为笔记本装linux。满足所有使用场景和需求，连虚拟机都很少开了。</p>
 
     </div>
 
@@ -292,7 +291,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://lethescap.com/posts/2c9a14c8.html" title="修改日版MacbookPro的键盘为英文键盘布局">https://lethescap.com/posts/2c9a14c8.html</a>
+      <a href="https://lethescap.com/posts/9f386ded.html" title="opensuse的一些回忆和体验">https://lethescap.com/posts/9f386ded.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -301,19 +300,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/keyboard/" rel="tag"><i class="fa fa-tag"></i> keyboard</a>
-              <a href="/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
+              <a href="/tags/opensuse/" rel="tag"><i class="fa fa-tag"></i> opensuse</a>
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"><i class="fa fa-tag"></i> 随笔</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/posts/8e4647c9.html" rel="prev" title="在vscode里配置hexo粘贴图片">
+                  <i class="fa fa-angle-left"></i> 在vscode里配置hexo粘贴图片
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/6054c7f9.html" rel="next" title="linux下vmware workstation的键盘映射问题">
-                  linux下vmware workstation的键盘映射问题 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
