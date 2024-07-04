@@ -20,25 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="记录我的生活、学习、兴趣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="寂静·流年">
-<meta property="og:url" content="https://lethescap.com/tags/linux/">
+    <meta name="description" content="Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。 其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。 在网上找到了方法，可以把win11的右键菜单改回win10的样式。 以下操作需要管理员权限的powershell 改成win10的右键菜单样式1reg add &quot;HKCU\Softwar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows11恢复成win10右键菜单">
+<meta property="og:url" content="https://lethescap.com/posts/69ce0e48.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="记录我的生活、学习、兴趣">
+<meta property="og:description" content="Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。 其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。 在网上找到了方法，可以把win11的右键菜单改回win10的样式。 以下操作需要管理员权限的powershell 改成win10的右键菜单样式1reg add &quot;HKCU\Softwar">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lethescap.com/images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png">
+<meta property="article:published_time" content="2024-07-04T01:38:14.000Z">
+<meta property="article:modified_time" content="2024-07-04T01:40:05.422Z">
 <meta property="article:author" content="Laphael">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="鼠标">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lethescap.com/images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png">
 
 
-<link rel="canonical" href="https://lethescap.com/tags/linux/">
+<link rel="canonical" href="https://lethescap.com/posts/69ce0e48.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/linux/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/69ce0e48.html","path":"posts/69ce0e48.html","title":"Windows11恢复成win10右键菜单"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: linux | 寂静·流年</title>
+<title>Windows11恢复成win10右键菜单 | 寂静·流年</title>
   
 
 
@@ -125,7 +131,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E6%88%90win10%E7%9A%84%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">改成win10的右键菜单样式</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,51 +184,125 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">linux
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/69ce0e48.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Windows11恢复成win10右键菜单 | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows11恢复成win10右键菜单
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+      <time title="创建时间：2024-07-04 09:38:14 / 修改时间：09:40:05" itemprop="dateCreated datePublished" datetime="2024-07-04T09:38:14+08:00">2024-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
+<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
+<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
+<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
+<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-17T07:11:58+08:00"
-              content="2024-04-17">
-          04-17
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/4ad8d8d7.html" itemprop="url">
-            <span itemprop="name">Linux下更改用户目录为英文名称</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Laphael
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://lethescap.com/posts/69ce0e48.html" title="Windows11恢复成win10右键菜单">https://lethescap.com/posts/69ce0e48.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"><i class="fa fa-tag"></i> windows</a>
+              <a href="/tags/%E9%BC%A0%E6%A0%87/" rel="tag"><i class="fa fa-tag"></i> 鼠标</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/33049aaa.html" rel="prev" title="成都印象">
+                  <i class="fa fa-angle-left"></i> 成都印象
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
 
+
+
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 

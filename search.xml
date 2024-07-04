@@ -259,6 +259,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows11恢复成win10右键菜单</title>
+    <url>/posts/69ce0e48.html</url>
+    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
+<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
+<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
+<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
+<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>鼠标</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo安装和配置主题</title>
     <url>/posts/4f786861.html</url>
     <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
