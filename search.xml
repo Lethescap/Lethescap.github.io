@@ -144,7 +144,59 @@
   <entry>
     <title>Ubuntu安装设置zsh</title>
     <url>/posts/39722288.html</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="查看当前默认系统shell"><a href="#查看当前默认系统shell" class="headerlink" title="查看当前默认系统shell"></a>查看当前默认系统shell</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh-my-zsh"></a>安装zsh和oh-my-zsh</h2><h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> zsh</span><br></pre></td></tr></table></figure>
+
+<h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要系统中有curl和git</li>
+<li>安装完oh-my-zsh后，会自动提示是否切换到zsh。</li>
+<li>如果没有提示切换系统shell，使用chsh -s &#x2F;bin&#x2F;zsh来切换。</li>
+</ul>
+<h2 id="安装zsh常用插件"><a href="#安装zsh常用插件" class="headerlink" title="安装zsh常用插件"></a>安装zsh常用插件</h2><p>最有用的就是3个：</p>
+<ul>
+<li>高亮插件<code>zsh-syntax-highlighting</code>、</li>
+<li>自动实例插件<code>zsh-autosuggestions</code>、</li>
+<li>跳转插件<code>autojump</code></li>
+</ul>
+<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$ZSH</span>/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$ZSH</span>/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">sudo apt install <span class="built_in">auto</span>jump</span><br></pre></td></tr></table></figure>
+
+<h2 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h2><p>除了上面的插件，<code>oh-my-zsh</code>自带了几个插件，建议一起启用：</p>
+<ul>
+<li>z</li>
+<li>extract</li>
+<li>safe-paste</li>
+</ul>
+<p>打开<code>~/.zshrc</code>，找到<code>plugins=(git)</code>这一行，修改成下面的内容：</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump zsh-autosuggestions zsh-syntax-highlighting z safe-paste extract)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件生效"><a href="#配置文件生效" class="headerlink" title="配置文件生效"></a>配置文件生效</h2><p>终端下运行命令: </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Powerlevel10k主题"><a href="#安装Powerlevel10k主题" class="headerlink" title="安装Powerlevel10k主题"></a>安装Powerlevel10k主题</h2><blockquote>
+<p>为什么要安装<code>Powerlevel10k</code>呢？除了确实漂亮以外，更重要的是，这个主题和<code>miniconda</code>配合的非常好。</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>修改<code>~/.zshrc</code>,找到<code>ZSH_THEME</code>，修改成下面内容：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">ZSH_THEME</span>=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>重新打开终端，按照提示一步步来即可。</p>
+<p>最终效果如图<br><img src="/../images/Ubuntu%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEzsh_092107.png"></p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>zsh</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo安装和配置主题</title>
