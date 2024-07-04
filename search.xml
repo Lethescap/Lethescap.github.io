@@ -142,6 +142,11 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu安装设置zsh</title>
+    <url>/posts/39722288.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>hexo安装和配置主题</title>
     <url>/posts/4f786861.html</url>
     <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
