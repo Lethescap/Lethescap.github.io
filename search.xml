@@ -315,6 +315,22 @@
       </tags>
   </entry>
   <entry>
+    <title>修改Edge浏览器的页面滚动模式</title>
+    <url>/posts/b2d3978.html</url>
+    <content><![CDATA[<p>作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应</p>
+<p>简单来说，就是在edge里，当页面上&#x2F;下滚动结束时，并不会立即停止，而是再滑动那么一下，并没有chrome里那种“跟手感”。</p>
+<p>而造成的后果就是，我的眼睛感觉都要被晃花了，非常难受。</p>
+<p>edge提供了修改方式，可以改成跟chrome一样的滚动模式。</p>
+<h2 id="修改方法"><a href="#修改方法" class="headerlink" title="修改方法"></a>修改方法</h2><p>在地址栏里输入<code>edge://flags</code>,搜索<code>Windows Scrolling Personality</code>，把它的值从<code>Default</code>改成<code>Disabled</code>即可。<br><img src="/../images/%E4%BF%AE%E6%94%B9Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%A8%A1%E5%BC%8F_091007.png"></p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>Edge</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改日版MacbookPro的键盘为英文键盘布局</title>
     <url>/posts/2c9a14c8.html</url>
     <content><![CDATA[<p>日文键盘的MacbookPro最主要的问题有两个：</p>
