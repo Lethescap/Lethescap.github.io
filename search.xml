@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Dell R730XD调整风扇转速</title>
+    <url>/posts/f76d94ce.html</url>
+    <content><![CDATA[<p>今年7月份，买了台Dell R730XD的服务器搞Homelab。</p>
+<p>这台服务器有12个3.5寸硬盘位，很适合作虚拟化服务器和家庭NAS使用。而且Dell有针对此台服务器定制的ESXI官方发行版。</p>
+<p>各方面都很满意，除了风扇噪音。</p>
+<p>R730XD尽管号称静音，但那是针对别的品牌服务器来说的。</p>
+<p>如果放在家里使用没有机柜的话，噪音还是有点大。</p>
+<p>好在，它的风扇转速是可调的。据说此型号之后的服务器都不再支持风扇转速调整了。</p>
+<p>下面介绍调整风扇转速的具体操作。</p>
+<h2 id="安装impitool"><a href="#安装impitool" class="headerlink" title="安装impitool"></a>安装impitool</h2><p><code>impitool</code>在大部分linux发行版的官方软件仓库里都有，比如Debian.</p>
+<p>所以最简单的方法，就是安装一台linux的虚拟机，然后安装<code>impitool</code>。</p>
+<p>当然在windows下也有<code>impitool</code>，可自动搜索安装。</p>
+<h2 id="关闭风扇自动调速"><a href="#关闭风扇自动调速" class="headerlink" title="关闭风扇自动调速"></a>关闭风扇自动调速</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ipmitool -I lanplus -H 192.168.1.11 -U username -P passwd raw  0x30 0x30 0x01 0x00</span><br></pre></td></tr></table></figure>
+<ul>
+<li>192.168.1.11改为你的R730xd的服务器地址</li>
+<li>username改为你的iDrac的用户名</li>
+<li>passwd改为你的iDrac的密码</li>
+</ul>
+<p><strong>注意</strong>：必须先关闭风扇自动调速功能，才能下一步手动指定风扇转速</p>
+<h2 id="手动指定风扇转速"><a href="#手动指定风扇转速" class="headerlink" title="手动指定风扇转速"></a>手动指定风扇转速</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ipmitool -I lanplus -H 192.168.1.11 -U username -P passwd raw 0x30 0x30 0x02 0xff 0x0f</span><br></pre></td></tr></table></figure>
+
+<p>上面手动设置了风扇转速为15%。</p>
+<p>我感觉15%是比较合适的，既静音，又能保障一定的散热能力。</p>
+]]></content>
+      <categories>
+        <category>硬件设备</category>
+      </categories>
+      <tags>
+        <tag>dell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git设置用户名和邮箱</title>
     <url>/posts/3f67efa6.html</url>
     <content><![CDATA[<p>配置<code>git</code>的用户名和密码，应该是你安装完<code>git</code>后需要做的第一件事。</p>
@@ -161,9 +193,10 @@
 <h3 id="重启ssh服务生效"><a href="#重启ssh服务生效" class="headerlink" title="重启ssh服务生效"></a>重启ssh服务生效</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>操作系统</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>ssh</tag>
       </tags>
   </entry>
