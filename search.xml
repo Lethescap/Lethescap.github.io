@@ -108,6 +108,66 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux服务器使用密钥登录</title>
+    <url>/posts/ab32b638.html</url>
+    <content><![CDATA[<blockquote>
+<p>登录linux服务器有2种方式，一是使用用户名&#x2F;密码；二是使用密钥。<br>本文介绍使用密钥登录的基础知识和相关设置方法。</p>
+</blockquote>
+<h2 id="使用密码登录的缺点"><a href="#使用密码登录的缺点" class="headerlink" title="使用密码登录的缺点"></a>使用密码登录的缺点</h2><p>使用密码登录，最大的缺点是存在暴力破解的隐患。</p>
+<p>举个例子，随便买个国外大厂的vps，一个小时后再登录，就会发现很多次登录失败的提示。</p>
+<p>全世界的黑客，7x24小时的使用工具和字典库扫描你的服务器，即使登录不成功，也相当于一种另类的DDOS了。</p>
+<p>尽管我们可以把SSH的端口设置为默认的22以外的不常用的端口，依然不能从根本上解决问题。</p>
+<h2 id="使用密钥登录的优势"><a href="#使用密钥登录的优势" class="headerlink" title="使用密钥登录的优势"></a>使用密钥登录的优势</h2><p>密钥登录的原理是：利用密钥生成器制作一对密钥：一只公钥和一只私钥。然后将公钥添加到服务器的某个账户上，在客户端利用私钥即可完成认证并登录。</p>
+<p>使用密钥登录，一个优势是从根本上解决了密码暴力破解的问题。因为登录根本不需要密码。</p>
+<p>另一个优势是可以在任意服务器上配置好公钥，然后使用同一个的私钥来登录。</p>
+<h2 id="密钥类型选择"><a href="#密钥类型选择" class="headerlink" title="密钥类型选择"></a>密钥类型选择</h2><p>常见的密钥各类有dsa、rsa、 ecdsa、ed25519这几种，下面分别介绍，看过你就知道怎么选择了。</p>
+<p>总体上，根据数学特性来分类，dsa&#x2F;rsa是一类，ecdsa&#x2F;ed25519是一类，后者算法更先进。</p>
+<h3 id="dsa"><a href="#dsa" class="headerlink" title="dsa"></a>dsa</h3><p>dsa密钥因为安全问题，早已被弃用。</p>
+<h3 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h3><p>rsa密钥是目前兼容性最好的，应用最广泛的类型，一般在用ssh-keygen工具生成key的时候，默认使用的也是这种类型。</p>
+<p>不过rsa密钥也有安全问题：在生成key时，如果指定的key size太小的话，存在被破解的隐患。如果一定要用rsa密钥，推荐key size为4096。我以前在使用rsa密钥时，都是设置4096。</p>
+<p><strong>注</strong>：开源社区在使用新技术方面一向激进，最新的Ubuntu22.04已经不再支持rsa密钥登录了。</p>
+<h3 id="ecdsa"><a href="#ecdsa" class="headerlink" title="ecdsa"></a>ecdsa</h3><p>ecdsa密钥最主要的问题，在于它是由臭名昭著的NSA贡献的。仅凭这一点这足以让人放弃了。</p>
+<p>另外说一个热知识，SELINUX也是由NSA开发的。</p>
+<h3 id="ed25519"><a href="#ed25519" class="headerlink" title="ed25519"></a>ed25519</h3><p>ed25519是目前最安全、加解密速度最快的key类型，由于其数学特性，它的key的长度比rsa小很多，优先推荐使用。它目前唯一的问题就是兼容性，即在旧版本的ssh工具集中可能无法使用。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>毫无疑问，ed25519是密钥的最佳选择。</p>
+<h2 id="具体配置方法"><a href="#具体配置方法" class="headerlink" title="具体配置方法"></a>具体配置方法</h2><h3 id="生成ed25519密钥"><a href="#生成ed25519密钥" class="headerlink" title="生成ed25519密钥"></a>生成ed25519密钥</h3><figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span></span><br></pre></td></tr></table></figure>
+
+<p>假设此处生成的私钥为<code>mykey</code>，公钥为<code>mykey.pub</code>。</p>
+<h3 id="服务器上配置公钥"><a href="#服务器上配置公钥" class="headerlink" title="服务器上配置公钥"></a>服务器上配置公钥</h3><p>新建存放密钥的文件夹<code>.ssh</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>把公钥上传到linux服务器<br>执行下面命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat mykey.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p><code>authorized_keys</code>就是保存公钥的文件。</p>
+<p>如此，公钥就配置好了。</p>
+<h3 id="相关密钥的权限设置"><a href="#相关密钥的权限设置" class="headerlink" title="相关密钥的权限设置"></a>相关密钥的权限设置</h3><ol>
+<li>本地相关文件权限</li>
+</ol>
+<ul>
+<li><code>mykey</code>私钥设置为<code>600</code>权限</li>
+</ul>
+<ol start="2">
+<li>远程服务器相关文件权限设置</li>
+</ol>
+<ul>
+<li><code>.ssh</code>目录设置为<code>700</code></li>
+<li><code>mykey.pub</code>公钥设置为<code>644</code></li>
+<li><code>authorized_keys</code>设置为<code>600</code></li>
+<li><code>known_hosts</code>设置为<code>644</code></li>
+</ul>
+<p><strong>特别提示</strong>：上述的文件和目录的权限设置非常重要，尤其是对于<code>centos</code>系列的发行版来说，设置不正确就极有可能登录不上。</p>
+<h3 id="配置ssh文件"><a href="#配置ssh文件" class="headerlink" title="配置ssh文件"></a>配置ssh文件</h3><p>需要对<code>/etc/ssh/sshd_config</code>文件作一些修改，包括修改端口号，取消密码登录、启用密钥登录</p>
+<p>需要修改的地方如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Port 12345  ##12345改成你要用的端口号</span><br><span class="line"></span><br><span class="line">PubkeyAuthentication yes  ##启用密钥登录</span><br><span class="line"></span><br><span class="line">PasswordAuthentication no   ##关闭密码登录</span><br></pre></td></tr></table></figure>
+<h3 id="重启ssh服务生效"><a href="#重启ssh服务生效" class="headerlink" title="重启ssh服务生效"></a>重启ssh服务生效</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<p>下面介绍安装<code>docker</code>和<code>docker-compose</code>的方法，实测支持Ubuntu 24.04</p>
