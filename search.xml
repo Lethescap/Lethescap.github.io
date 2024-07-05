@@ -33,13 +33,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Git设置用户名和邮箱</title>
+    <title>Git的一些必要设置</title>
     <url>/posts/3f67efa6.html</url>
     <content><![CDATA[<p>配置<code>git</code>的用户名和密码，应该是你安装完<code>git</code>后需要做的第一件事。</p>
 <p>能避免很多麻烦</p>
 <h2 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱:"></a>配置邮箱:</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="保存密码"><a href="#保存密码" class="headerlink" title="保存密码"></a>保存密码</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> credential.helper <span class="keyword">store</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="查看git配置信息"><a href="#查看git配置信息" class="headerlink" title="查看git配置信息"></a>查看git配置信息</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>软件应用</category>
@@ -116,6 +118,31 @@
       </categories>
       <tags>
         <tag>iphone</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LinuxMint取消密码回显</title>
+    <url>/posts/9be48e85.html</url>
+    <content><![CDATA[<p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
+<p>这个功能有人喜欢，有人不喜欢。我是没有这个习惯，所以看着就很别扭。</p>
+<p>下面介绍取消密码回显的方法。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>决定是是否显示<code>*</code>的配置文件是<code>/etc/sudoers.d/0pwfeedback</code>。</p>
+<p>我们需要对它做一些编辑。</p>
+<h2 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h2><p><code>/etc/sudoers.d/0pwfeedback</code>这个文件默认权限是<code>440</code>，因此即使root用户也无法修改。</p>
+<p>因此如果想修改的话，需要先把它改成别的权限，比如<code>600</code>。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> -i</span><br><span class="line"><span class="attribute">chmod</span> <span class="number">600</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback </span><br></pre></td></tr></table></figure>
+<p>原文内容是</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Defaults pwfeedback</span></span><br></pre></td></tr></table></figure>
+<p>把它修改成</p>
+<figure class="highlight erlang-repl"><table><tr><td class="code"><pre><span class="line">Defaults !pwfeedback</span><br></pre></td></tr></table></figure>
+<p>即可不显示<code>*</code>了。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linuxmint</tag>
+        <tag>terminal</tag>
       </tags>
   </entry>
   <entry>
