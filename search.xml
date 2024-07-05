@@ -131,12 +131,13 @@
 <h2 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h2><p><code>/etc/sudoers.d/0pwfeedback</code>这个文件默认权限是<code>440</code>，因此即使root用户也无法修改。</p>
 <p>因此如果想修改的话，需要先把它改成别的权限，比如<code>600</code>。</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> -i</span><br><span class="line"><span class="attribute">chmod</span> <span class="number">600</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback </span><br></pre></td></tr></table></figure>
-<p>原文内容是</p>
+<p>默认配置是</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Defaults pwfeedback</span></span><br></pre></td></tr></table></figure>
 <p>把它修改成</p>
 <figure class="highlight erlang-repl"><table><tr><td class="code"><pre><span class="line">Defaults !pwfeedback</span><br></pre></td></tr></table></figure>
 <p>即可不显示<code>*</code>了。</p>
-]]></content>
+<h2 id="改回权限"><a href="#改回权限" class="headerlink" title="改回权限"></a>改回权限</h2><p>修改完后，记得把权限改回原来的<code>440</code></p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">chmod</span> <span class="number">440</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
