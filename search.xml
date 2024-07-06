@@ -411,20 +411,34 @@
 </blockquote>
 <p>也就是说，在本机上修改了键位后，远程连接到 vmware 虚拟机里是正常的，但是在本机上的虚拟机里则不能使用。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>官方给出的解决方案是：</p>
-<h3 id="查看特定键位的值"><a href="#查看特定键位的值" class="headerlink" title="查看特定键位的值"></a>查看特定键位的值</h3><p>使用xev或者xmodmap -pk查看 Ctrl 和 CapsLock 的键位值</p>
+<h3 id="查看特定键位的值"><a href="#查看特定键位的值" class="headerlink" title="查看特定键位的值"></a>查看特定键位的值</h3><p>使用<code>xev</code>或者<code>xmodmap -pk</code>查看 Ctrl 和 CapsLock 的键位值</p>
 <p><img src="/../images/linux%E4%B8%8Bvmware-workstation%E7%9A%84%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84%E9%97%AE%E9%A2%98_071649.png"></p>
-<p>可以看出，left Ctrl 键的值是 66,而 CapsLock 键的值是 37</p>
-<h3 id="查看键位对应的-V-Scan-值"><a href="#查看键位对应的-V-Scan-值" class="headerlink" title="查看键位对应的 V-Scan 值"></a>查看键位对应的 V-Scan 值</h3><p>需要到V-Scan Code Table去查看。</p>
-<p>这里直接告诉大家： Left Ctrl 的值是 0x01d CapsLock 的值是 0x03a</p>
+<p>几个常用的按键的键值如下：</p>
+<ul>
+<li>Left Ctrl 键值是 66</li>
+<li>CapsLock 键值是 37</li>
+<li>Left ALT 键值是 133</li>
+<li>Left Win 键值是 64</li>
+</ul>
+<h3 id="查看键位对应的-V-Scan-值"><a href="#查看键位对应的-V-Scan-值" class="headerlink" title="查看键位对应的 V-Scan 值"></a>查看键位对应的 V-Scan 值</h3><p>需要到<a href="https://docs.vmware.com/en/VMware-Workstation-Pro/17/com.vmware.ws.using.doc/GUID-D2C43B86-32EF-44EA-A2ED-D890483D70BD.html">V-Scan Code Table</a>去查看。</p>
+<p>这里直接告诉大家： </p>
+<ul>
+<li>Left Ctrl 的值是 0x01d </li>
+<li>CapsLock 的值是 0x03a</li>
+<li>Left ALT 的值是 0x038</li>
+<li>Left Win 的值是 0x15b</li>
+</ul>
 <h3 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h3><p>在<code>~/.vmware/config</code>（没有就新建一个）里添加如下配置：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">66</span> = <span class="number">0</span>x01d</span><br><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">37</span> = <span class="number">0</span>x03a</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">66</span> = <span class="number">0</span>x01d</span><br><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">37</span> = <span class="number">0</span>x03a</span><br></pre></td></tr></table></figure>
+<p>**针对mac:**如果你的主键盘布局是mac的，那么left alt和left win键也做了交换。此时需要仿照上面配置做相应设定：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">133</span> = <span class="number">0</span>x038</span><br><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">64</span> = <span class="number">0</span>x15b</span><br></pre></td></tr></table></figure>
 <p>至此，工作全部完成，vmware 里的虚拟机可以使用和 Host 一样的键位设置了。</p>
 <h2 id="踩过的大坑"><a href="#踩过的大坑" class="headerlink" title="踩过的大坑"></a>踩过的大坑</h2><p>这么简单的一个问题，官方文档有明确的说明了，为什么拖了好几年没解决呢？</p>
 <p>主要问题有两个：</p>
 <ol>
 <li><p>官方的文档里说，更改健位值的两行代码，加在虚拟机配置文件里(.vmx)或者<code>~/.vmware/config</code>都可以，其实不对。这两行代码只能加在<code>~/.vmware/config</code>，加在其他地方不起作用。这个坑是长期未解决此问题的主要原因。</p>
 </li>
-<li><p>添加这两行配置后，必须重新启动系统，以便让修改生效。</p>
+<li><p>添加这两行配置后，必须重新启动系统，才能让修改生效。</p>
 </li>
 </ol>
 ]]></content>
