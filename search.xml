@@ -430,7 +430,7 @@
 </ul>
 <h3 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h3><p>在<code>~/.vmware/config</code>（没有就新建一个）里添加如下配置：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">66</span> = <span class="number">0</span>x01d</span><br><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">37</span> = <span class="number">0</span>x03a</span><br></pre></td></tr></table></figure>
-<p>**针对mac:**如果你的主键盘布局是mac的，那么left alt和left win键也做了交换。此时需要仿照上面配置做相应设定：</p>
+<p><strong>针对mac</strong>:如果你的主键盘布局是mac的，那么left alt和left win键也做了交换。此时需要仿照上面配置做相应设定：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">133</span> = <span class="number">0</span>x038</span><br><span class="line"><span class="attribute">xkeymap</span>.keycode.<span class="number">64</span> = <span class="number">0</span>x15b</span><br></pre></td></tr></table></figure>
 <p>至此，工作全部完成，vmware 里的虚拟机可以使用和 Host 一样的键位设置了。</p>
 <h2 id="踩过的大坑"><a href="#踩过的大坑" class="headerlink" title="踩过的大坑"></a>踩过的大坑</h2><p>这么简单的一个问题，官方文档有明确的说明了，为什么拖了好几年没解决呢？</p>
