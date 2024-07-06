@@ -558,6 +558,69 @@
       </tags>
   </entry>
   <entry>
+    <title>各个bbr加速脚本速度对比</title>
+    <url>/posts/934677ea.html</url>
+    <content><![CDATA[<p>网上有关于bbr各个加速脚本的速度测试和总结，现把总结直接放上：</p>
+<table>
+<thead>
+<tr>
+<th>选择脚本</th>
+<th>内核</th>
+<th>网速</th>
+<th>加速效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认cubic</td>
+<td>3.10</td>
+<td>174.3MB&#x2F;s</td>
+<td>★★</td>
+</tr>
+<tr>
+<td>秋水逸冰BBR(BBR+FQ)</td>
+<td>5.9.8</td>
+<td>173.3MB&#x2F;s</td>
+<td>★★★★</td>
+</tr>
+<tr>
+<td>BBR+CAKE</td>
+<td>5.9.6</td>
+<td>170.0MB&#x2F;s</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>BBR PLUS+FQ</td>
+<td>4.14.129</td>
+<td>142.7MB&#x2F;s</td>
+<td>★★★★</td>
+</tr>
+<tr>
+<td>BBR2+FQ+ECN</td>
+<td>5.4.0-rc6</td>
+<td>180.7MB&#x2F;s</td>
+<td>★★★☆</td>
+</tr>
+<tr>
+<td>BBR2+CAKE+ECN</td>
+<td>5.4.0-rc6</td>
+<td>181.3MB&#x2F;s</td>
+<td>★★★☆</td>
+</tr>
+</tbody></table>
+<p>从上面结果可以看出：</p>
+<ol>
+<li>BBR2的话建议不要安装，毕竟稳定性有些不足。</li>
+<li>建议选择BBR+FQ或者BBR+CAKE。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>bbr</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在ubuntu 24.04上安装vmware workstation 17.5.2</title>
     <url>/posts/7d0c9221.html</url>
     <content><![CDATA[<h3 id="下载vmware内核补丁"><a href="#下载vmware内核补丁" class="headerlink" title="下载vmware内核补丁"></a>下载vmware内核补丁</h3><p>虽然是17.5.1版本的，但经实测，完全兼容17.5.2</p>
