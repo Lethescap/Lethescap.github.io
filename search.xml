@@ -147,6 +147,31 @@
       </tags>
   </entry>
   <entry>
+    <title>LinuxMint开启远程桌面</title>
+    <url>/posts/2c930f13.html</url>
+    <content><![CDATA[<p>记得看过一篇测评，Linux下主流的桌面环境，对RDP支持最好的，是Cinnamon。</p>
+<p>今天试了一下，果然如此。</p>
+<p>部署环境：LinuxMint21.3 + Cinnamon</p>
+<h2 id="安装xrdp"><a href="#安装xrdp" class="headerlink" title="安装xrdp"></a>安装xrdp</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span>  xrdp -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证xrdp服务的状态"><a href="#验证xrdp服务的状态" class="headerlink" title="验证xrdp服务的状态"></a>验证xrdp服务的状态</h2><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl status xrdp</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置RDP的默认会话"><a href="#设置RDP的默认会话" class="headerlink" title="设置RDP的默认会话"></a>设置RDP的默认会话</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cinnamon-session-cinnamon&quot;</span> | <span class="built_in">tee</span> ~/.xsession</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启xrdp"><a href="#重启xrdp" class="headerlink" title="重启xrdp"></a>重启xrdp</h2><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart xrdp</span></span><br></pre></td></tr></table></figure>
+
+<p>如此即可。</p>
+<p>最后再提示一下，远程桌面连接linux，当前用户不能处在登录状态。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>RDP</tag>
+        <tag>Cinnamon</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux下更改用户目录为英文名称</title>
     <url>/posts/4ad8d8d7.html</url>
     <content><![CDATA[<p>安装<code>xdg-user-dirs-gtk</code>这个软件。</p>
