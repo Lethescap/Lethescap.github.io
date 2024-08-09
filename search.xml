@@ -363,6 +363,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows下安装设置Python绿色版</title>
+    <url>/posts/f9c965a9.html</url>
+    <content><![CDATA[<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>操作系统: windows 10 ltsc 2019 X64<br>Python:  3.12.5</p>
+<h2 id="下载python"><a href="#下载python" class="headerlink" title="下载python"></a>下载python</h2><p>下载地址: <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></p>
+<p>需要下载<code>embeddable</code>版本：<br><img src="/../images/Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEPython%E7%BB%BF%E8%89%B2%E7%89%88_203943.png"></p>
+<p>下载后，解压到自定义位置，这里解压到了</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">E</span>:\ProgramFiles\python3.<span class="number">12</span>.<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h2><p>打开网页：<a href="https://pip.pypa.io/en/stable/installation/#">https://pip.pypa.io/en/stable/installation/#</a></p>
+<p>右键点击下面地址，选择另存为,保存到解压后的python目录<br><img src="/../images/Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEPython%E7%BB%BF%E8%89%B2%E7%89%88_204343.png"></p>
+<p>找到解压后的<code>python</code>目录，按<code>shift+右键</code>打开<code>powershell</code>窗口</p>
+<p>然后执行下面命令：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">python</span>.<span class="keyword">exe</span> <span class="built_in">get</span>-pip.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
+<p>执行完成后，目录下会多出两个文件夹，分别是<code>Lib</code>和<code>Scripts</code><br><img src="/../images/Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEPython%E7%BB%BF%E8%89%B2%E7%89%88_204656.png"></p>
+<h2 id="添加系统环境变量"><a href="#添加系统环境变量" class="headerlink" title="添加系统环境变量"></a>添加系统环境变量</h2><p>在<code>环境变量</code>-<code>系统变量</code>，点击<code>Path</code>，添加两个变量，分别是</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">E</span>:\ProgramFiles\python3.<span class="number">12</span>.<span class="number">5</span></span><br><span class="line"><span class="attribute">E</span>:\ProgramFiles\python3.<span class="number">12</span>.<span class="number">5</span>\Scripts</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEPython%E7%BB%BF%E8%89%B2%E7%89%88_205123.png"></p>
+<h2 id="解决pip-v-无法显示版本的问题"><a href="#解决pip-v-无法显示版本的问题" class="headerlink" title="解决pip -v 无法显示版本的问题"></a>解决pip -v 无法显示版本的问题</h2><blockquote>
+<blockquote>
+<blockquote>
+<p>python 解释器启动一般会自动 import site ，并且调用 site.main() 。而在 Windows 的免安装绿色版中，使用了 python*.pth （这里的 * 代指版本号，比如我这次安装对应的是 python310._pth 这个文件）来指定包的位置，而通过这种方式加载 python ，是为了避免包冲突不会自动 import site。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>解决就是,用记事本打开python解压后目录下的<code>python312._pth</code> 这个文件，删掉如下的 <code>#</code> 即可。<br><img src="/../images/Windows%E4%B8%8B%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEPython%E7%BB%BF%E8%89%B2%E7%89%88_205515.png"></p>
+<p>至此，Python绿色版安装完成。</p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo安装和配置主题</title>
     <url>/posts/4f786861.html</url>
     <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
