@@ -554,6 +554,11 @@
       </tags>
   </entry>
   <entry>
+    <title>pyenv实践应用</title>
+    <url>/posts/4f368fa1.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>tmux安装和设置</title>
     <url>/posts/8e710f05.html</url>
     <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
