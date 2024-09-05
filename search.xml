@@ -557,13 +557,13 @@
     <title>pyenv实践应用</title>
     <url>/posts/4f368fa1.html</url>
     <content><![CDATA[<h2 id="使用global实现python版本自动选择"><a href="#使用global实现python版本自动选择" class="headerlink" title="使用global实现python版本自动选择"></a>使用global实现python版本自动选择</h2><ol>
-<li>分别为python2和python3创建2个虚拟环境，例如<code>py2</code>和<code>py3</code></li>
-</ol>
+<li><p>分别为python2和python3创建2个虚拟环境，例如<code>py2</code>和<code>py3</code></p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">2</span>.<span class="number">7</span>.<span class="number">16</span> py2</span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">7</span>.<span class="number">4</span> py3</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>把<code>py2</code>和<code>py3</code>设置为<code>global</code><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">pyenv <span class="keyword">global</span> <span class="keyword">py3</span> py2</span><br></pre></td></tr></table></figure>
-如此设置后，当有应用需要用到python时，会先从<code>py3</code>里查找相关库和应用，如果找不到，会继续查找<code>py2</code>里的。变相实现了python版本自动选择。</li>
+</li>
+<li><p>把<code>py2</code>和<code>py3</code>设置为<code>global</code></p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">pyenv <span class="keyword">global</span> <span class="keyword">py3</span> py2</span><br></pre></td></tr></table></figure>
+<p>如此设置后，当有应用需要用到python时，会先从<code>py3</code>里查找相关库和应用，如果找不到，会继续查找<code>py2</code>里的。变相实现了python版本自动选择。</p>
+</li>
 </ol>
 <h2 id="使用local实现虚拟环境自动切换"><a href="#使用local实现虚拟环境自动切换" class="headerlink" title="使用local实现虚拟环境自动切换"></a>使用local实现虚拟环境自动切换</h2><p>以<code>sd-webui</code>为例，它要求的python版本是3.10.6</p>
 <ol>
