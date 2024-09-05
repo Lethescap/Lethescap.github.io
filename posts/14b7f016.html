@@ -20,18 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时，报错“ 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvid">
+    <meta name="description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时报错: 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvidi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu24.04安装nvidia cuda和cudnn">
 <meta property="og:url" content="https://lethescap.com/posts/14b7f016.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时，报错“ 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvid">
+<meta property="og:description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时报错: 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvidi">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png">
 <meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png">
 <meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png">
 <meta property="article:published_time" content="2024-09-05T09:57:08.000Z">
-<meta property="article:modified_time" content="2024-09-05T10:29:43.243Z">
+<meta property="article:modified_time" content="2024-09-05T10:33:51.699Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="nvidia">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEnvidia%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">设置nvidia官方源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84keyring"><span class="nav-number">1.1.</span> <span class="nav-text">安装官方源的keyring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">安装设置官方源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%AE%98%E6%96%B9%E6%BA%90%E6%B7%BB%E5%8A%A0pin%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">给官方源添加pin文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7nvidia%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">升级nvidia驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85cuda"><span class="nav-number">3.</span> <span class="nav-text">安装cuda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-cudnn"><span class="nav-number">4.</span> <span class="nav-text">安装 cudnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95cuda%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="nav-number">5.</span> <span class="nav-text">测试cuda是否正常</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEnvidia%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">设置nvidia官方源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84keyring"><span class="nav-number">1.1.</span> <span class="nav-text">安装官方源的keyring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">安装设置官方源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%AE%98%E6%96%B9%E6%BA%90%E6%B7%BB%E5%8A%A0pin%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">给官方源添加pin文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7nvidia%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">升级nvidia驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85cuda"><span class="nav-number">3.</span> <span class="nav-text">安装cuda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-cudnn"><span class="nav-number">4.</span> <span class="nav-text">安装 cudnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95cuda%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="nav-number">5.</span> <span class="nav-text">测试cuda是否正常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF"><span class="nav-number">5.1.</span> <span class="nav-text">查询设备信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%B8%A6%E5%AE%BD"><span class="nav-number">5.2.</span> <span class="nav-text">测试带宽</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -229,7 +229,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-09-05 17:57:08 / 修改时间：18:29:43" itemprop="dateCreated datePublished" datetime="2024-09-05T17:57:08+08:00">2024-09-05</time>
+      <time title="创建时间：2024-09-05 17:57:08 / 修改时间：18:33:51" itemprop="dateCreated datePublished" datetime="2024-09-05T17:57:08+08:00">2024-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,27 +250,20 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时，报错“</p>
+    <div class="post-body" itemprop="articleBody"><p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时报错:</p>
 <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
 <p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
 <p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
 <p>由此也就有了本文。</p>
 <h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
 <h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
-<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list\n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list\n</span><br></pre></td></tr></table></figure>
 <h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
 <p>至此，nvidia官方源设置完毕</p>
 <h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
 <blockquote>
 <blockquote>
-<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
+<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -280,10 +273,9 @@
 
 <h2 id="安装-cudnn"><a href="#安装-cudnn" class="headerlink" title="安装 cudnn"></a>安装 cudnn</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install cudnn-cuda-<span class="number">12</span></span><br></pre></td></tr></table></figure>
 <p>至此，nvidia驱动、cuda以及cudnn安装完毕。</p>
-<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
+<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><h3 id="查询设备信息"><a href="#查询设备信息" class="headerlink" title="查询设备信息"></a>查询设备信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
 <p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png"></p>
-<p>测试带宽</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
+<h3 id="测试带宽"><a href="#测试带宽" class="headerlink" title="测试带宽"></a>测试带宽</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
 <p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png"></p>
 
     </div>
