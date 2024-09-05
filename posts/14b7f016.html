@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时，报错“ 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu24.04安装nvidia cuda和cudnn">
+<meta property="og:url" content="https://lethescap.com/posts/14b7f016.html">
+<meta property="og:site_name" content="寂静·流年">
+<meta property="og:description" content="全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令.&#x2F;webui.sh启动时，报错“ 1RuntimeError: Torch is not able to use GPU 经过查询得知，stable-diffusion-webui默认你已经安装好了cuda,而在ubuntu下安装完nvidia的私有驱动后，并不会安装cuda和cudnn库。 使用nvid">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png">
+<meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png">
+<meta property="og:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png">
+<meta property="article:published_time" content="2024-09-05T09:57:08.000Z">
+<meta property="article:modified_time" content="2024-09-05T10:29:43.243Z">
+<meta property="article:author" content="Laphael">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="nvidia">
+<meta property="article:tag" content="cuda">
+<meta property="article:tag" content="cudnn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lethescap.com/images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png">
+
+
+<link rel="canonical" href="https://lethescap.com/posts/14b7f016.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/14b7f016.html","path":"posts/14b7f016.html","title":"ubuntu24.04安装nvidia cuda和cudnn"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ubuntu24.04安装nvidia cuda和cudnn | 寂静·流年</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">寂静·流年</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">[冰与火的交缠，无法平息的灵魂]</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEnvidia%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">设置nvidia官方源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AE%98%E6%96%B9%E6%BA%90%E7%9A%84keyring"><span class="nav-number">1.1.</span> <span class="nav-text">安装官方源的keyring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E5%AE%98%E6%96%B9%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">安装设置官方源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%AE%98%E6%96%B9%E6%BA%90%E6%B7%BB%E5%8A%A0pin%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">给官方源添加pin文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7nvidia%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">升级nvidia驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85cuda"><span class="nav-number">3.</span> <span class="nav-text">安装cuda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-cudnn"><span class="nav-number">4.</span> <span class="nav-text">安装 cudnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95cuda%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="nav-number">5.</span> <span class="nav-text">测试cuda是否正常</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Laphael</p>
+  <div class="site-description" itemprop="description">记录我的生活、学习、兴趣</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/14b7f016.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ubuntu24.04安装nvidia cuda和cudnn | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ubuntu24.04安装nvidia cuda和cudnn
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-09-05 17:57:08 / 修改时间：18:29:43" itemprop="dateCreated datePublished" datetime="2024-09-05T17:57:08+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">编程开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时，报错“</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
+<p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
+<p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
+<p>由此也就有了本文。</p>
+<h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
+<h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
+<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list\n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia官方源设置完毕</p>
+<h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install nvidia-driver-<span class="number">560</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装cuda"><a href="#安装cuda" class="headerlink" title="安装cuda"></a>安装cuda</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> cuda-toolkit</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-cudnn"><a href="#安装-cudnn" class="headerlink" title="安装 cudnn"></a>安装 cudnn</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install cudnn-cuda-<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia驱动、cuda以及cudnn安装完毕。</p>
+<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png"></p>
+<p>测试带宽</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Laphael
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://lethescap.com/posts/14b7f016.html" title="ubuntu24.04安装nvidia cuda和cudnn">https://lethescap.com/posts/14b7f016.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+              <a href="/tags/nvidia/" rel="tag"><i class="fa fa-tag"></i> nvidia</a>
+              <a href="/tags/cuda/" rel="tag"><i class="fa fa-tag"></i> cuda</a>
+              <a href="/tags/cudnn/" rel="tag"><i class="fa fa-tag"></i> cudnn</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/4f368fa1.html" rel="prev" title="pyenv实践应用">
+                  <i class="fa fa-angle-left"></i> pyenv实践应用
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Laphael</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Lethescap/hexo_utterances_comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

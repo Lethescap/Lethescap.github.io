@@ -617,6 +617,55 @@
       </tags>
   </entry>
   <entry>
+    <title>ubuntu24.04安装nvidia cuda和cudnn</title>
+    <url>/posts/14b7f016.html</url>
+    <content><![CDATA[<p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时，报错“</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
+<p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
+<p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
+<p>由此也就有了本文。</p>
+<h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
+<h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
+<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list\n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia官方源设置完毕</p>
+<h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install nvidia-driver-<span class="number">560</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装cuda"><a href="#安装cuda" class="headerlink" title="安装cuda"></a>安装cuda</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> cuda-toolkit</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-cudnn"><a href="#安装-cudnn" class="headerlink" title="安装 cudnn"></a>安装 cudnn</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install cudnn-cuda-<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia驱动、cuda以及cudnn安装完毕。</p>
+<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png"></p>
+<p>测试带宽</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png"></p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>nvidia</tag>
+        <tag>cuda</tag>
+        <tag>cudnn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改Edge浏览器的页面滚动模式</title>
     <url>/posts/b2d3978.html</url>
     <content><![CDATA[<p>作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应</p>
