@@ -514,7 +514,7 @@
   <entry>
     <title>opensuse的一些回忆和体验</title>
     <url>/posts/9f386ded.html</url>
-    <content><![CDATA[<p><code>opensuse</code>在我心目中，一直是一个很特别的发行版。</p>
+    <content><![CDATA[<p><code>opensuse</code>在我心目中，一直是一个非常特别的发行版。</p>
 <p>长久以来，我基本使用过所有主流的linux发行版，从最开始的尝鲜，到后来的慢慢把linux当成主力操作系统。在这个过程中，<code>openususe</code>自然也少不了要尝试。但是一方面，我对<code>opensuse</code>非常有好感，另一方面，却也是用的最少的。</p>
 <h2 id="最初印象"><a href="#最初印象" class="headerlink" title="最初印象"></a>最初印象</h2><p>对opensuse最初印象来自网络宣传。当然最初它也不叫<code>opensuse</code>,好像就叫<code>suse</code>(具体大小忘记了。不过由于再次使用已经叫<code>opensuse</code>了，本文就<code>opensuse</code>和<code>suse</code>混用了)。</p>
 <p>记得当时网上对它的宣传是：</p>
@@ -546,11 +546,10 @@
 <p>现在电脑这么便宜，我常备3台台式机和2台笔记本。台式机是1台16G的m1的mac mini,1台10850k+6600xt+32G的电脑装linux，1台13700kf+3090+128G装windows玩游戏。笔记本方面1台mackbook air m1，1台华为笔记本装linux。满足所有使用场景和需求，连虚拟机都很少开了。</p>
 ]]></content>
       <categories>
-        <category>随笔感悟</category>
+        <category>操作系统</category>
       </categories>
       <tags>
         <tag>opensuse</tag>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
