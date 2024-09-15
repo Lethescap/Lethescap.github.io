@@ -223,7 +223,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-15 08:59:15" itemprop="dateModified" datetime="2024-09-15T08:59:15+08:00">2024-09-15</time>
+      <time title="修改时间：2024-09-15 09:19:18" itemprop="dateModified" datetime="2024-09-15T09:19:18+08:00">2024-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,11 +245,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>下面介绍安装<code>docker</code>和<code>docker-compose</code>的方法，实测支持Ubuntu 24.04</p>
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> docker.io</span><br></pre></td></tr></table></figure>
-<h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/latest/download/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">udo chmod +x <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br></pre></td></tr></table></figure>
-<h2 id="当前用户可以使用docker"><a href="#当前用户可以使用docker" class="headerlink" title="当前用户可以使用docker"></a>当前用户可以使用docker</h2>
+          <h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
+<h3 id="安装一些必要的软件包："><a href="#安装一些必要的软件包：" class="headerlink" title="安装一些必要的软件包："></a>安装一些必要的软件包：</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt upgrade -<span class="keyword">y</span></span><br><span class="line"></span><br><span class="line">apt install curl <span class="keyword">vim</span> wget gnupg dpkg apt-transport-https lsb-release <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker-GPG-公钥-和apt源"><a href="#安装docker-GPG-公钥-和apt源" class="headerlink" title="安装docker GPG 公钥 和apt源"></a>安装docker GPG 公钥 和apt源</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https:<span class="regexp">//</span>download.docker.com<span class="regexp">/linux/</span>debian<span class="regexp">/gpg | gpg --dearmor &gt; /u</span>sr<span class="regexp">/share/</span>keyrings/docker-ce.gpg</span><br><span class="line"></span><br><span class="line">echo <span class="string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot;</span> &gt; <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>docker.list</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/e1db731e.html#more" rel="contents">
@@ -319,7 +320,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-15 08:59:15" itemprop="dateModified" datetime="2024-09-15T08:59:15+08:00">2024-09-15</time>
+      <time title="修改时间：2024-09-15 09:19:18" itemprop="dateModified" datetime="2024-09-15T09:19:18+08:00">2024-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -416,7 +417,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-15 08:59:15" itemprop="dateModified" datetime="2024-09-15T08:59:15+08:00">2024-09-15</time>
+      <time title="修改时间：2024-09-15 09:19:18" itemprop="dateModified" datetime="2024-09-15T09:19:18+08:00">2024-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -511,7 +512,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-15 08:59:15" itemprop="dateModified" datetime="2024-09-15T08:59:15+08:00">2024-09-15</time>
+      <time title="修改时间：2024-09-15 09:19:18" itemprop="dateModified" datetime="2024-09-15T09:19:18+08:00">2024-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -598,7 +599,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-15 08:59:15" itemprop="dateModified" datetime="2024-09-15T08:59:15+08:00">2024-09-15</time>
+      <time title="修改时间：2024-09-15 09:19:18" itemprop="dateModified" datetime="2024-09-15T09:19:18+08:00">2024-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
