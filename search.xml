@@ -274,6 +274,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu24.04安装Temurin JDK</title>
+    <url>/posts/e63027c0.html</url>
+    <content><![CDATA[<p>以下命令来自官方，需要使用root身份</p>
+<h2 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">apt</span> install -y wget apt-trans<span class="keyword">port</span>-https gpg</span><br></pre></td></tr></table></figure>
+<h2 id="下载GPG-key"><a href="#下载GPG-key" class="headerlink" title="下载GPG key"></a>下载GPG key</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget -qO - https:<span class="regexp">//</span>packages.adoptium.net<span class="regexp">/artifactory/</span>api<span class="regexp">/gpg/</span>key<span class="regexp">/public | gpg --dearmor | tee /</span>etc<span class="regexp">/apt/</span>trusted.gpg.d<span class="regexp">/adoptium.gpg &gt; /</span>dev/null</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置apt软件源"><a href="#设置apt软件源" class="headerlink" title="设置apt软件源"></a>设置apt软件源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://packages.adoptium.net/artifactory/deb <span class="subst">$(awk -F= &#x27;/^VERSION_CODENAME/&#123;print$2&#125;&#x27; /etc/os-release)</span> main&quot;</span> | <span class="built_in">tee</span> /etc/apt/sources.list.d/adoptium.list</span><br></pre></td></tr></table></figure>
+<h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu24.04开启RDP远程桌面访问</title>
     <url>/posts/c466930e.html</url>
     <content><![CDATA[<p>Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。</p>
