@@ -286,6 +286,7 @@
 <h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
 
 <h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
+<p><img src="/../images/Ubuntu24-04%E5%AE%89%E8%A3%85Temurin-JDK_085812.png"></p>
 ]]></content>
       <categories>
         <category>编程开发</category>
