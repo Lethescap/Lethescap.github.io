@@ -20,29 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hexo的NexT主题添加搜索非常简单，而且效果很好，需要用到第三方插件hexo-generator-searchdb。 安装hexo-generator-searchdb1npm install hexo-generator-searchdb  修改站点配置文件_config.yml在_config.yml中添加下面内容 123456search:  path: search.xml  fiel">
+    <meta name="description" content="本文适用于使用 kde 桌面环境的 deb 系linux发行版。原文链接在此 install xrdp service12sudo apt install -y xrdp  fix black cursor bug12sudo sed -e &#x27;s&#x2F;^new_cursors&#x3D;true&#x2F;new_cursors&#x3D;false&#x2F;g&#x27; -i &#x2F;etc&#x2F;xrdp&#x2F;xrdp.ini  enab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Next主题添加搜索功能">
-<meta property="og:url" content="https://lethescap.com/posts/d4489ce4.html">
+<meta property="og:title" content="KDE桌面环境安装xrdp远程桌面">
+<meta property="og:url" content="https://lethescap.com/posts/aee8cff7.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="hexo的NexT主题添加搜索非常简单，而且效果很好，需要用到第三方插件hexo-generator-searchdb。 安装hexo-generator-searchdb1npm install hexo-generator-searchdb  修改站点配置文件_config.yml在_config.yml中添加下面内容 123456search:  path: search.xml  fiel">
+<meta property="og:description" content="本文适用于使用 kde 桌面环境的 deb 系linux发行版。原文链接在此 install xrdp service12sudo apt install -y xrdp  fix black cursor bug12sudo sed -e &#x27;s&#x2F;^new_cursors&#x3D;true&#x2F;new_cursors&#x3D;false&#x2F;g&#x27; -i &#x2F;etc&#x2F;xrdp&#x2F;xrdp.ini  enab">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-08T00:26:31.000Z">
+<meta property="article:published_time" content="2024-09-16T23:38:52.000Z">
 <meta property="article:modified_time" content="2024-09-16T23:57:22.697Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="search">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="kde">
+<meta property="article:tag" content="RDP">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lethescap.com/posts/d4489ce4.html">
+<link rel="canonical" href="https://lethescap.com/posts/aee8cff7.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/d4489ce4.html","path":"posts/d4489ce4.html","title":"Hexo Next主题添加搜索功能"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/aee8cff7.html","path":"posts/aee8cff7.html","title":"KDE桌面环境安装xrdp远程桌面"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo Next主题添加搜索功能 | 寂静·流年</title>
+<title>KDE桌面环境安装xrdp远程桌面 | 寂静·流年</title>
   
 
 
@@ -142,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo-generator-searchdb"><span class="nav-number">1.</span> <span class="nav-text">安装hexo-generator-searchdb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config-yml"><span class="nav-number">2.</span> <span class="nav-text">修改站点配置文件_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9NexT%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config-next-yml"><span class="nav-number">3.</span> <span class="nav-text">修改NexT配置文件_config.next.yml</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install-xrdp-service"><span class="nav-number">1.</span> <span class="nav-text">install xrdp service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fix-black-cursor-bug"><span class="nav-number">2.</span> <span class="nav-text">fix black cursor bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enable-and-start-xrdp-service"><span class="nav-number">3.</span> <span class="nav-text">enable and start xrdp service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-session-to-plasma"><span class="nav-number">4.</span> <span class="nav-text">Set session to plasma</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#store-variables-for-xsessionrc"><span class="nav-number">5.</span> <span class="nav-text">store variables for .xsessionrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fix-%E2%80%9Cauthentication-required%E2%80%9D-bug"><span class="nav-number">6.</span> <span class="nav-text">fix “authentication required” bug</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/d4489ce4.html">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/aee8cff7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo Next主题添加搜索功能 | 寂静·流年">
+      <meta itemprop="name" content="KDE桌面环境安装xrdp远程桌面 | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo Next主题添加搜索功能
+          KDE桌面环境安装xrdp远程桌面
         </h1>
 
         <div class="post-meta-container">
@@ -221,15 +222,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-06-08 08:26:31" itemprop="dateCreated datePublished" datetime="2024-06-08T08:26:31+08:00">2024-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-17 07:57:22" itemprop="dateModified" datetime="2024-09-17T07:57:22+08:00">2024-09-17</time>
+      <time title="创建时间：2024-09-17 07:38:52 / 修改时间：07:57:22" itemprop="dateCreated datePublished" datetime="2024-09-17T07:38:52+08:00">2024-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,7 +232,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">网络相关</span></a>
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
         </span>
     </span>
 
@@ -250,13 +245,25 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><code>hexo</code>的<code>NexT</code>主题添加搜索非常简单，而且效果很好，需要用到第三方插件<code>hexo-generator-searchdb</code>。</p>
-<h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><p>本文适用于使用 <code>kde</code> 桌面环境的 <code>deb</code> 系linux发行版。原文链接<a target="_blank" rel="noopener" href="https://pilabor.com/blog/2021/05/remote-desktop-with-xrdp-and-kubuntu/">在此</a></p>
+<h2 id="install-xrdp-service"><a href="#install-xrdp-service" class="headerlink" title="install xrdp service"></a>install xrdp service</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> -y xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="修改站点配置文件-config-yml"><a href="#修改站点配置文件-config-yml" class="headerlink" title="修改站点配置文件_config.yml"></a>修改站点配置文件_config.yml</h2><p>在<code>_config.yml</code>中添加下面内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="修改NexT配置文件-config-next-yml"><a href="#修改NexT配置文件-config-next-yml" class="headerlink" title="修改NexT配置文件_config.next.yml"></a>修改NexT配置文件_config.next.yml</h2><p>搜索并修改成如下样式：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="fix-black-cursor-bug"><a href="#fix-black-cursor-bug" class="headerlink" title="fix black cursor bug"></a>fix black cursor bug</h2><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -e <span class="symbol">&#x27;s</span>/^new_cursors=<span class="literal">true</span>/new_cursors=<span class="literal">false</span>/g&#x27; -i /etc/xrdp/xrdp.ini</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="enable-and-start-xrdp-service"><a href="#enable-and-start-xrdp-service" class="headerlink" title="enable and start xrdp service"></a>enable and start xrdp service</h2><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="params">system</span>ctl enable xrdp</span><br><span class="line">sudo <span class="params">system</span>ctl restart xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Set-session-to-plasma"><a href="#Set-session-to-plasma" class="headerlink" title="Set session to plasma"></a>Set session to plasma</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/bin/startplasma-x11&quot;</span> &gt; ~/.xsession</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="store-variables-for-xsessionrc"><a href="#store-variables-for-xsessionrc" class="headerlink" title="store variables for .xsessionrc"></a>store variables for .xsessionrc</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export D=/usr/share/<span class="symbol">plasma:</span>/usr/local/<span class="symbol">share:</span>/usr/<span class="symbol">share:</span>/var/lib/snapd/desktop</span><br><span class="line">export C=/etc/xdg/xdg-<span class="symbol">plasma:</span>/etc/xdg</span><br><span class="line">export C=<span class="variable">$&#123;</span>C&#125;<span class="symbol">:/usr/share/kubuntu-default-settings/kf5-settings</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; ~/.xsessionrc</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_SESSION_DESKTOP</span>=KDE</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_DATA_DIRS</span>=<span class="variable">$&#123;D&#125;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_CONFIG_DIRS</span>=<span class="variable">$&#123;C&#125;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="fix-“authentication-required”-bug"><a href="#fix-“authentication-required”-bug" class="headerlink" title="fix “authentication required” bug"></a>fix “authentication required” bug</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-NetworkManager.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.NetworkManager.network-control</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-packagekit.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.packagekit.system-sources-refresh</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=auth_admin</span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart polkit</span></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -273,7 +280,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://lethescap.com/posts/d4489ce4.html" title="Hexo Next主题添加搜索功能">https://lethescap.com/posts/d4489ce4.html</a>
+      <a href="https://lethescap.com/posts/aee8cff7.html" title="KDE桌面环境安装xrdp远程桌面">https://lethescap.com/posts/aee8cff7.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -282,22 +289,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-              <a href="/tags/search/" rel="tag"><i class="fa fa-tag"></i> search</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/kde/" rel="tag"><i class="fa fa-tag"></i> kde</a>
+              <a href="/tags/RDP/" rel="tag"><i class="fa fa-tag"></i> RDP</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/7d0c9221.html" rel="prev" title="在ubuntu 24.04上安装vmware workstation 17.5.2">
-                  <i class="fa fa-angle-left"></i> 在ubuntu 24.04上安装vmware workstation 17.5.2
+                <a href="/posts/e63027c0.html" rel="prev" title="Ubuntu24.04安装Temurin JDK">
+                  <i class="fa fa-angle-left"></i> Ubuntu24.04安装Temurin JDK
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/e1db731e.html" rel="next" title="Ubuntu 24.04安装Docker">
-                  Ubuntu 24.04安装Docker <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

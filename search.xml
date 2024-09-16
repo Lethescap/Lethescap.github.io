@@ -121,6 +121,37 @@
       </tags>
   </entry>
   <entry>
+    <title>KDE桌面环境安装xrdp远程桌面</title>
+    <url>/posts/aee8cff7.html</url>
+    <content><![CDATA[<p>本文适用于使用 <code>kde</code> 桌面环境的 <code>deb</code> 系linux发行版。原文链接<a href="https://pilabor.com/blog/2021/05/remote-desktop-with-xrdp-and-kubuntu/">在此</a></p>
+<h2 id="install-xrdp-service"><a href="#install-xrdp-service" class="headerlink" title="install xrdp service"></a>install xrdp service</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> -y xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="fix-black-cursor-bug"><a href="#fix-black-cursor-bug" class="headerlink" title="fix black cursor bug"></a>fix black cursor bug</h2><figure class="highlight sml"><table><tr><td class="code"><pre><span class="line">sudo sed -e <span class="symbol">&#x27;s</span>/^new_cursors=<span class="literal">true</span>/new_cursors=<span class="literal">false</span>/g&#x27; -i /etc/xrdp/xrdp.ini</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="enable-and-start-xrdp-service"><a href="#enable-and-start-xrdp-service" class="headerlink" title="enable and start xrdp service"></a>enable and start xrdp service</h2><figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">sudo <span class="params">system</span>ctl enable xrdp</span><br><span class="line">sudo <span class="params">system</span>ctl restart xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Set-session-to-plasma"><a href="#Set-session-to-plasma" class="headerlink" title="Set session to plasma"></a>Set session to plasma</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/bin/startplasma-x11&quot;</span> &gt; ~/.xsession</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="store-variables-for-xsessionrc"><a href="#store-variables-for-xsessionrc" class="headerlink" title="store variables for .xsessionrc"></a>store variables for .xsessionrc</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">export D=/usr/share/<span class="symbol">plasma:</span>/usr/local/<span class="symbol">share:</span>/usr/<span class="symbol">share:</span>/var/lib/snapd/desktop</span><br><span class="line">export C=/etc/xdg/xdg-<span class="symbol">plasma:</span>/etc/xdg</span><br><span class="line">export C=<span class="variable">$&#123;</span>C&#125;<span class="symbol">:/usr/share/kubuntu-default-settings/kf5-settings</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; ~/.xsessionrc</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_SESSION_DESKTOP</span>=KDE</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_DATA_DIRS</span>=<span class="variable">$&#123;D&#125;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_CONFIG_DIRS</span>=<span class="variable">$&#123;C&#125;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="fix-“authentication-required”-bug"><a href="#fix-“authentication-required”-bug" class="headerlink" title="fix “authentication required” bug"></a>fix “authentication required” bug</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-NetworkManager.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.NetworkManager.network-control</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-packagekit.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.packagekit.system-sources-refresh</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=auth_admin</span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart polkit</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>kde</tag>
+        <tag>RDP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LinuxMint取消密码回显</title>
     <url>/posts/9be48e85.html</url>
     <content><![CDATA[<p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
