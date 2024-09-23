@@ -20,29 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="使用global实现python版本自动选择 分别为python2和python3创建2个虚拟环境，例如py2和py3 12pyenv virtualenv 2.7.16 py2pyenv virtualenv 3.7.4 py3  把py2和py3设置为global 1pyenv global py3 py2 如此设置后，当有应用需要用到python时，会先从py3里查找相关库和应用，如果找不到">
+    <meta name="description" content="思路： 使用ollama安装运行各种大模型，这里选择的是Qwen2.5 使用Open WebUI作为前端聊天界面 整个后端和前端使用一个docker compose  运行环境OS : Ubuntu24.04CPU : 13700k显卡 ：RTX3090 24G显存 项目地址：使用的是这个github项目库 准备工作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pyenv实践应用">
-<meta property="og:url" content="https://lethescap.com/posts/4f368fa1.html">
+<meta property="og:title" content="在Ubuntu24.04上运行Qwen2.5大模型">
+<meta property="og:url" content="https://lethescap.com/posts/ee4a21e9.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="使用global实现python版本自动选择 分别为python2和python3创建2个虚拟环境，例如py2和py3 12pyenv virtualenv 2.7.16 py2pyenv virtualenv 3.7.4 py3  把py2和py3设置为global 1pyenv global py3 py2 如此设置后，当有应用需要用到python时，会先从py3里查找相关库和应用，如果找不到">
+<meta property="og:description" content="思路： 使用ollama安装运行各种大模型，这里选择的是Qwen2.5 使用Open WebUI作为前端聊天界面 整个后端和前端使用一个docker compose  运行环境OS : Ubuntu24.04CPU : 13700k显卡 ：RTX3090 24G显存 项目地址：使用的是这个github项目库 准备工作">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-04T22:44:59.000Z">
+<meta property="article:published_time" content="2024-09-23T23:00:15.000Z">
 <meta property="article:modified_time" content="2024-09-23T23:36:10.219Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="pyenv">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lethescap.com/posts/4f368fa1.html">
+<link rel="canonical" href="https://lethescap.com/posts/ee4a21e9.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/4f368fa1.html","path":"posts/4f368fa1.html","title":"pyenv实践应用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/ee4a21e9.html","path":"posts/ee4a21e9.html","title":"在Ubuntu24.04上运行Qwen2.5大模型"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>pyenv实践应用 | 寂静·流年</title>
+<title>在Ubuntu24.04上运行Qwen2.5大模型 | 寂静·流年</title>
   
 
 
@@ -142,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8global%E5%AE%9E%E7%8E%B0python%E7%89%88%E6%9C%AC%E8%87%AA%E5%8A%A8%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">使用global实现python版本自动选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8local%E5%AE%9E%E7%8E%B0%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">使用local实现虚拟环境自动切换</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">项目地址：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nvidia-container-toolkit"><span class="nav-number">5.1.</span> <span class="nav-text">安装nvidia container toolkit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%BA%93"><span class="nav-number">5.2.</span> <span class="nav-text">克隆项目库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cdocker"><span class="nav-number">5.3.</span> <span class="nav-text">运行docker</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/4f368fa1.html">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/ee4a21e9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="pyenv实践应用 | 寂静·流年">
+      <meta itemprop="name" content="在Ubuntu24.04上运行Qwen2.5大模型 | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pyenv实践应用
+          在Ubuntu24.04上运行Qwen2.5大模型
         </h1>
 
         <div class="post-meta-container">
@@ -221,15 +222,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-09-05 06:44:59" itemprop="dateCreated datePublished" datetime="2024-09-05T06:44:59+08:00">2024-09-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-24 07:36:10" itemprop="dateModified" datetime="2024-09-24T07:36:10+08:00">2024-09-24</time>
+      <time title="创建时间：2024-09-24 07:00:15 / 修改时间：07:36:10" itemprop="dateCreated datePublished" datetime="2024-09-24T07:00:15+08:00">2024-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,7 +232,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件应用</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">编程开发</span></a>
         </span>
     </span>
 
@@ -250,25 +245,29 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="使用global实现python版本自动选择"><a href="#使用global实现python版本自动选择" class="headerlink" title="使用global实现python版本自动选择"></a>使用global实现python版本自动选择</h2><ol>
-<li><p>分别为python2和python3创建2个虚拟环境，例如<code>py2</code>和<code>py3</code></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">2</span>.<span class="number">7</span>.<span class="number">16</span> py2</span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">7</span>.<span class="number">4</span> py3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把<code>py2</code>和<code>py3</code>设置为<code>global</code></p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv <span class="keyword">global</span> <span class="keyword">py3</span> py2</span><br></pre></td></tr></table></figure>
-<p>如此设置后，当有应用需要用到python时，会先从<code>py3</code>里查找相关库和应用，如果找不到，会继续查找<code>py2</code>里的。变相实现了python版本自动选择。</p>
-</li>
-</ol>
-<h2 id="使用local实现虚拟环境自动切换"><a href="#使用local实现虚拟环境自动切换" class="headerlink" title="使用local实现虚拟环境自动切换"></a>使用local实现虚拟环境自动切换</h2><p>以<code>sd-webui</code>为例，它要求的python版本是3.10.6</p>
-<ol>
-<li><p>安装和创建python 3.10.6的虚拟环境</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> install <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span></span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span> sd-webui</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建一个目录，名称随意，比如<code>sd-webui</code>，然后指定此目录下使用的python虚拟环境是sd-webui,也就是python 3.10.6版本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> sd-webui</span><br><span class="line">pyenv <span class="built_in">local</span> sd-webui</span><br></pre></td></tr></table></figure>
-<p>如此设置后，只要进入<code>sd-webui</code>目录，就会自动切换到<code>sd-webui</code>这个python虚拟环境，省去了手动进入虚拟环境的步骤。</p>
-</li>
-</ol>
+    <div class="post-body" itemprop="articleBody"><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>使用ollama安装运行各种大模型，这里选择的是Qwen2.5</li>
+<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
+<li>整个后端和前端使用一个docker compose</li>
+</ul>
+<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
+<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a target="_blank" rel="noopener" href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
+<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
+<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
+<p>此项目库里有2个<code>docker compose</code>文件：</p>
+<ul>
+<li>docker-compose-ollama-gpu.yaml</li>
+<li>docker-compose.yml</li>
+</ul>
+<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，这里用不到把它删除，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
+<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
+<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code></p>
+<p>安装完成后，<a target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000 打开</a></p>
 
     </div>
 
@@ -286,7 +285,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://lethescap.com/posts/4f368fa1.html" title="pyenv实践应用">https://lethescap.com/posts/4f368fa1.html</a>
+      <a href="https://lethescap.com/posts/ee4a21e9.html" title="在Ubuntu24.04上运行Qwen2.5大模型">https://lethescap.com/posts/ee4a21e9.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -295,22 +294,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
-              <a href="/tags/pyenv/" rel="tag"><i class="fa fa-tag"></i> pyenv</a>
+              <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/f9c965a9.html" rel="prev" title="Windows下安装设置Python绿色版">
-                  <i class="fa fa-angle-left"></i> Windows下安装设置Python绿色版
+                <a href="/posts/aee8cff7.html" rel="prev" title="KDE桌面环境安装xrdp远程桌面">
+                  <i class="fa fa-angle-left"></i> KDE桌面环境安装xrdp远程桌面
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/14b7f016.html" rel="next" title="ubuntu24.04安装nvidia cuda和cudnn">
-                  ubuntu24.04安装nvidia cuda和cudnn <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

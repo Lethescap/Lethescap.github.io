@@ -684,7 +684,7 @@
 <p>由此也就有了本文。</p>
 <h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
 <h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
-<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list\n</span><br></pre></td></tr></table></figure>
+<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list</span><br></pre></td></tr></table></figure>
 <h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
 <p>至此，nvidia官方源设置完毕</p>
 <h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
@@ -824,6 +824,42 @@
       </categories>
       <tags>
         <tag>bbr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Ubuntu24.04上运行Qwen2.5大模型</title>
+    <url>/posts/ee4a21e9.html</url>
+    <content><![CDATA[<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>使用ollama安装运行各种大模型，这里选择的是Qwen2.5</li>
+<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
+<li>整个后端和前端使用一个docker compose</li>
+</ul>
+<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
+<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
+<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
+<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
+<p>此项目库里有2个<code>docker compose</code>文件：</p>
+<ul>
+<li>docker-compose-ollama-gpu.yaml</li>
+<li>docker-compose.yml</li>
+</ul>
+<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，这里用不到把它删除，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
+<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
+<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code></p>
+<p>安装完成后，<a href="http://localhost:8000/">http://localhost:8000 打开</a></p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
