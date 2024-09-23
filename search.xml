@@ -850,8 +850,20 @@
 <p><code>docker-compose.yml</code>文件是没有GPU加速功能的，这里用不到把它删除，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
 <h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
-<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code></p>
-<p>安装完成后，<a href="http://localhost:8000/">http://localhost:8000 打开</a></p>
+<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code>。</p>
+<p>安装完成后，打开<a href="http://localhost:8000/">http://localhost:8000</a>，并进行后续设置</p>
+<h2 id="设置Open-WebUI"><a href="#设置Open-WebUI" class="headerlink" title="设置Open WebUI"></a>设置Open WebUI</h2><p>点击右上角图标，选择管理员面板<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_072841.png"></p>
+<p>选择设置–模型<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_073020.png"></p>
+<p>在<code>从 Ollama.com 拉取一个模型</code>里，输入<code>qwen2.5:32b</code>，这样会自动下载模型。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要选择<code>qwen2.5:32b</code>这个模型呢？是因为32b的大小20G,正好在 RTX 3090 24G显存的范围内。而且经我实测，效果非常好。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>通过<code>docker compose</code>这种方式安装，已经设置好了，可以从局域网内其它电脑上访问服务，这一点很方便。</p>
+<p>至此，所有工作都已完成，愉快的和AI模型对话吧。</p>
 ]]></content>
       <categories>
         <category>编程开发</category>
