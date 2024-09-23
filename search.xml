@@ -1057,6 +1057,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
+    <url>/posts/4a671491.html</url>
+    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
+<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
+<p>可以通过指定架构的方式把它取消掉</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
+<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
+<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>让Lightdm的登录界面默认显示用户账号</title>
     <url>/posts/c0c4bf60.html</url>
     <content><![CDATA[<p>使用kali的xfce发行版时，发现默认设置下，登录界面不会显示你自己创建的账户。</p>
