@@ -780,6 +780,25 @@
       </tags>
   </entry>
   <entry>
+    <title>关闭MacOS的Microsoft AutoUpdate弹框</title>
+    <url>/posts/1f130e88.html</url>
+    <content><![CDATA[<p>安装完<code>Microsoft Office</code>后，mac电脑会安装一个<code>Microsoft AutoUpdate</code>的程序。作用也很简单，就是检查微软的offcie是否有升级。</p>
+<p>这个功能理应都好的，但是有个问题：这个升级提示太烦人了，时不进就跳出来，一天检查18遍还多。</p>
+<p>还是关了吧。</p>
+<h2 id="关闭升级提示"><a href="#关闭升级提示" class="headerlink" title="关闭升级提示"></a>关闭升级提示</h2><p>使用快捷键：command（⌘）+⇧+G，或者顶部菜单，选择前往——前往文件夹</p>
+<p>输入<code>/Library/Application Support/Microsoft</code><br>删除<code>MAU2.0</code>文件夹，或者把<code>MAU2.0</code>文件里的<code>icrosoft AutoUpdate</code>删除也可以。</p>
+<p>这样就没有烦人的升级提示了。</p>
+<p><img src="/../images/%E5%85%B3%E9%97%ADMacOS%E7%9A%84Microsoft-AutoUpdate%E5%BC%B9%E6%A1%86_192519.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>各个bbr加速脚本速度对比</title>
     <url>/posts/934677ea.html</url>
     <content><![CDATA[<p>网上有关于bbr各个加速脚本的速度测试和总结，现把总结直接放上：</p>
