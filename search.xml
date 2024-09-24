@@ -224,6 +224,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下查看文件的数字权限</title>
+    <url>/posts/25df6da1.html</url>
+    <content><![CDATA[<p>linux下，有时会有以数字方式展示文件的权限，比如<code>755</code>、<code>644</code>等，这样比较直观。</p>
+<p>通过搜索，发现<code>stat</code>命令可以达到这样的效果<br>比如查看<code>test.txt</code>这个文件的权限</p>
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">stat -<span class="keyword">c</span> <span class="variable">%a</span> test.txt </span><br></pre></td></tr></table></figure>
+<p>输出结果直接就是数字</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">644</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux服务器使用密钥登录</title>
     <url>/posts/ab32b638.html</url>
     <content><![CDATA[<blockquote>
@@ -571,69 +588,6 @@
       </tags>
   </entry>
   <entry>
-    <title>tmux安装和设置</title>
-    <url>/posts/8e710f05.html</url>
-    <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
-<p><code>tmux</code>设置完成后，完全可以把远程服务器当成本地电脑来使用。<code>ssh</code>登录到远程Linux服务器后，进行调试、维护、开发等工作非常方便。</p>
-<p><code>tmux</code>有<code>引导键</code>(<code>prefix</code>)的概念，默认的<code>引导键</code>是<code>CTRL</code>+<code>b</code>。即需要先按下<code>CTRL</code>+<code>b</code>，再按其它按键来执行<code>tmux</code>的一些操作。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>各大linux发行版软件仓库里自带，目前最新版本是3.0a。</p>
-<p>在<code>debian</code>下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在用户主目录<code>~</code>下新建一个<code>.tmux.conf</code>文件，这也是<code>tmux</code>默认的配置文件。</p>
-<h3 id="安装tpm插件管理器"><a href="#安装tpm插件管理器" class="headerlink" title="安装tpm插件管理器"></a>安装<code>tpm</code>插件管理器</h3><p><code>tpm</code>是<code>tmux</code>的插件管理器，用来安装其它的插件、主题等。地址在<a href="https://github.com/tmux-plugins/tpm">这里</a>。</p>
-<ol>
-<li>安装<code>tpm</code>：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在<code>.tmux.conf</code>中加入下面内容：</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># change PREFIX from CTRL+B to CTRL+S</span><br><span class="line">set -g prefix C-s   ## 更改引导键，使用ctrl+s替代默认的ctrl+b</span><br><span class="line"></span><br><span class="line"># Use vim key binding</span><br><span class="line">setw -g mode-keys vi    ## 默认是使用emacs的按键绑定</span><br><span class="line"></span><br><span class="line">## 使用prefix + h/j/k/l在不同的pane间切换</span><br><span class="line">bind-key h select-pane -L</span><br><span class="line">bind-key j select-pane -D</span><br><span class="line">bind-key k select-pane -U</span><br><span class="line">bind-key l select-pane -R</span><br><span class="line"></span><br><span class="line">set-option -g mouse on  #启用鼠标支持</span><br><span class="line"></span><br><span class="line"># List of plugins</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tpm&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-sensible&#x27;</span><br><span class="line"></span><br><span class="line"># dracula theme for tmux</span><br><span class="line">## install dracula theme</span><br><span class="line">set -g @plugin &#x27;dracula/tmux&#x27;</span><br><span class="line">## dracula theme config</span><br><span class="line">set -g @dracula-plugins &quot;ssh-session cpu-usage ram-usage time&quot;  #状态栏显示的内容</span><br><span class="line">set -g @dracula-show-flags true </span><br><span class="line">set -g @dracula-show-left-icon session  # 最左侧的图标显示当前tmux session名称</span><br><span class="line">set -g @dracula-show-powerline true # 显示powerline,更美观</span><br><span class="line">set -g @dracula-time-format &quot;%F %R&quot; # 时间格式 </span><br><span class="line"></span><br><span class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span><br><span class="line">run &#x27;~/.tmux/plugins/tpm/tpm&#x27;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>新建一个<code>tmux</code>会话<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
-然后按下<code>prefix</code>+<code>I</code>(注意，是大写的i),来安装所有插件。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>tmux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pyenv实践应用</title>
-    <url>/posts/4f368fa1.html</url>
-    <content><![CDATA[<h2 id="使用global实现python版本自动选择"><a href="#使用global实现python版本自动选择" class="headerlink" title="使用global实现python版本自动选择"></a>使用global实现python版本自动选择</h2><ol>
-<li><p>分别为python2和python3创建2个虚拟环境，例如<code>py2</code>和<code>py3</code></p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">2</span>.<span class="number">7</span>.<span class="number">16</span> py2</span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">7</span>.<span class="number">4</span> py3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把<code>py2</code>和<code>py3</code>设置为<code>global</code></p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">pyenv <span class="keyword">global</span> <span class="keyword">py3</span> py2</span><br></pre></td></tr></table></figure>
-<p>如此设置后，当有应用需要用到python时，会先从<code>py3</code>里查找相关库和应用，如果找不到，会继续查找<code>py2</code>里的。变相实现了python版本自动选择。</p>
-</li>
-</ol>
-<h2 id="使用local实现虚拟环境自动切换"><a href="#使用local实现虚拟环境自动切换" class="headerlink" title="使用local实现虚拟环境自动切换"></a>使用local实现虚拟环境自动切换</h2><p>以<code>sd-webui</code>为例，它要求的python版本是3.10.6</p>
-<ol>
-<li><p>安装和创建python 3.10.6的虚拟环境</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> install <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span></span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span> sd-webui</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建一个目录，名称随意，比如<code>sd-webui</code>，然后指定此目录下使用的python虚拟环境是sd-webui,也就是python 3.10.6版本。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> sd-webui</span><br><span class="line">pyenv <span class="built_in">local</span> sd-webui</span><br></pre></td></tr></table></figure>
-<p>如此设置后，只要进入<code>sd-webui</code>目录，就会自动切换到<code>sd-webui</code>这个python虚拟环境，省去了手动进入虚拟环境的步骤。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyenv</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>opensuse的一些回忆和体验</title>
     <url>/posts/9f386ded.html</url>
     <content><![CDATA[<p><code>opensuse</code>在我心目中，一直是一个非常特别的发行版。</p>
@@ -672,6 +626,69 @@
       </categories>
       <tags>
         <tag>opensuse</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pyenv实践应用</title>
+    <url>/posts/4f368fa1.html</url>
+    <content><![CDATA[<h2 id="使用global实现python版本自动选择"><a href="#使用global实现python版本自动选择" class="headerlink" title="使用global实现python版本自动选择"></a>使用global实现python版本自动选择</h2><ol>
+<li><p>分别为python2和python3创建2个虚拟环境，例如<code>py2</code>和<code>py3</code></p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">2</span>.<span class="number">7</span>.<span class="number">16</span> py2</span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">7</span>.<span class="number">4</span> py3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把<code>py2</code>和<code>py3</code>设置为<code>global</code></p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">pyenv <span class="keyword">global</span> <span class="keyword">py3</span> py2</span><br></pre></td></tr></table></figure>
+<p>如此设置后，当有应用需要用到python时，会先从<code>py3</code>里查找相关库和应用，如果找不到，会继续查找<code>py2</code>里的。变相实现了python版本自动选择。</p>
+</li>
+</ol>
+<h2 id="使用local实现虚拟环境自动切换"><a href="#使用local实现虚拟环境自动切换" class="headerlink" title="使用local实现虚拟环境自动切换"></a>使用local实现虚拟环境自动切换</h2><p>以<code>sd-webui</code>为例，它要求的python版本是3.10.6</p>
+<ol>
+<li><p>安装和创建python 3.10.6的虚拟环境</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pyenv</span> install <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span></span><br><span class="line"><span class="attribute">pyenv</span> virtualenv <span class="number">3</span>.<span class="number">10</span>.<span class="number">6</span> sd-webui</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个目录，名称随意，比如<code>sd-webui</code>，然后指定此目录下使用的python虚拟环境是sd-webui,也就是python 3.10.6版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> sd-webui</span><br><span class="line">pyenv <span class="built_in">local</span> sd-webui</span><br></pre></td></tr></table></figure>
+<p>如此设置后，只要进入<code>sd-webui</code>目录，就会自动切换到<code>sd-webui</code>这个python虚拟环境，省去了手动进入虚拟环境的步骤。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tmux安装和设置</title>
+    <url>/posts/8e710f05.html</url>
+    <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
+<p><code>tmux</code>设置完成后，完全可以把远程服务器当成本地电脑来使用。<code>ssh</code>登录到远程Linux服务器后，进行调试、维护、开发等工作非常方便。</p>
+<p><code>tmux</code>有<code>引导键</code>(<code>prefix</code>)的概念，默认的<code>引导键</code>是<code>CTRL</code>+<code>b</code>。即需要先按下<code>CTRL</code>+<code>b</code>，再按其它按键来执行<code>tmux</code>的一些操作。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>各大linux发行版软件仓库里自带，目前最新版本是3.0a。</p>
+<p>在<code>debian</code>下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在用户主目录<code>~</code>下新建一个<code>.tmux.conf</code>文件，这也是<code>tmux</code>默认的配置文件。</p>
+<h3 id="安装tpm插件管理器"><a href="#安装tpm插件管理器" class="headerlink" title="安装tpm插件管理器"></a>安装<code>tpm</code>插件管理器</h3><p><code>tpm</code>是<code>tmux</code>的插件管理器，用来安装其它的插件、主题等。地址在<a href="https://github.com/tmux-plugins/tpm">这里</a>。</p>
+<ol>
+<li>安装<code>tpm</code>：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在<code>.tmux.conf</code>中加入下面内容：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># change PREFIX from CTRL+B to CTRL+S</span><br><span class="line">set -g prefix C-s   ## 更改引导键，使用ctrl+s替代默认的ctrl+b</span><br><span class="line"></span><br><span class="line"># Use vim key binding</span><br><span class="line">setw -g mode-keys vi    ## 默认是使用emacs的按键绑定</span><br><span class="line"></span><br><span class="line">## 使用prefix + h/j/k/l在不同的pane间切换</span><br><span class="line">bind-key h select-pane -L</span><br><span class="line">bind-key j select-pane -D</span><br><span class="line">bind-key k select-pane -U</span><br><span class="line">bind-key l select-pane -R</span><br><span class="line"></span><br><span class="line">set-option -g mouse on  #启用鼠标支持</span><br><span class="line"></span><br><span class="line"># List of plugins</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tpm&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-sensible&#x27;</span><br><span class="line"></span><br><span class="line"># dracula theme for tmux</span><br><span class="line">## install dracula theme</span><br><span class="line">set -g @plugin &#x27;dracula/tmux&#x27;</span><br><span class="line">## dracula theme config</span><br><span class="line">set -g @dracula-plugins &quot;ssh-session cpu-usage ram-usage time&quot;  #状态栏显示的内容</span><br><span class="line">set -g @dracula-show-flags true </span><br><span class="line">set -g @dracula-show-left-icon session  # 最左侧的图标显示当前tmux session名称</span><br><span class="line">set -g @dracula-show-powerline true # 显示powerline,更美观</span><br><span class="line">set -g @dracula-time-format &quot;%F %R&quot; # 时间格式 </span><br><span class="line"></span><br><span class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span><br><span class="line">run &#x27;~/.tmux/plugins/tpm/tpm&#x27;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>新建一个<code>tmux</code>会话<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
+然后按下<code>prefix</code>+<code>I</code>(注意，是大写的i),来安装所有插件。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>tmux</tag>
       </tags>
   </entry>
   <entry>
