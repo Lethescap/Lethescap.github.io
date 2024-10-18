@@ -20,30 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lethescap.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应 简单来说，就是在edge里，当页面上&#x2F;下滚动结束时，并不会立即停止，而是再滑动那么一下，并没有chrome里那种“跟手感”。 而造成的后果就是，我的眼睛感觉都要被晃花了，非常难受。 edge提供了修改方式，可以改成跟chrome一样的滚动模式。 修改方法在地址栏里输入edge:&#x2F;&#x2F;flags,搜索Window">
+    <meta name="description" content="前言MacOS自带的输入法，最常用的无过于拼音和五笔。 目前来看，拼音输入法占据了绝对的主流，而且MacOS自带的拼音输入法做得也相当不错了，完全不需要再安装第三方的拼音输入法。 但是，本人使用的是五笔。MacOS自带的五笔怎么评价呢？也就是能打个字的水平吧。 长久以来，本人在Mac下一直使用的是清歌输入法，这个输入法完美的适配本人的使用习惯。但是清歌输入法已经很久没有更新了，在最新的MacOS1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改Edge浏览器的页面滚动模式">
-<meta property="og:url" content="https://lethescap.com/posts/b2d3978.html">
+<meta property="og:title" content="Mac下的五笔输入法-RIME">
+<meta property="og:url" content="https://lethescap.com/posts/8fa6bbd5.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应 简单来说，就是在edge里，当页面上&#x2F;下滚动结束时，并不会立即停止，而是再滑动那么一下，并没有chrome里那种“跟手感”。 而造成的后果就是，我的眼睛感觉都要被晃花了，非常难受。 edge提供了修改方式，可以改成跟chrome一样的滚动模式。 修改方法在地址栏里输入edge:&#x2F;&#x2F;flags,搜索Window">
+<meta property="og:description" content="前言MacOS自带的输入法，最常用的无过于拼音和五笔。 目前来看，拼音输入法占据了绝对的主流，而且MacOS自带的拼音输入法做得也相当不错了，完全不需要再安装第三方的拼音输入法。 但是，本人使用的是五笔。MacOS自带的五笔怎么评价呢？也就是能打个字的水平吧。 长久以来，本人在Mac下一直使用的是清歌输入法，这个输入法完美的适配本人的使用习惯。但是清歌输入法已经很久没有更新了，在最新的MacOS1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%A8%A1%E5%BC%8F_091007.png">
-<meta property="article:published_time" content="2024-01-04T00:58:35.000Z">
+<meta property="article:published_time" content="2024-10-18T01:14:02.000Z">
 <meta property="article:modified_time" content="2024-10-18T07:41:07.658Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="Edge">
+<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="RIME">
+<meta property="article:tag" content="输入法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lethescap.com/images/%E4%BF%AE%E6%94%B9Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%A8%A1%E5%BC%8F_091007.png">
 
 
-<link rel="canonical" href="https://lethescap.com/posts/b2d3978.html">
+<link rel="canonical" href="https://lethescap.com/posts/8fa6bbd5.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/b2d3978.html","path":"posts/b2d3978.html","title":"修改Edge浏览器的页面滚动模式"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lethescap.com/posts/8fa6bbd5.html","path":"posts/8fa6bbd5.html","title":"Mac下的五笔输入法-RIME"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>修改Edge浏览器的页面滚动模式 | 寂静·流年</title>
+<title>Mac下的五笔输入法-RIME | 寂静·流年</title>
   
 
 
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">修改方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">3.</span> <span class="nav-text">同步</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -194,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/b2d3978.html">
+    <link itemprop="mainEntityOfPage" href="https://lethescap.com/posts/8fa6bbd5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -207,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="修改Edge浏览器的页面滚动模式 | 寂静·流年">
+      <meta itemprop="name" content="Mac下的五笔输入法-RIME | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          修改Edge浏览器的页面滚动模式
+          Mac下的五笔输入法-RIME
         </h1>
 
         <div class="post-meta-container">
@@ -222,15 +222,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-04 08:58:35" itemprop="dateCreated datePublished" datetime="2024-01-04T08:58:35+08:00">2024-01-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-18 15:41:07" itemprop="dateModified" datetime="2024-10-18T15:41:07+08:00">2024-10-18</time>
+      <time title="创建时间：2024-10-18 09:14:02 / 修改时间：15:41:07" itemprop="dateCreated datePublished" datetime="2024-10-18T09:14:02+08:00">2024-10-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,11 +245,19 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应</p>
-<p>简单来说，就是在edge里，当页面上&#x2F;下滚动结束时，并不会立即停止，而是再滑动那么一下，并没有chrome里那种“跟手感”。</p>
-<p>而造成的后果就是，我的眼睛感觉都要被晃花了，非常难受。</p>
-<p>edge提供了修改方式，可以改成跟chrome一样的滚动模式。</p>
-<h2 id="修改方法"><a href="#修改方法" class="headerlink" title="修改方法"></a>修改方法</h2><p>在地址栏里输入<code>edge://flags</code>,搜索<code>Windows Scrolling Personality</code>，把它的值从<code>Default</code>改成<code>Disabled</code>即可。<br><img src="/../images/%E4%BF%AE%E6%94%B9Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%A8%A1%E5%BC%8F_091007.png"></p>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MacOS自带的输入法，最常用的无过于拼音和五笔。</p>
+<p>目前来看，拼音输入法占据了绝对的主流，而且MacOS自带的拼音输入法做得也相当不错了，完全不需要再安装第三方的拼音输入法。</p>
+<p>但是，本人使用的是五笔。MacOS自带的五笔怎么评价呢？也就是能打个字的水平吧。</p>
+<p>长久以来，本人在Mac下一直使用的是<code>清歌输入法</code>，这个输入法完美的适配本人的使用习惯。但是清歌输入法已经很久没有更新了，在最新的MacOS13和14代系统上使用，有一些bug，还挺烦人的。</p>
+<p>当然也有其他大厂出品的五笔输入法，比如<code>百度五笔</code>。如果不关注隐私问题的话，我还挺推荐百度五笔输入法的。联网词库、在线同步、皮肤、指定程序使用英文、使用习惯等功能都很齐全，日常使用和windows下没什么区别。</p>
+<p>不过Mac下的五笔输入法有更好的选择，那就是<code>RIME</code>。</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>RIME 这个输入法是跨平台的开源软件，三大PC操作系统都可用。虽然功能相同，但是中文名字不一样，Mac下的名字叫<code>鼠须管</code>。</p>
+<p>如果用房子来形容这个<code>RIME</code>输入法，我会叫它毛胚房。它的主程序功能异常简陋，如果不自己做一些配置，类似于房子精装修，那基本就是不可用的状态。但好就好在它是个开源软件，Github上有现成的配置文件，类似于有个老师傅已经精装好了，你直接拿过来用就可以达到一样的效果。</p>
+<p>这个配置文件的地址在：<a target="_blank" rel="noopener" href="https://github.com/KyleBing/rime-wubi86-jidian">https://github.com/KyleBing/rime-wubi86-jidian</a>。</p>
+<p>此配置的默认皮肤界面非常符合我的审美，不需要再改动了。在使用习惯的设置上也基本与我平时一样，只需要改动很小一部分配置就可以，几行代码的事。</p>
+<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p><code>RIME</code>是没有同步功能的，不过可以通过<code>resilio</code>达到一样的效果。</p>
+<p>本人有NAS，在NAS上安装了<code>resilio</code>，同时使用<code>zerotier</code>实现不同电脑的互联功能。</p>
+<p>通过这种方式，把RIME的配置文件放在resilio的一个文件夹里。然后在不同的操作系统上做软链接。这样就达到了“一次修改，各电脑可用”的效果。等于是实现了同步功能。</p>
 
     </div>
 
@@ -273,7 +275,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://lethescap.com/posts/b2d3978.html" title="修改Edge浏览器的页面滚动模式">https://lethescap.com/posts/b2d3978.html</a>
+      <a href="https://lethescap.com/posts/8fa6bbd5.html" title="Mac下的五笔输入法-RIME">https://lethescap.com/posts/8fa6bbd5.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -282,21 +284,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Edge/" rel="tag"><i class="fa fa-tag"></i> Edge</a>
+              <a href="/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
+              <a href="/tags/RIME/" rel="tag"><i class="fa fa-tag"></i> RIME</a>
+              <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 输入法</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/69ce0e48.html" rel="prev" title="Windows11恢复成win10右键菜单">
-                  <i class="fa fa-angle-left"></i> Windows11恢复成win10右键菜单
+                <a href="/posts/1f130e88.html" rel="prev" title="关闭MacOS的Microsoft AutoUpdate弹框">
+                  <i class="fa fa-angle-left"></i> 关闭MacOS的Microsoft AutoUpdate弹框
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/949a183a.html" rel="next" title="我的数据备份方案">
-                  我的数据备份方案 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
