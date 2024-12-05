@@ -203,6 +203,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下删除vmware workstation</title>
+    <url>/posts/4a4c5348.html</url>
+    <content><![CDATA[<p>这里以ubuntu为例</p>
+<p>首先切换到root用户</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后执行下面命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux下更改用户目录为英文名称</title>
     <url>/posts/4ad8d8d7.html</url>
     <content><![CDATA[<p>安装<code>xdg-user-dirs-gtk</code>这个软件。</p>
@@ -326,6 +342,11 @@
         <tag>RIME</tag>
         <tag>输入法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>PVE 8.2启用Intel 12代CPU的显卡虚拟化</title>
+    <url>/posts/ae02d3ca.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Ubuntu 24.04安装Docker</title>
