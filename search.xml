@@ -344,11 +344,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PVE 8.2启用Intel 12代CPU的显卡虚拟化</title>
-    <url>/posts/ae02d3ca.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
