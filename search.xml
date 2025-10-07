@@ -203,22 +203,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux下删除vmware workstation</title>
-    <url>/posts/4a4c5348.html</url>
-    <content><![CDATA[<p>这里以ubuntu为例</p>
-<p>首先切换到root用户</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后执行下面命令：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>vmware</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux下更改用户目录为英文名称</title>
     <url>/posts/4ad8d8d7.html</url>
     <content><![CDATA[<p>安装<code>xdg-user-dirs-gtk</code>这个软件。</p>
@@ -237,6 +221,22 @@
       <tags>
         <tag>linux</tag>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下删除vmware workstation</title>
+    <url>/posts/4a4c5348.html</url>
+    <content><![CDATA[<p>这里以ubuntu为例</p>
+<p>首先切换到root用户</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后执行下面命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -259,7 +259,9 @@
   <entry>
     <title>Linux使用sudo无需密码设置</title>
     <url>/posts/fb478fc.html</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;`whoami` ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo <span class="built_in">tee</span> <span class="string">&quot;/etc/sudoers.d/dont-prompt-<span class="variable">$USER</span>-for-sudo-password&quot;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>在个人电脑上使用linux，为了方便，可以设置成在输入sudo时不需要输入密码，这样可以大幅度提高效率。</p>
+<p>方法很简单，运行下面命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;`whoami` ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo <span class="built_in">tee</span> <span class="string">&quot;/etc/sudoers.d/dont-prompt-<span class="variable">$USER</span>-for-sudo-password&quot;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>操作系统</category>
@@ -1076,6 +1078,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
+    <url>/posts/4a671491.html</url>
+    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
+<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
+<p>可以通过指定架构的方式把它取消掉</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
+<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
+<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的数据备份方案</title>
     <url>/posts/949a183a.html</url>
     <content><![CDATA[<p>写这篇文章时，就已经感觉到这可能是我数据备份方式的一个里程碑式的事件。</p>
@@ -1144,26 +1166,6 @@
       <tags>
         <tag>NAS</tag>
         <tag>硬盘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
-    <url>/posts/4a671491.html</url>
-    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
-<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
-<p>可以通过指定架构的方式把它取消掉</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
-<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
-<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>apt</tag>
       </tags>
   </entry>
   <entry>
