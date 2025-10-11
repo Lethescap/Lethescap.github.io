@@ -121,37 +121,6 @@
       </tags>
   </entry>
   <entry>
-    <title>KDE桌面环境安装xrdp远程桌面</title>
-    <url>/posts/aee8cff7.html</url>
-    <content><![CDATA[<p>本文适用于使用 <code>kde</code> 桌面环境的 <code>deb</code> 系linux发行版。原文链接<a href="https://pilabor.com/blog/2021/05/remote-desktop-with-xrdp-and-kubuntu/">在此</a></p>
-<h2 id="install-xrdp-service"><a href="#install-xrdp-service" class="headerlink" title="install xrdp service"></a>install xrdp service</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> -y xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="fix-black-cursor-bug"><a href="#fix-black-cursor-bug" class="headerlink" title="fix black cursor bug"></a>fix black cursor bug</h2><figure class="highlight sml"><table><tr><td class="code"><pre><span class="line">sudo sed -e <span class="symbol">&#x27;s</span>/^new_cursors=<span class="literal">true</span>/new_cursors=<span class="literal">false</span>/g&#x27; -i /etc/xrdp/xrdp.ini</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="enable-and-start-xrdp-service"><a href="#enable-and-start-xrdp-service" class="headerlink" title="enable and start xrdp service"></a>enable and start xrdp service</h2><figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">sudo <span class="params">system</span>ctl enable xrdp</span><br><span class="line">sudo <span class="params">system</span>ctl restart xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Set-session-to-plasma"><a href="#Set-session-to-plasma" class="headerlink" title="Set session to plasma"></a>Set session to plasma</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/bin/startplasma-x11&quot;</span> &gt; ~/.xsession</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="store-variables-for-xsessionrc"><a href="#store-variables-for-xsessionrc" class="headerlink" title="store variables for .xsessionrc"></a>store variables for .xsessionrc</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">export D=/usr/share/<span class="symbol">plasma:</span>/usr/local/<span class="symbol">share:</span>/usr/<span class="symbol">share:</span>/var/lib/snapd/desktop</span><br><span class="line">export C=/etc/xdg/xdg-<span class="symbol">plasma:</span>/etc/xdg</span><br><span class="line">export C=<span class="variable">$&#123;</span>C&#125;<span class="symbol">:/usr/share/kubuntu-default-settings/kf5-settings</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; ~/.xsessionrc</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_SESSION_DESKTOP</span>=KDE</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_DATA_DIRS</span>=<span class="variable">$&#123;D&#125;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_CONFIG_DIRS</span>=<span class="variable">$&#123;C&#125;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="fix-“authentication-required”-bug"><a href="#fix-“authentication-required”-bug" class="headerlink" title="fix “authentication required” bug"></a>fix “authentication required” bug</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-NetworkManager.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.NetworkManager.network-control</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-packagekit.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.packagekit.system-sources-refresh</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=auth_admin</span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart polkit</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>kde</tag>
-        <tag>RDP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LinuxMint取消密码回显</title>
     <url>/posts/9be48e85.html</url>
     <content><![CDATA[<p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
@@ -200,21 +169,6 @@
       <tags>
         <tag>RDP</tag>
         <tag>Cinnamon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux下交换ctrl和caps lock</title>
-    <url>/posts/cb13e256.html</url>
-    <content><![CDATA[<p>编辑键盘配置文件</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/X11/</span>xkb<span class="regexp">/keycodes/</span>evdev</span><br></pre></td></tr></table></figure>
-<p>搜索 <CAPS> 和 <LCTL>，交换等号后面的数字：</p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;CAPS&gt; <span class="operator">=</span> <span class="number">37</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;LCTL&gt; <span class="operator">=</span> <span class="number">66</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>keyboard</tag>
       </tags>
   </entry>
   <entry>
@@ -370,6 +324,22 @@
         <tag>MacOS</tag>
         <tag>RIME</tag>
         <tag>输入法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenWRT释放DHCP地址</title>
+    <url>/posts/61d9a0e6.html</url>
+    <content><![CDATA[<p>编辑openwrt的dhcp配置文件：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/tmp/</span>dhcp.leases</span><br></pre></td></tr></table></figure>
+
+<p>内容如下：</p>
+<p>把想释放的地址那一行删除后，保存文件，然后重启服务：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span><span class="keyword">init</span>.d<span class="operator">/</span>dnsmasq restart</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -682,8 +652,8 @@
         <category>软件应用</category>
       </categories>
       <tags>
-        <tag>keyboard</tag>
         <tag>vmware</tag>
+        <tag>keyboard</tag>
       </tags>
   </entry>
   <entry>
@@ -832,6 +802,37 @@
       </tags>
   </entry>
   <entry>
+    <title>使用privoxy和trojan来提供https和http代理</title>
+    <url>/posts/6d971d09.html</url>
+    <content><![CDATA[<p>本文适用于linux和macos，这里以macOS为例。</p>
+<p>Trojan只能提供socks5代理，适用性是不如http和https的。可以使用privoxy这个软件，来把socks5代理转换成http和https来使用。<br>还有一个好处，就是可以在zsh等终端里设置代理相关参数，以随时启用。</p>
+<h2 id="一、安装trojan-go"><a href="#一、安装trojan-go" class="headerlink" title="一、安装trojan-go"></a>一、安装trojan-go</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>trojan-go</span><br></pre></td></tr></table></figure>
+
+<p>默认配置文件在<code>/opt/homebrew/etc/trojan-go/config.json</code></p>
+<p>若想正常运行的话，还需要<code>geoip.dat</code>和<code>geosite.dat</code>这2个文件：</p>
+<p><a href="assets/geoip-20250923175403-upnif7s.dat">geoip.dat</a></p>
+<p><a href="assets/geosite-20250923175417-iaclrut.dat">geosite.dat</a></p>
+<h2 id="二、安装privoxy"><a href="#二、安装privoxy" class="headerlink" title="二、安装privoxy"></a>二、安装privoxy</h2><p><code>brew install privoxy</code></p>
+<h2 id="三、修改privoxy配置文件"><a href="#三、修改privoxy配置文件" class="headerlink" title="三、修改privoxy配置文件"></a>三、修改privoxy配置文件</h2><p><code>vi /opt/homebrew/etc/privoxy/config</code></p>
+<h3 id="1、查找listen-address，在794行，改成下面内容："><a href="#1、查找listen-address，在794行，改成下面内容：" class="headerlink" title="1、查找listen-address，在794行，改成下面内容："></a>1、查找<code>listen-address</code>，在<code>794</code>行，改成下面内容：</h3><p><code>listen-address  127.0.0.1:8118</code></p>
+<h3 id="2、查找forward-socks5t，在1455行，去掉注释，改成下面的内容："><a href="#2、查找forward-socks5t，在1455行，去掉注释，改成下面的内容：" class="headerlink" title="2、查找forward-socks5t，在1455行，去掉注释，改成下面的内容："></a>2、查找forward-socks5t，在1455行，去掉注释，改成下面的内容：</h3><p> <code>forward-socks5t   /               127.0.0.1:1080 .</code><br>上面一行的意思是，把地址为127.0.0.1、端口为1080的socks5代理，转发成地址为127.0.0.1端口为8118的http&#x2F;https代理。</p>
+<h3 id="3、启动privoxy服务"><a href="#3、启动privoxy服务" class="headerlink" title="3、启动privoxy服务"></a>3、启动privoxy服务</h3><p><code>brew services start privoxy</code></p>
+<h2 id="四、设置shell代理，此处以zsh为例："><a href="#四、设置shell代理，此处以zsh为例：" class="headerlink" title="四、设置shell代理，此处以zsh为例："></a>四、设置shell代理，此处以zsh为例：</h2><p><code>vi ~/.zshrc</code><br>添加下面内容：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Proxy Setup</span></span><br><span class="line"><span class="keyword">alias</span> spxy=&#x27;export http_proxy=http:<span class="string">//127.0.0.1</span><span class="function">:8118</span>;export https_proxy=http:<span class="string">//127.0.0.1</span><span class="function">:8118</span>;&#x27;</span><br><span class="line"><span class="keyword">alias</span> upxy=&#x27;<span class="keyword">unset</span> http_proxy https_proxy&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>然后保存zsh配置：<br><code>source ~/.zshrc</code><br>当需要在终端下使用代理时，只需要使用stpxy即可启用代理，使用unstpxy取消终端下的代理。</p>
+<p>另：如果privoxy安装在其它电脑上，把上述zsh配置里的127.0.0.1换成对应机器的IP地址即可。</p>
+]]></content>
+      <categories>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>MacOS</tag>
+        <tag>proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改Edge浏览器的页面滚动模式</title>
     <url>/posts/b2d3978.html</url>
     <content><![CDATA[<p>作为多年chrome用户，初次上手edge时，对它默认的页面滚动模式非常不适应</p>
@@ -874,8 +875,8 @@
         <category>操作系统</category>
       </categories>
       <tags>
-        <tag>keyboard</tag>
         <tag>MacOS</tag>
+        <tag>keyboard</tag>
       </tags>
   </entry>
   <entry>
@@ -1192,6 +1193,26 @@
       </tags>
   </entry>
   <entry>
+    <title>让Lightdm的登录界面默认显示用户账号</title>
+    <url>/posts/c0c4bf60.html</url>
+    <content><![CDATA[<p>使用kali的xfce发行版时，发现默认设置下，登录界面不会显示你自己创建的账户。</p>
+<p>类似下面的效果：<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184416.png"></p>
+<p>如此一来，每次登录都得手动填写用户名，挺麻烦的。而我想要实现的效果是：用户名自动填写，密码手动填写。所以这和自动登录设置还是不一样的。</p>
+<p>一番搜索，找到了答案。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>终端下执行下面命令：</p>
+<p><code>sudo vi /etc/lightdm/lightdm.conf</code></p>
+<p>在<code>103</code>左右，取消<code>greeter-hide-users=false</code>的注释:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184448.png"></p>
+<p>保存退出。重启后即可看到效果:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184505.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
+        <tag>xfce</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
     <url>/posts/4a671491.html</url>
     <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
@@ -1212,23 +1233,49 @@
       </tags>
   </entry>
   <entry>
-    <title>让Lightdm的登录界面默认显示用户账号</title>
-    <url>/posts/c0c4bf60.html</url>
-    <content><![CDATA[<p>使用kali的xfce发行版时，发现默认设置下，登录界面不会显示你自己创建的账户。</p>
-<p>类似下面的效果：<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184416.png"></p>
-<p>如此一来，每次登录都得手动填写用户名，挺麻烦的。而我想要实现的效果是：用户名自动填写，密码手动填写。所以这和自动登录设置还是不一样的。</p>
-<p>一番搜索，找到了答案。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>终端下执行下面命令：</p>
-<p><code>sudo vi /etc/lightdm/lightdm.conf</code></p>
-<p>在<code>103</code>左右，取消<code>greeter-hide-users=false</code>的注释:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184448.png"></p>
-<p>保存退出。重启后即可看到效果:<br><img src="/../images/%E8%AE%A9Lightdm%E7%9A%84%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7_184505.png"></p>
+    <title>KDE桌面环境安装xrdp远程桌面</title>
+    <url>/posts/aee8cff7.html</url>
+    <content><![CDATA[<p>本文适用于使用 <code>kde</code> 桌面环境的 <code>deb</code> 系linux发行版。原文链接<a href="https://pilabor.com/blog/2021/05/remote-desktop-with-xrdp-and-kubuntu/">在此</a></p>
+<h2 id="install-xrdp-service"><a href="#install-xrdp-service" class="headerlink" title="install xrdp service"></a>install xrdp service</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> -y xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="fix-black-cursor-bug"><a href="#fix-black-cursor-bug" class="headerlink" title="fix black cursor bug"></a>fix black cursor bug</h2><figure class="highlight sml"><table><tr><td class="code"><pre><span class="line">sudo sed -e <span class="symbol">&#x27;s</span>/^new_cursors=<span class="literal">true</span>/new_cursors=<span class="literal">false</span>/g&#x27; -i /etc/xrdp/xrdp.ini</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="enable-and-start-xrdp-service"><a href="#enable-and-start-xrdp-service" class="headerlink" title="enable and start xrdp service"></a>enable and start xrdp service</h2><figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">sudo <span class="params">system</span>ctl enable xrdp</span><br><span class="line">sudo <span class="params">system</span>ctl restart xrdp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Set-session-to-plasma"><a href="#Set-session-to-plasma" class="headerlink" title="Set session to plasma"></a>Set session to plasma</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/bin/startplasma-x11&quot;</span> &gt; ~/.xsession</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="store-variables-for-xsessionrc"><a href="#store-variables-for-xsessionrc" class="headerlink" title="store variables for .xsessionrc"></a>store variables for .xsessionrc</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">export D=/usr/share/<span class="symbol">plasma:</span>/usr/local/<span class="symbol">share:</span>/usr/<span class="symbol">share:</span>/var/lib/snapd/desktop</span><br><span class="line">export C=/etc/xdg/xdg-<span class="symbol">plasma:</span>/etc/xdg</span><br><span class="line">export C=<span class="variable">$&#123;</span>C&#125;<span class="symbol">:/usr/share/kubuntu-default-settings/kf5-settings</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; ~/.xsessionrc</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_SESSION_DESKTOP</span>=KDE</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_DATA_DIRS</span>=<span class="variable">$&#123;D&#125;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">XDG_CONFIG_DIRS</span>=<span class="variable">$&#123;C&#125;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="fix-“authentication-required”-bug"><a href="#fix-“authentication-required”-bug" class="headerlink" title="fix “authentication required” bug"></a>fix “authentication required” bug</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-NetworkManager.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.NetworkManager.network-control</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | \</span><br><span class="line">  sudo tee /etc/polkit-1/localauthority/50-local.d/xrdp-packagekit.pkla</span><br><span class="line">[Netowrkmanager]</span><br><span class="line"><span class="attribute">Identity</span>=unix-group:sudo</span><br><span class="line"><span class="attribute">Action</span>=org.freedesktop.packagekit.system-sources-refresh</span><br><span class="line"><span class="attribute">ResultAny</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">ResultInactive</span>=auth_admin</span><br><span class="line"><span class="attribute">ResultActive</span>=<span class="literal">yes</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart polkit</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
       <tags>
-        <tag>kali</tag>
-        <tag>xfce</tag>
+        <tag>RDP</tag>
+        <tag>linux</tag>
+        <tag>kde</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下交换ctrl和caps lock</title>
+    <url>/posts/cb13e256.html</url>
+    <content><![CDATA[<p>编辑键盘配置文件</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/X11/</span>xkb<span class="regexp">/keycodes/</span>evdev</span><br></pre></td></tr></table></figure>
+<p>搜索 <CAPS> 和 <LCTL>，交换等号后面的数字：</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;CAPS&gt; <span class="operator">=</span> <span class="number">37</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;LCTL&gt; <span class="operator">=</span> <span class="number">66</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>keyboard</tag>
       </tags>
   </entry>
 </search>
