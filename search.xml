@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Thinkpad X1 Carbon Gen 8使用体验</title>
-    <url>/posts/324d5a02.html</url>
-    <content><![CDATA[<p>2025年8月25日，花2500元在闲鱼上买了台<code>Thinkpad X1 Carbon Gen 8</code>（2019款）。</p>
-<p>买这台笔记本的原因有：</p>
-<ol>
-<li>轻。整机不含电源才1.1kg，和macbook air 13寸基本一致。</li>
-<li>4k屏。4k27寸的显示器已经很细腻了；4k 14寸的屏幕细腻感，简直不敢想像。</li>
-</ol>
-<h2 id="操作系统选择"><a href="#操作系统选择" class="headerlink" title="操作系统选择"></a>操作系统选择</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>Windows 11是不考虑的，直接安装windows 10 ltsc 2021。</p>
-<p>在用过一段时间后发现，随着安装的软件增多，操作延迟、反应慢的问题越来越严重。</p>
-<p>与此同时，在使用过程中发现，14 寸4k屏幕的字体在Windows下的观感并不好。</p>
-<p>字体总体效果是很清晰，但是锐利感太重，字体太<code>薄</code>了。</p>
-<p>于是决定换linux试试。</p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>经过尝试各种linux发行版，终于找到了最适配这么笔记本的linux发行版——<code>Linuxmint 22.2 xfce</code>。</p>
-]]></content>
-      <categories>
-        <category>硬件设备</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>thinkpad</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Dell R730XD调整风扇转速</title>
     <url>/posts/f76d94ce.html</url>
     <content><![CDATA[<p>今年7月份，买了台Dell R730XD的服务器搞Homelab。</p>
@@ -379,6 +355,34 @@
         <tag>MacOS</tag>
         <tag>RIME</tag>
         <tag>输入法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Thinkpad X1 Carbon Gen 8使用体验</title>
+    <url>/posts/324d5a02.html</url>
+    <content><![CDATA[<p>2025年8月25日，花2500元在闲鱼上买了台<code>Thinkpad X1 Carbon Gen 8</code>（2019款）。</p>
+<p>买这台笔记本的原因有：</p>
+<ol>
+<li>轻。整机不含电源才1.1kg，和macbook air 13寸基本一致。</li>
+<li>4k屏。4k27寸的显示器已经很细腻了；4k 14寸的屏幕细腻感，简直不敢想像。</li>
+</ol>
+<h2 id="操作系统选择"><a href="#操作系统选择" class="headerlink" title="操作系统选择"></a>操作系统选择</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>Windows 11是不考虑的，直接安装windows 10 ltsc 2021。</p>
+<p>在用过一段时间后发现，随着安装的软件增多，操作延迟、反应慢的问题越来越严重。</p>
+<p>与此同时，在使用过程中发现，14 寸4k屏幕的字体在Windows下的观感并不好。</p>
+<p>字体总体效果是很清晰，但是锐利感太重，字体太<code>薄</code>了。</p>
+<p>于是决定换linux试试。</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>经过尝试各种linux发行版，终于找到了最适配这么笔记本的linux发行版——<code>Linuxmint 22.2 xfce</code>。</p>
+<p>在linuxmint 22.2 xfce里，把分辨率设置成1920x1080,相当于200%的缩放，字体换成华为的Harmony字体，字号设置成12号。</p>
+<p>这样设置后，字体有种朦胧的清晰感，字体饱满，颜色对比度好，UI缩放也合适。</p>
+<p>整个系统的负载相当的低，操作也很跟手，系统毫无迟滞感。</p>
+<p>说Thinkpad是对Linux最友好的笔记本，一点也不为过。</p>
+]]></content>
+      <categories>
+        <category>硬件设备</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>thinkpad</tag>
       </tags>
   </entry>
   <entry>
@@ -740,6 +744,38 @@
       </tags>
   </entry>
   <entry>
+    <title>tmux安装和设置</title>
+    <url>/posts/8e710f05.html</url>
+    <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
+<p><code>tmux</code>设置完成后，完全可以把远程服务器当成本地电脑来使用。<code>ssh</code>登录到远程Linux服务器后，进行调试、维护、开发等工作非常方便。</p>
+<p><code>tmux</code>有<code>引导键</code>(<code>prefix</code>)的概念，默认的<code>引导键</code>是<code>CTRL</code>+<code>b</code>。即需要先按下<code>CTRL</code>+<code>b</code>，再按其它按键来执行<code>tmux</code>的一些操作。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>各大linux发行版软件仓库里自带，目前最新版本是3.0a。</p>
+<p>在<code>debian</code>下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在用户主目录<code>~</code>下新建一个<code>.tmux.conf</code>文件，这也是<code>tmux</code>默认的配置文件。</p>
+<h3 id="安装tpm插件管理器"><a href="#安装tpm插件管理器" class="headerlink" title="安装tpm插件管理器"></a>安装<code>tpm</code>插件管理器</h3><p><code>tpm</code>是<code>tmux</code>的插件管理器，用来安装其它的插件、主题等。地址在<a href="https://github.com/tmux-plugins/tpm">这里</a>。</p>
+<ol>
+<li>安装<code>tpm</code>：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在<code>.tmux.conf</code>中加入下面内容：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># change PREFIX from CTRL+B to CTRL+S</span><br><span class="line">set -g prefix C-s   ## 更改引导键，使用ctrl+s替代默认的ctrl+b</span><br><span class="line"></span><br><span class="line"># Use vim key binding</span><br><span class="line">setw -g mode-keys vi    ## 默认是使用emacs的按键绑定</span><br><span class="line"></span><br><span class="line">## 使用prefix + h/j/k/l在不同的pane间切换</span><br><span class="line">bind-key h select-pane -L</span><br><span class="line">bind-key j select-pane -D</span><br><span class="line">bind-key k select-pane -U</span><br><span class="line">bind-key l select-pane -R</span><br><span class="line"></span><br><span class="line">set-option -g mouse on  #启用鼠标支持</span><br><span class="line"></span><br><span class="line"># List of plugins</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tpm&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-sensible&#x27;</span><br><span class="line"></span><br><span class="line"># dracula theme for tmux</span><br><span class="line">## install dracula theme</span><br><span class="line">set -g @plugin &#x27;dracula/tmux&#x27;</span><br><span class="line">## dracula theme config</span><br><span class="line">set -g @dracula-plugins &quot;ssh-session cpu-usage ram-usage time&quot;  #状态栏显示的内容</span><br><span class="line">set -g @dracula-show-flags true </span><br><span class="line">set -g @dracula-show-left-icon session  # 最左侧的图标显示当前tmux session名称</span><br><span class="line">set -g @dracula-show-powerline true # 显示powerline,更美观</span><br><span class="line">set -g @dracula-time-format &quot;%F %R&quot; # 时间格式 </span><br><span class="line"></span><br><span class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span><br><span class="line">run &#x27;~/.tmux/plugins/tpm/tpm&#x27;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>新建一个<code>tmux</code>会话<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
+然后按下<code>prefix</code>+<code>I</code>(注意，是大写的i),来安装所有插件。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>tmux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu24.04安装nvidia cuda和cudnn</title>
     <url>/posts/14b7f016.html</url>
     <content><![CDATA[<p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时报错:</p>
@@ -778,38 +814,6 @@
         <tag>nvidia</tag>
         <tag>cuda</tag>
         <tag>cudnn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tmux安装和设置</title>
-    <url>/posts/8e710f05.html</url>
-    <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
-<p><code>tmux</code>设置完成后，完全可以把远程服务器当成本地电脑来使用。<code>ssh</code>登录到远程Linux服务器后，进行调试、维护、开发等工作非常方便。</p>
-<p><code>tmux</code>有<code>引导键</code>(<code>prefix</code>)的概念，默认的<code>引导键</code>是<code>CTRL</code>+<code>b</code>。即需要先按下<code>CTRL</code>+<code>b</code>，再按其它按键来执行<code>tmux</code>的一些操作。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>各大linux发行版软件仓库里自带，目前最新版本是3.0a。</p>
-<p>在<code>debian</code>下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在用户主目录<code>~</code>下新建一个<code>.tmux.conf</code>文件，这也是<code>tmux</code>默认的配置文件。</p>
-<h3 id="安装tpm插件管理器"><a href="#安装tpm插件管理器" class="headerlink" title="安装tpm插件管理器"></a>安装<code>tpm</code>插件管理器</h3><p><code>tpm</code>是<code>tmux</code>的插件管理器，用来安装其它的插件、主题等。地址在<a href="https://github.com/tmux-plugins/tpm">这里</a>。</p>
-<ol>
-<li>安装<code>tpm</code>：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在<code>.tmux.conf</code>中加入下面内容：</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># change PREFIX from CTRL+B to CTRL+S</span><br><span class="line">set -g prefix C-s   ## 更改引导键，使用ctrl+s替代默认的ctrl+b</span><br><span class="line"></span><br><span class="line"># Use vim key binding</span><br><span class="line">setw -g mode-keys vi    ## 默认是使用emacs的按键绑定</span><br><span class="line"></span><br><span class="line">## 使用prefix + h/j/k/l在不同的pane间切换</span><br><span class="line">bind-key h select-pane -L</span><br><span class="line">bind-key j select-pane -D</span><br><span class="line">bind-key k select-pane -U</span><br><span class="line">bind-key l select-pane -R</span><br><span class="line"></span><br><span class="line">set-option -g mouse on  #启用鼠标支持</span><br><span class="line"></span><br><span class="line"># List of plugins</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tpm&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-sensible&#x27;</span><br><span class="line"></span><br><span class="line"># dracula theme for tmux</span><br><span class="line">## install dracula theme</span><br><span class="line">set -g @plugin &#x27;dracula/tmux&#x27;</span><br><span class="line">## dracula theme config</span><br><span class="line">set -g @dracula-plugins &quot;ssh-session cpu-usage ram-usage time&quot;  #状态栏显示的内容</span><br><span class="line">set -g @dracula-show-flags true </span><br><span class="line">set -g @dracula-show-left-icon session  # 最左侧的图标显示当前tmux session名称</span><br><span class="line">set -g @dracula-show-powerline true # 显示powerline,更美观</span><br><span class="line">set -g @dracula-time-format &quot;%F %R&quot; # 时间格式 </span><br><span class="line"></span><br><span class="line"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span><br><span class="line">run &#x27;~/.tmux/plugins/tpm/tpm&#x27;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>新建一个<code>tmux</code>会话<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
-然后按下<code>prefix</code>+<code>I</code>(注意，是大写的i),来安装所有插件。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>tmux</tag>
       </tags>
   </entry>
   <entry>
@@ -1008,6 +1012,43 @@
       </tags>
   </entry>
   <entry>
+    <title>在vscode里配置hexo粘贴图片</title>
+    <url>/posts/8e4647c9.html</url>
+    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
+<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
+<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
+<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
+<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
+<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
+<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
+<p>有两种设置方式：</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
+<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
+<ul>
+<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
+<li>自动在博客里插入图片链接</li>
+<li>插入的图片名称是当前文章名+插入时间。</li>
+</ul>
+<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
+<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
+<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
+<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
+<p>非常的方便和流畅。</p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>成都印象</title>
     <url>/posts/33049aaa.html</url>
     <content><![CDATA[<blockquote>
@@ -1062,43 +1103,6 @@
       </categories>
       <tags>
         <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在vscode里配置hexo粘贴图片</title>
-    <url>/posts/8e4647c9.html</url>
-    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
-<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
-<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
-<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
-<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
-<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
-<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
-<p>有两种设置方式：</p>
-<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
-<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
-<ul>
-<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
-<li>自动在博客里插入图片链接</li>
-<li>插入的图片名称是当前文章名+插入时间。</li>
-</ul>
-<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
-<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
-<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
-<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
-<p>非常的方便和流畅。</p>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>vscode</tag>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
