@@ -203,6 +203,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下交换ctrl和caps lock</title>
+    <url>/posts/cb13e256.html</url>
+    <content><![CDATA[<p>编辑键盘配置文件</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/X11/</span>xkb<span class="regexp">/keycodes/</span>evdev</span><br></pre></td></tr></table></figure>
+<p>搜索 <CAPS> 和 <LCTL>，交换等号后面的数字：</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;CAPS&gt; <span class="operator">=</span> <span class="number">37</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;LCTL&gt; <span class="operator">=</span> <span class="number">66</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>keyboard</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux下删除vmware workstation</title>
     <url>/posts/4a4c5348.html</url>
     <content><![CDATA[<p>这里以ubuntu为例</p>
@@ -667,8 +682,8 @@
         <category>软件应用</category>
       </categories>
       <tags>
-        <tag>vmware</tag>
         <tag>keyboard</tag>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -859,8 +874,8 @@
         <category>操作系统</category>
       </categories>
       <tags>
-        <tag>MacOS</tag>
         <tag>keyboard</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
