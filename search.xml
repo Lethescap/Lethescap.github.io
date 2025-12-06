@@ -417,6 +417,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu24.04安装Temurin JDK</title>
+    <url>/posts/e63027c0.html</url>
+    <content><![CDATA[<p>以下命令来自官方，需要使用root身份</p>
+<h2 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">apt</span> install -y wget apt-trans<span class="keyword">port</span>-https gpg</span><br></pre></td></tr></table></figure>
+<h2 id="下载GPG-key"><a href="#下载GPG-key" class="headerlink" title="下载GPG key"></a>下载GPG key</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget -qO - https:<span class="regexp">//</span>packages.adoptium.net<span class="regexp">/artifactory/</span>api<span class="regexp">/gpg/</span>key<span class="regexp">/public | gpg --dearmor | tee /</span>etc<span class="regexp">/apt/</span>trusted.gpg.d<span class="regexp">/adoptium.gpg &gt; /</span>dev/null</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置apt软件源"><a href="#设置apt软件源" class="headerlink" title="设置apt软件源"></a>设置apt软件源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://packages.adoptium.net/artifactory/deb <span class="subst">$(awk -F= &#x27;/^VERSION_CODENAME/&#123;print$2&#125;&#x27; /etc/os-release)</span> main&quot;</span> | <span class="built_in">tee</span> /etc/apt/sources.list.d/adoptium.list</span><br></pre></td></tr></table></figure>
+<h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
+<p><img src="/../images/Ubuntu24-04%E5%AE%89%E8%A3%85Temurin-JDK_085812.png"></p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu24.04开启RDP远程桌面访问</title>
+    <url>/posts/c466930e.html</url>
+    <content><![CDATA[<p>Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。</p>
+<p>下面介绍设置方法</p>
+<p>打开<code>设置</code>，左侧最下方找到<code>系统</code>，右侧点击<code>远程桌面</code>：<br><img src="/images/17179236170199.jpg"><br><code>桌面共享</code>这里不用管，点击<code>远程登录</code>，看下图设置：<br><img src="/images/17179236351583.jpg"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>RDP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
@@ -439,43 +476,6 @@
       <tags>
         <tag>ubuntu</tag>
         <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu24.04安装Temurin JDK</title>
-    <url>/posts/e63027c0.html</url>
-    <content><![CDATA[<p>以下命令来自官方，需要使用root身份</p>
-<h2 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">apt</span> install -y wget apt-trans<span class="keyword">port</span>-https gpg</span><br></pre></td></tr></table></figure>
-<h2 id="下载GPG-key"><a href="#下载GPG-key" class="headerlink" title="下载GPG key"></a>下载GPG key</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget -qO - https:<span class="regexp">//</span>packages.adoptium.net<span class="regexp">/artifactory/</span>api<span class="regexp">/gpg/</span>key<span class="regexp">/public | gpg --dearmor | tee /</span>etc<span class="regexp">/apt/</span>trusted.gpg.d<span class="regexp">/adoptium.gpg &gt; /</span>dev/null</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置apt软件源"><a href="#设置apt软件源" class="headerlink" title="设置apt软件源"></a>设置apt软件源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://packages.adoptium.net/artifactory/deb <span class="subst">$(awk -F= &#x27;/^VERSION_CODENAME/&#123;print$2&#125;&#x27; /etc/os-release)</span> main&quot;</span> | <span class="built_in">tee</span> /etc/apt/sources.list.d/adoptium.list</span><br></pre></td></tr></table></figure>
-<h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
-<p><img src="/../images/Ubuntu24-04%E5%AE%89%E8%A3%85Temurin-JDK_085812.png"></p>
-]]></content>
-      <categories>
-        <category>编程开发</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu24.04开启RDP远程桌面访问</title>
-    <url>/posts/c466930e.html</url>
-    <content><![CDATA[<p>Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。</p>
-<p>下面介绍设置方法</p>
-<p>打开<code>设置</code>，左侧最下方找到<code>系统</code>，右侧点击<code>远程桌面</code>：<br><img src="/images/17179236170199.jpg"><br><code>桌面共享</code>这里不用管，点击<code>远程登录</code>，看下图设置：<br><img src="/images/17179236351583.jpg"></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>RDP</tag>
       </tags>
   </entry>
   <entry>
@@ -941,25 +941,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关闭MacOS的Microsoft AutoUpdate弹框</title>
-    <url>/posts/1f130e88.html</url>
-    <content><![CDATA[<p>安装完<code>Microsoft Office</code>后，mac电脑会安装一个<code>Microsoft AutoUpdate</code>的程序。作用也很简单，就是检查微软的offcie是否有升级。</p>
-<p>这个功能理应都好的，但是有个问题：这个升级提示太烦人了，时不进就跳出来，一天检查18遍还多。</p>
-<p>还是关了吧。</p>
-<h2 id="关闭升级提示"><a href="#关闭升级提示" class="headerlink" title="关闭升级提示"></a>关闭升级提示</h2><p>使用快捷键：command（⌘）+⇧+G，或者顶部菜单，选择前往——前往文件夹</p>
-<p>输入<code>/Library/Application Support/Microsoft</code><br>删除<code>MAU2.0</code>文件夹，或者把<code>MAU2.0</code>文件里的<code>icrosoft AutoUpdate</code>删除也可以。</p>
-<p>这样就没有烦人的升级提示了。</p>
-<p><img src="/../images/%E5%85%B3%E9%97%ADMacOS%E7%9A%84Microsoft-AutoUpdate%E5%BC%B9%E6%A1%86_192519.png"></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>MacOS</tag>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>各个bbr加速脚本速度对比</title>
     <url>/posts/934677ea.html</url>
     <content><![CDATA[<p>网上有关于bbr各个加速脚本的速度测试和总结，现把总结直接放上：</p>
@@ -1021,6 +1002,25 @@
       </categories>
       <tags>
         <tag>bbr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关闭MacOS的Microsoft AutoUpdate弹框</title>
+    <url>/posts/1f130e88.html</url>
+    <content><![CDATA[<p>安装完<code>Microsoft Office</code>后，mac电脑会安装一个<code>Microsoft AutoUpdate</code>的程序。作用也很简单，就是检查微软的offcie是否有升级。</p>
+<p>这个功能理应都好的，但是有个问题：这个升级提示太烦人了，时不进就跳出来，一天检查18遍还多。</p>
+<p>还是关了吧。</p>
+<h2 id="关闭升级提示"><a href="#关闭升级提示" class="headerlink" title="关闭升级提示"></a>关闭升级提示</h2><p>使用快捷键：command（⌘）+⇧+G，或者顶部菜单，选择前往——前往文件夹</p>
+<p>输入<code>/Library/Application Support/Microsoft</code><br>删除<code>MAU2.0</code>文件夹，或者把<code>MAU2.0</code>文件里的<code>icrosoft AutoUpdate</code>删除也可以。</p>
+<p>这样就没有烦人的升级提示了。</p>
+<p><img src="/../images/%E5%85%B3%E9%97%ADMacOS%E7%9A%84Microsoft-AutoUpdate%E5%BC%B9%E6%A1%86_192519.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1183,6 +1183,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
+    <url>/posts/4a671491.html</url>
+    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
+<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
+<p>可以通过指定架构的方式把它取消掉</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
+<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
+<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的数据备份方案</title>
     <url>/posts/949a183a.html</url>
     <content><![CDATA[<p>写这篇文章时，就已经感觉到这可能是我数据备份方式的一个里程碑式的事件。</p>
@@ -1251,26 +1271,6 @@
       <tags>
         <tag>NAS</tag>
         <tag>硬盘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
-    <url>/posts/4a671491.html</url>
-    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
-<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
-<p>可以通过指定架构的方式把它取消掉</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
-<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
-<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>apt</tag>
       </tags>
   </entry>
   <entry>
