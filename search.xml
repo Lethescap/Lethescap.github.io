@@ -403,6 +403,62 @@
       </tags>
   </entry>
   <entry>
+    <title>PVE9换源和删除弹窗设置</title>
+    <url>/posts/54210921.html</url>
+    <content><![CDATA[<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>PVE 9.0 基于 Debian 13，除了换 Debian 的软件源以外，还需要编辑企业源、Ceph 源、无订阅源以及 CT 模板源。</p>
+<p>Debian 软件源<br>D与常规的 Debian 13 一样，将<code>/etc/apt/sources.list.d/debian.sources</code>中默认源全部删除，将其替换为清华源</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/debian</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie trixie-updates trixie-backports</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//security.debian.org/debian-security</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie-security</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="企业源"><a href="#企业源" class="headerlink" title="企业源"></a>企业源</h2><p>将 PVE 的企业源 <code>/etc/apt/sources.list.d/pve-enterprise.sources </code>注释掉（也可以直接删除）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Types: deb</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">URIs: https://enterprise.proxmox.com/debian/pve</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Suites: trixie</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Components: pve-enterprise</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Ceph-源"><a href="#Ceph-源" class="headerlink" title="Ceph 源"></a>Ceph 源</h2><p>将 PVE 的 Ceph 源<code>/etc/apt/sources.list.d/ceph.sources</code>也替换成清华源</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/proxmox/debian/ceph-squid</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie</span><br><span class="line"><span class="symbol">Components:</span> no-subscription</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>proxmox-archive-keyring.gpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="无订阅源"><a href="#无订阅源" class="headerlink" title="无订阅源"></a>无订阅源</h2><p>在 <code>/etc/apt/sources.list.d </code>目录下创建 <code>pve-no-subscription.sources </code>文件，填上以下内容</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/proxmox/debian/pve</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie</span><br><span class="line"><span class="symbol">Components:</span> pve-no-subscription</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>proxmox-archive-keyring.gpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="CT-模板源"><a href="#CT-模板源" class="headerlink" title="CT 模板源"></a>CT 模板源</h2><p>如果你需要用到 PVE 中的 LXC 容器，那么还需要替换一下 CT 模板源，否则下载模板会非常的慢</p>
+<p>将 &#x2F;usr&#x2F;share&#x2F;perl5&#x2F;PVE&#x2F;APLInfo.pm 文件中默认的源地址 <a href="http://download.proxmox.com/">http://download.proxmox.com</a> 替换为<a href="https://mirrors.tuna.tsinghua.edu.cn/proxmox">https://mirrors.tuna.tsinghua.edu.cn/proxmox</a></p>
+<p>也可以使用如下命令修改，重启后生效</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cp <span class="regexp">/usr/</span>share<span class="regexp">/perl5/</span>PVE<span class="regexp">/APLInfo.pm /u</span>sr<span class="regexp">/share/</span>perl5<span class="regexp">/PVE/</span>APLInfo.pm_back</span><br><span class="line">sed -i <span class="string">&#x27;s|http://download.proxmox.com|https://mirrors.tuna.tsinghua.edu.cn/proxmox|g&#x27;</span> <span class="regexp">/usr/</span>share<span class="regexp">/perl5/</span>PVE/APLInfo.pm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除订阅弹窗"><a href="#删除订阅弹窗" class="headerlink" title="删除订阅弹窗"></a>删除订阅弹窗</h2><p>尽管我们使用的 PVE 是免费版，但如果你没有订阅，每次访问网页时，都会有一个“无有效订阅”的弹窗<br><img src="/../images/PVE9%E6%8D%A2%E6%BA%90%E5%92%8C%E5%88%A0%E9%99%A4%E5%BC%B9%E7%AA%97%E8%AE%BE%E7%BD%AE_2025-15-35-07.png"><br>弹窗代码在 <code>/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js </code>中，通过 <code>void(&#123;...&#125;) </code>可以让弹窗部分代码不执行，实现删除弹窗的效果。</p>
+<p>因此，直接执行以下命令即可实现删除订阅弹窗：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sed -Ezi.bak <span class="string">&quot;s/(Ext.Msg.show\(\&#123;\s+title: gettext\(&#x27;No valid sub)/void\(\&#123; \/\/\1/g&quot;</span> <span class="regexp">/usr/</span>share<span class="regexp">/javascript/</span>proxmox-widget-toolkit/proxmoxlib.js &amp;&amp; systemctl restart pveproxy.service</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>pve</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PVE9硬盘相关设置</title>
+    <url>/posts/766f2740.html</url>
+    <content><![CDATA[<h2 id="安装时硬盘设置"><a href="#安装时硬盘设置" class="headerlink" title="安装时硬盘设置"></a>安装时硬盘设置</h2><p>看图：<br><img src="/../images/PVE9%E7%A1%AC%E7%9B%98%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE_2025-15-48-15.png"></p>
+<p>如果，不想让系统生成local-vm，不想预留一部分空间，则可以这样设置：<br>swapsize: 4<br>maxroot: 留空不填<br>minfree: 0<br>maxvz: 0</p>
+<h2 id="合并-local-与-local-lvm"><a href="#合并-local-与-local-lvm" class="headerlink" title="合并 local 与 local-lvm"></a>合并 local 与 local-lvm</h2><p>PVE 安装过程中会自动创建 local 和 local-lvm，如果你的系统盘不够大，可能会出现一个用满了，另一个却比较空的情况，提前将两者合并就可以避免出现这种尴尬的情况。</p>
+<p>1.删除 local-lvm 分区</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="title">lvremove</span> /dev/pve/<span class="class"><span class="keyword">data</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.扩容 local</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">lvextend</span> -l +<span class="number">100</span>%FREE /dev/pve/root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3.扩展文件系统</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">resize2fs <span class="regexp">/dev/</span>pve/root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>4.在 Web UI 上删除 <code>local-lvm</code>，然后编辑 <code>local</code>勾选所有内容</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>pve</tag>
+        <tag>硬盘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Thinkpad X1 Carbon Gen 8使用体验</title>
     <url>/posts/324d5a02.html</url>
     <content><![CDATA[<p>2025年8月25日，花2500元在闲鱼上买了台<code>Thinkpad X1 Carbon Gen 8</code>（2019款）。</p>
@@ -1324,8 +1380,8 @@
         <category>硬件设备</category>
       </categories>
       <tags>
-        <tag>NAS</tag>
         <tag>硬盘</tag>
+        <tag>NAS</tag>
       </tags>
   </entry>
   <entry>
