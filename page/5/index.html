@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -178,6 +178,103 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/14b7f016.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/14b7f016.html" class="post-title-link" itemprop="url">ubuntu24.04安装nvidia cuda和cudnn</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-05 17:57:08" itemprop="dateCreated datePublished" datetime="2024-09-05T17:57:08+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 00:04:54" itemprop="dateModified" datetime="2025-12-23T00:04:54+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">编程开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时报错:</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
+<p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
+<p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
+<p>由此也就有了本文。</p>
+<h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/14b7f016.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -223,7 +320,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 20:07:02" itemprop="dateModified" datetime="2025-12-22T20:07:02+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-23 00:04:54" itemprop="dateModified" datetime="2025-12-23T00:04:54+08:00">2025-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,7 +423,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 20:07:02" itemprop="dateModified" datetime="2025-12-22T20:07:02+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-23 00:04:54" itemprop="dateModified" datetime="2025-12-23T00:04:54+08:00">2025-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,7 +519,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 20:07:02" itemprop="dateModified" datetime="2025-12-22T20:07:02+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-23 00:04:54" itemprop="dateModified" datetime="2025-12-23T00:04:54+08:00">2025-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -519,7 +616,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 20:07:02" itemprop="dateModified" datetime="2025-12-22T20:07:02+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-23 00:04:54" itemprop="dateModified" datetime="2025-12-23T00:04:54+08:00">2025-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -595,103 +692,6 @@
 </ol>
 <p>原文连接在<a target="_blank" rel="noopener" href="https://www.zmrbk.com/2023/11/%E4%B8%80%E5%9B%BE%E8%AF%BB%E6%87%82bbr-bbr-plus-bbr2%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%8C%BA%E5%88%AB.html">这里</a></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/9be48e85.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Laphael">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寂静·流年">
-      <meta itemprop="description" content="记录我的生活、学习、兴趣">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 寂静·流年">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/9be48e85.html" class="post-title-link" itemprop="url">LinuxMint取消密码回显</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-06 07:40:38" itemprop="dateCreated datePublished" datetime="2024-07-06T07:40:38+08:00">2024-07-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 20:07:02" itemprop="dateModified" datetime="2025-12-22T20:07:02+08:00">2025-12-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
-<p>这个功能有人喜欢，有人不喜欢。我是没有这个习惯，所以看着就很别扭。</p>
-<p>下面介绍取消密码回显的方法。</p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>决定是是否显示<code>*</code>的配置文件是<code>/etc/sudoers.d/0pwfeedback</code>。</p>
-<p>我们需要对它做一些编辑。</p>
-<h2 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/9be48e85.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
