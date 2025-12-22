@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象L  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+    <meta name="description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openwrt上安装tailscale实现内网穿透">
 <meta property="og:url" content="https://dnwzlx.com/posts/8f554725.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象L  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+<meta property="og:description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png">
 <meta property="article:published_time" content="2025-12-19T18:40:45.000Z">
-<meta property="article:modified_time" content="2025-12-22T07:13:07.056Z">
+<meta property="article:modified_time" content="2025-12-22T07:25:49.239Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="openwrt">
 <meta property="article:tag" content="tailscale">
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 15:13:07" itemprop="dateModified" datetime="2025-12-22T15:13:07+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-22 15:25:49" itemprop="dateModified" datetime="2025-12-22T15:25:49+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。</p>
 <p>在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。</p>
-<p>但是现在却不行了，有以下几个现象L</p>
+<p>但是现在却不行了，有以下几个现象:</p>
 <ul>
 <li>只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、openwrt界面无法打开。</li>
 <li>kwrt自带的tailscale版本是1.80，而最新版是1.92。</li>
@@ -269,7 +269,7 @@
 <p>折腾了近一周，终于找到了在openwrt上安装设置tailscale的正确方法了。</p>
 <h2 id="安装openwrt"><a href="#安装openwrt" class="headerlink" title="安装openwrt"></a>安装openwrt</h2><p>推荐使用kwrt编译的版本，下载地址在<a target="_blank" rel="noopener" href="https://openwrt.ai/">https://openwrt.ai</a></p>
 <p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png" alt="openwrt.ai"></p>
-<p>选这个插件，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
+<p>选这个版本的openwrt，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
 <h2 id="安装tailscale"><a href="#安装tailscale" class="headerlink" title="安装tailscale"></a>安装tailscale</h2><p>推荐使用<a target="_blank" rel="noopener" href="https://github.com/adyanth/openwrt-tailscale-enabler">openwrt-tailscale-enabler</a>来安装.</p>
 <p>最新版本是<code>v1.60.0-e428948-autoupdate</code><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png"></p>
 <h3 id="下载之后，先解压："><a href="#下载之后，先解压：" class="headerlink" title="下载之后，先解压："></a>下载之后，先解压：</h3><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar <span class="keyword">x</span> -zvC / -f openwrt-tailscale-enabler*</span><br></pre></td></tr></table></figure>

@@ -373,19 +373,28 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenWRT释放DHCP地址</title>
-    <url>/posts/61d9a0e6.html</url>
-    <content><![CDATA[<p>编辑openwrt的dhcp配置文件：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/tmp/</span>dhcp.leases</span><br></pre></td></tr></table></figure>
+    <title>Ubuntu 24.04安装Docker</title>
+    <url>/posts/e1db731e.html</url>
+    <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
+<h3 id="安装一些必要的软件包："><a href="#安装一些必要的软件包：" class="headerlink" title="安装一些必要的软件包："></a>安装一些必要的软件包：</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt upgrade -<span class="keyword">y</span></span><br><span class="line"></span><br><span class="line">apt install curl <span class="keyword">vim</span> wget gnupg dpkg apt-transport-https lsb-release <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure>
 
-<p>内容如下：</p>
-<p>把想释放的地址那一行删除后，保存文件，然后重启服务：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span><span class="keyword">init</span>.d<span class="operator">/</span>dnsmasq restart</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="安装docker-GPG-公钥-和apt源"><a href="#安装docker-GPG-公钥-和apt源" class="headerlink" title="安装docker GPG 公钥 和apt源"></a>安装docker GPG 公钥 和apt源</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">curl -sSL https:<span class="regexp">//</span>download.docker.com<span class="regexp">/linux/</span>debian<span class="regexp">/gpg | gpg --dearmor &gt; /u</span>sr<span class="regexp">/share/</span>keyrings/docker-ce.gpg</span><br><span class="line"></span><br><span class="line">echo <span class="string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot;</span> &gt; <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>docker.list</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt install docker-ce docker-ce-<span class="keyword">cli</span> containerd.io docker-compose-<span class="keyword">plugin</span></span><br></pre></td></tr></table></figure>
+<p>此时，可以使用<code>docker version</code>查看安装是否成功</p>
+<p><img src="/../images/Ubuntu-24-04%E5%AE%89%E8%A3%85Docker_091825.png"></p>
+<h2 id="当前用户可以以rootless模式运行docker"><a href="#当前用户可以以rootless模式运行docker" class="headerlink" title="当前用户可以以rootless模式运行docker"></a>当前用户可以以rootless模式运行docker</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">install </span>docker-ce-rootless-<span class="keyword">extras</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h2><p>以下配置会增加一段自定义内网 IPv6 地址，开启容器的 IPv6 功能，以及限制日志文件大小，防止 Docker 日志塞满硬盘</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">cat &gt; <span class="regexp">/etc/</span>docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">    <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;20m&quot;</span>,</span><br><span class="line">        <span class="string">&quot;max-file&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;ipv6&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;fixed-cidr-v6&quot;</span>: <span class="string">&quot;fd00:dead:beef:c0::/80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;experimental&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;ip6tables&quot;</span>:<span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>重启系统。</p>
+]]></content>
       <categories>
-        <category>网络相关</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>openwrt</tag>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -417,28 +426,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 24.04安装Docker</title>
-    <url>/posts/e1db731e.html</url>
-    <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
-<h3 id="安装一些必要的软件包："><a href="#安装一些必要的软件包：" class="headerlink" title="安装一些必要的软件包："></a>安装一些必要的软件包：</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt upgrade -<span class="keyword">y</span></span><br><span class="line"></span><br><span class="line">apt install curl <span class="keyword">vim</span> wget gnupg dpkg apt-transport-https lsb-release <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure>
+    <title>OpenWRT释放DHCP地址</title>
+    <url>/posts/61d9a0e6.html</url>
+    <content><![CDATA[<p>编辑openwrt的dhcp配置文件：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/tmp/</span>dhcp.leases</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装docker-GPG-公钥-和apt源"><a href="#安装docker-GPG-公钥-和apt源" class="headerlink" title="安装docker GPG 公钥 和apt源"></a>安装docker GPG 公钥 和apt源</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">curl -sSL https:<span class="regexp">//</span>download.docker.com<span class="regexp">/linux/</span>debian<span class="regexp">/gpg | gpg --dearmor &gt; /u</span>sr<span class="regexp">/share/</span>keyrings/docker-ce.gpg</span><br><span class="line"></span><br><span class="line">echo <span class="string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot;</span> &gt; <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>docker.list</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt install docker-ce docker-ce-<span class="keyword">cli</span> containerd.io docker-compose-<span class="keyword">plugin</span></span><br></pre></td></tr></table></figure>
-<p>此时，可以使用<code>docker version</code>查看安装是否成功</p>
-<p><img src="/../images/Ubuntu-24-04%E5%AE%89%E8%A3%85Docker_091825.png"></p>
-<h2 id="当前用户可以以rootless模式运行docker"><a href="#当前用户可以以rootless模式运行docker" class="headerlink" title="当前用户可以以rootless模式运行docker"></a>当前用户可以以rootless模式运行docker</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">install </span>docker-ce-rootless-<span class="keyword">extras</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h2><p>以下配置会增加一段自定义内网 IPv6 地址，开启容器的 IPv6 功能，以及限制日志文件大小，防止 Docker 日志塞满硬盘</p>
-<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">cat &gt; <span class="regexp">/etc/</span>docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">    <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;20m&quot;</span>,</span><br><span class="line">        <span class="string">&quot;max-file&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;ipv6&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;fixed-cidr-v6&quot;</span>: <span class="string">&quot;fd00:dead:beef:c0::/80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;experimental&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;ip6tables&quot;</span>:<span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<p>重启系统。</p>
-]]></content>
+<p>内容如下：</p>
+<p>把想释放的地址那一行删除后，保存文件，然后重启服务：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span><span class="keyword">init</span>.d<span class="operator">/</span>dnsmasq restart</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>网络相关</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
-        <tag>docker</tag>
+        <tag>openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -763,7 +763,7 @@
     <url>/posts/8f554725.html</url>
     <content><![CDATA[<p>最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。</p>
 <p>在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。</p>
-<p>但是现在却不行了，有以下几个现象L</p>
+<p>但是现在却不行了，有以下几个现象:</p>
 <ul>
 <li>只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、openwrt界面无法打开。</li>
 <li>kwrt自带的tailscale版本是1.80，而最新版是1.92。</li>
@@ -771,7 +771,7 @@
 <p>折腾了近一周，终于找到了在openwrt上安装设置tailscale的正确方法了。</p>
 <h2 id="安装openwrt"><a href="#安装openwrt" class="headerlink" title="安装openwrt"></a>安装openwrt</h2><p>推荐使用kwrt编译的版本，下载地址在<a href="https://openwrt.ai/">https://openwrt.ai</a></p>
 <p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png" alt="openwrt.ai"></p>
-<p>选这个插件，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
+<p>选这个版本的openwrt，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
 <h2 id="安装tailscale"><a href="#安装tailscale" class="headerlink" title="安装tailscale"></a>安装tailscale</h2><p>推荐使用<a href="https://github.com/adyanth/openwrt-tailscale-enabler">openwrt-tailscale-enabler</a>来安装.</p>
 <p>最新版本是<code>v1.60.0-e428948-autoupdate</code><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png"></p>
 <h3 id="下载之后，先解压："><a href="#下载之后，先解压：" class="headerlink" title="下载之后，先解压："></a>下载之后，先解压：</h3><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">tar <span class="keyword">x</span> -zvC / -f openwrt-tailscale-enabler*</span><br></pre></td></tr></table></figure>
