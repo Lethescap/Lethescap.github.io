@@ -465,6 +465,23 @@
       </tags>
   </entry>
   <entry>
+    <title>PVE安装Windows Server 2012 R2的驱动问题</title>
+    <url>/posts/d5fe2fef.html</url>
+    <content><![CDATA[<h2 id="基本驱动"><a href="#基本驱动" class="headerlink" title="基本驱动"></a>基本驱动</h2><p>pve的windows驱动<code>virtio-win</code>,能够支持<code>windows server 2012 R2</code>的最新的版本，是<code> virtio-win-0.1.215-2</code><br>下载地址在<a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.215-2/">这里</a><br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-49-14.png"></p>
+<h2 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h2><p>使用驱动光盘自带的<code>virtio-win-guest-tools</code>，并不会自动安装虚拟显卡驱动，需要手动安装<br>无论显卡类型选择的是<code>VirtIO-GPU</code>,还是<code>VirGL GPU</code>，<br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-59-04.png"><br>显卡驱动安装路径都是根目录下的<br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-58-37.png"></p>
+<p>如果使用<code>VirGL GPU</code>类型的显卡，PVE主机还需要安装<code>libgl</code>和<code>libegl1</code></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">install</span> libgl1 libegl1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>pve</tag>
+        <tag>driver</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Thinkpad X1 Carbon Gen 8使用体验</title>
     <url>/posts/324d5a02.html</url>
     <content><![CDATA[<p>2025年8月25日，花2500元在闲鱼上买了台<code>Thinkpad X1 Carbon Gen 8</code>（2019款）。</p>

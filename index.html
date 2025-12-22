@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,7 +161,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -178,6 +178,88 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/d5fe2fef.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/d5fe2fef.html" class="post-title-link" itemprop="url">PVE安装Windows Server 2012 R2的驱动问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-12-22 11:45:29 / 修改时间：20:04:05" itemprop="dateCreated datePublished" datetime="2025-12-22T11:45:29+08:00">2025-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="基本驱动"><a href="#基本驱动" class="headerlink" title="基本驱动"></a>基本驱动</h2><p>pve的windows驱动<code>virtio-win</code>,能够支持<code>windows server 2012 R2</code>的最新的版本，是<code> virtio-win-0.1.215-2</code><br>下载地址在<a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.215-2/">这里</a><br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-49-14.png"></p>
+<h2 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h2><p>使用驱动光盘自带的<code>virtio-win-guest-tools</code>，并不会自动安装虚拟显卡驱动，需要手动安装<br>无论显卡类型选择的是<code>VirtIO-GPU</code>,还是<code>VirGL GPU</code>，<br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-59-04.png"><br>显卡驱动安装路径都是根目录下的<br><img src="/../images/PVE%E5%AE%89%E8%A3%85Windows%20Server%202012%20R2%E7%9A%84%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98_2025-19-58-37.png"></p>
+<p>如果使用<code>VirGL GPU</code>类型的显卡，PVE主机还需要安装<code>libgl</code>和<code>libegl1</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">install</span> libgl1 libegl1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -217,7 +299,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:37:25 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:37:25+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:37:25 / 修改时间：20:04:05" itemprop="dateCreated datePublished" datetime="2025-12-22T07:37:25+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -312,7 +394,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:32:18 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:32:18+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:32:18 / 修改时间：20:04:05" itemprop="dateCreated datePublished" datetime="2025-12-22T07:32:18+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -403,7 +485,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:26:34 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:26:34+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:26:34 / 修改时间：20:04:05" itemprop="dateCreated datePublished" datetime="2025-12-22T07:26:34+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -489,7 +571,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 15:54:41" itemprop="dateModified" datetime="2025-12-22T15:54:41+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-22 20:04:05" itemprop="dateModified" datetime="2025-12-22T20:04:05+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -528,94 +610,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/cf23cc0c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Laphael">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寂静·流年">
-      <meta itemprop="description" content="记录我的生活、学习、兴趣">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 寂静·流年">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/cf23cc0c.html" class="post-title-link" itemprop="url">Windows 11恢复成Windows 10的右键菜单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-10-13 09:44:27" itemprop="dateCreated datePublished" datetime="2025-10-13T09:44:27+08:00">2025-10-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 15:54:41" itemprop="dateModified" datetime="2025-12-22T15:54:41+08:00">2025-12-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Windows 11最直观和最让人难受的就是那个右键菜单，延迟打开慢不说，功能还不完善，像个半成品的残废一样。</p>
-<p>可以通过简单的三条合集，恢复成Windows 10的右键菜单</p>
-<p>打开终端，依次执行下面三条命令：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> <span class="built_in">add</span> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /<span class="keyword">f</span></span><br><span class="line"></span><br><span class="line">taskkill /F /IM explorer.<span class="keyword">exe</span></span><br><span class="line"></span><br><span class="line">explorer.<span class="keyword">exe</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
