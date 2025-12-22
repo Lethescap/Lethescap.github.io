@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象L  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openwrt上安装tailscale实现内网穿透">
+<meta property="og:url" content="https://dnwzlx.com/posts/8f554725.html">
+<meta property="og:site_name" content="寂静·流年">
+<meta property="og:description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象L  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-05-25.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-04-24.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-31.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-51.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png">
+<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png">
+<meta property="article:published_time" content="2025-12-19T18:40:45.000Z">
+<meta property="article:modified_time" content="2025-12-22T07:13:07.056Z">
+<meta property="article:author" content="Laphael">
+<meta property="article:tag" content="openwrt">
+<meta property="article:tag" content="tailscale">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png">
+
+
+<link rel="canonical" href="https://dnwzlx.com/posts/8f554725.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnwzlx.com/posts/8f554725.html","path":"posts/8f554725.html","title":"openwrt上安装tailscale实现内网穿透"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>openwrt上安装tailscale实现内网穿透 | 寂静·流年</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">寂静·流年</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">[冰与火的交缠，无法平息的灵魂]</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85openwrt"><span class="nav-number">1.</span> <span class="nav-text">安装openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tailscale"><span class="nav-number">2.</span> <span class="nav-text">安装tailscale</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%85%88%E8%A7%A3%E5%8E%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">下载之后，先解压：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E4%BE%9D%E8%B5%96"><span class="nav-number">2.2.</span> <span class="nav-text">安装必要依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEtailscale%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">2.3.</span> <span class="nav-text">设置tailscale开机自启</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwrt%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">openwrt端口和防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.2.</span> <span class="nav-text">创建防火墙区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE41641%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.</span> <span class="nav-text">开放41641端口</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Laphael</p>
+  <div class="site-description" itemprop="description">记录我的生活、学习、兴趣</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/8f554725.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="openwrt上安装tailscale实现内网穿透 | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          openwrt上安装tailscale实现内网穿透
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-20 02:40:45" itemprop="dateCreated datePublished" datetime="2025-12-20T02:40:45+08:00">2025-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-22 15:13:07" itemprop="dateModified" datetime="2025-12-22T15:13:07+08:00">2025-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">网络相关</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。</p>
+<p>在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。</p>
+<p>但是现在却不行了，有以下几个现象L</p>
+<ul>
+<li>只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、openwrt界面无法打开。</li>
+<li>kwrt自带的tailscale版本是1.80，而最新版是1.92。</li>
+</ul>
+<p>折腾了近一周，终于找到了在openwrt上安装设置tailscale的正确方法了。</p>
+<h2 id="安装openwrt"><a href="#安装openwrt" class="headerlink" title="安装openwrt"></a>安装openwrt</h2><p>推荐使用kwrt编译的版本，下载地址在<a target="_blank" rel="noopener" href="https://openwrt.ai/">https://openwrt.ai</a></p>
+<p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png" alt="openwrt.ai"></p>
+<p>选这个插件，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
+<h2 id="安装tailscale"><a href="#安装tailscale" class="headerlink" title="安装tailscale"></a>安装tailscale</h2><p>推荐使用<a target="_blank" rel="noopener" href="https://github.com/adyanth/openwrt-tailscale-enabler">openwrt-tailscale-enabler</a>来安装.</p>
+<p>最新版本是<code>v1.60.0-e428948-autoupdate</code><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png"></p>
+<h3 id="下载之后，先解压："><a href="#下载之后，先解压：" class="headerlink" title="下载之后，先解压："></a>下载之后，先解压：</h3><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar <span class="keyword">x</span> -zvC / -f openwrt-tailscale-enabler*</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装必要依赖"><a href="#安装必要依赖" class="headerlink" title="安装必要依赖"></a>安装必要依赖</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg <span class="keyword">install </span>libustream-openssl ca-<span class="keyword">bundle </span>kmod-tun</span><br></pre></td></tr></table></figure>
+
+<p>###运行并注册</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d/tailscale start</span><br><span class="line"></span><br><span class="line">tailscale up --accept-routes --accept-dns=false --advertise-<span class="keyword">exit</span>-node --advertise-routes=<span class="number">192.168</span>.<span class="number">7.0</span>/<span class="number">24</span> --netfilter-mode=off</span><br></pre></td></tr></table></figure>
+<p>这条命令非常重要，执行参数有误的话，极易造成openwrt死机，详解如下：</p>
+<ul>
+<li>tailscale up: 启动 Tailscale。</li>
+<li>–accept-routes: 接受其他节点通过 Tailscale 网络提供的路由。</li>
+<li>–accept-dns&#x3D;false: 不接受 Tailscale 网络提供的 DNS 设置。</li>
+<li>–advertise-exit-node: 将当前节点作为出口节点进行广告，使其可以作为其他节点的互联网出口。</li>
+<li>–advertise-routes&#x3D;192.168.7.0&#x2F;24: 将当前节点<code>192.168.7.0</code>的子网进行广告，使其可以通过 Tailscale 网络访问。</li>
+<li>–netfilter-mode&#x3D;off: 关闭 netfilter 模式，不对流量进行过滤。</li>
+</ul>
+<p>执行后会给出一个链接，复制后在浏览器打开并注册即可。</p>
+<h3 id="设置tailscale开机自启"><a href="#设置tailscale开机自启" class="headerlink" title="设置tailscale开机自启"></a>设置tailscale开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/tailscale <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+<h2 id="openwrt端口和防火墙设置"><a href="#openwrt端口和防火墙设置" class="headerlink" title="openwrt端口和防火墙设置"></a>openwrt端口和防火墙设置</h2><h3 id="添加端口"><a href="#添加端口" class="headerlink" title="添加端口"></a>添加端口</h3><p>通过 LuCI 创建一个新的非托管接口：网络→接口→添加新接口</p>
+<p>名称：tailscale</p>
+<p>协议：Unmanaged(不配置协议)</p>
+<p>设备：tailscale0<br>保存应用。如下图：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-05-25.png"></p>
+<h3 id="创建防火墙区域"><a href="#创建防火墙区域" class="headerlink" title="创建防火墙区域"></a>创建防火墙区域</h3><p>通过LuCI界面创建新的防火墙区域：网络→防火墙→区域→添加</p>
+<p>名称：tailscale</p>
+<p>入站数据：接受（默认）</p>
+<p>出站数据：接受（默认）</p>
+<p>转发：接受</p>
+<p>IP 动态伪装：√</p>
+<p>MSS钳制：√</p>
+<p>涵盖的网络：tailscale</p>
+<p>允许转发到目标区域：选择您的lan和wan</p>
+<p>允许来自源区域的转发：选择您的lan</p>
+<p>在连接跟踪设置中，允许“无效”流量: on<br>点击保存并应用。<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-04-24.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-31.png"></p>
+<h3 id="开放41641端口"><a href="#开放41641端口" class="headerlink" title="开放41641端口"></a>开放41641端口</h3><p>如果要提高打洞效率，必须要放开WAN的41641端口允许流量流入：</p>
+<p>防火墙–&gt;通信规则–&gt;添加，源区域选wan，目标区域选“此设备”，目标端口41641，保存并应用，如下图：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-51.png"></p>
+<p>一般来说，经过上面的设置，已经可以正常使用tailscale连接了，如果还有问题，在防火墙的常规设置里可以这样：</p>
+<p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Laphael
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://dnwzlx.com/posts/8f554725.html" title="openwrt上安装tailscale实现内网穿透">https://dnwzlx.com/posts/8f554725.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/openwrt/" rel="tag"><i class="fa fa-tag"></i> openwrt</a>
+              <a href="/tags/tailscale/" rel="tag"><i class="fa fa-tag"></i> tailscale</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/cf23cc0c.html" rel="prev" title="Windows 11恢复成Windows 10的右键菜单">
+                  <i class="fa fa-angle-left"></i> Windows 11恢复成Windows 10的右键菜单
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Laphael</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Lethescap/hexo_utterances_comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
