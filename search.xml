@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>04 minimal安装后解决samba挂载的问题</title>
-    <url>/posts/dc678edc.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Dell R730XD调整风扇转速</title>
     <url>/posts/f76d94ce.html</url>
     <content><![CDATA[<p>今年7月份，买了台Dell R730XD的服务器搞Homelab。</p>
@@ -53,6 +48,24 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Next主题添加搜索功能</title>
+    <url>/posts/d4489ce4.html</url>
+    <content><![CDATA[<p><code>hexo</code>的<code>NexT</code>主题添加搜索非常简单，而且效果很好，需要用到第三方插件<code>hexo-generator-searchdb</code>。</p>
+<h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改站点配置文件-config-yml"><a href="#修改站点配置文件-config-yml" class="headerlink" title="修改站点配置文件_config.yml"></a>修改站点配置文件_config.yml</h2><p>在<code>_config.yml</code>中添加下面内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="修改NexT配置文件-config-next-yml"><a href="#修改NexT配置文件-config-next-yml" class="headerlink" title="修改NexT配置文件_config.next.yml"></a>修改NexT配置文件_config.next.yml</h2><p>搜索并修改成如下样式：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>search</tag>
       </tags>
   </entry>
   <entry>
@@ -139,6 +152,32 @@
       </tags>
   </entry>
   <entry>
+    <title>LinuxMint取消密码回显</title>
+    <url>/posts/9be48e85.html</url>
+    <content><![CDATA[<p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
+<p>这个功能有人喜欢，有人不喜欢。我是没有这个习惯，所以看着就很别扭。</p>
+<p>下面介绍取消密码回显的方法。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>决定是是否显示<code>*</code>的配置文件是<code>/etc/sudoers.d/0pwfeedback</code>。</p>
+<p>我们需要对它做一些编辑。</p>
+<h2 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h2><p><code>/etc/sudoers.d/0pwfeedback</code>这个文件默认权限是<code>440</code>，因此即使root用户也无法修改。</p>
+<p>因此如果想修改的话，需要先把它改成别的权限，比如<code>600</code>。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> -i</span><br><span class="line"><span class="attribute">chmod</span> <span class="number">600</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback </span><br></pre></td></tr></table></figure>
+<p>默认配置是</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Defaults pwfeedback</span></span><br></pre></td></tr></table></figure>
+<p>把它修改成</p>
+<figure class="highlight erlang-repl"><table><tr><td class="code"><pre><span class="line">Defaults !pwfeedback</span><br></pre></td></tr></table></figure>
+<p>即可不显示<code>*</code>了。</p>
+<h2 id="改回权限"><a href="#改回权限" class="headerlink" title="改回权限"></a>改回权限</h2><p>修改完后，记得把权限改回原来的<code>440</code></p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">chmod</span> <span class="number">440</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linuxmint</tag>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LinuxMint开启远程桌面</title>
     <url>/posts/2c930f13.html</url>
     <content><![CDATA[<p>记得看过一篇测评，Linux下主流的桌面环境，对RDP支持最好的，是Cinnamon。</p>
@@ -179,32 +218,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LinuxMint取消密码回显</title>
-    <url>/posts/9be48e85.html</url>
-    <content><![CDATA[<p>LinuxMint默认设置下，当在终端输入密码是，会显示<code>*</code>，密码有多少位，就显示多少位的<code>*</code>。</p>
-<p>这个功能有人喜欢，有人不喜欢。我是没有这个习惯，所以看着就很别扭。</p>
-<p>下面介绍取消密码回显的方法。</p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>决定是是否显示<code>*</code>的配置文件是<code>/etc/sudoers.d/0pwfeedback</code>。</p>
-<p>我们需要对它做一些编辑。</p>
-<h2 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h2><p><code>/etc/sudoers.d/0pwfeedback</code>这个文件默认权限是<code>440</code>，因此即使root用户也无法修改。</p>
-<p>因此如果想修改的话，需要先把它改成别的权限，比如<code>600</code>。</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> -i</span><br><span class="line"><span class="attribute">chmod</span> <span class="number">600</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback </span><br></pre></td></tr></table></figure>
-<p>默认配置是</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Defaults pwfeedback</span></span><br></pre></td></tr></table></figure>
-<p>把它修改成</p>
-<figure class="highlight erlang-repl"><table><tr><td class="code"><pre><span class="line">Defaults !pwfeedback</span><br></pre></td></tr></table></figure>
-<p>即可不显示<code>*</code>了。</p>
-<h2 id="改回权限"><a href="#改回权限" class="headerlink" title="改回权限"></a>改回权限</h2><p>修改完后，记得把权限改回原来的<code>440</code></p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">chmod</span> <span class="number">440</span> /etc/sudoers.d/<span class="number">0</span>pwfeedback</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>linuxmint</tag>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux下删除vmware workstation</title>
     <url>/posts/4a4c5348.html</url>
     <content><![CDATA[<p>这里以ubuntu为例</p>
@@ -218,6 +231,37 @@
       </categories>
       <tags>
         <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux使用sudo无需密码设置</title>
+    <url>/posts/fb478fc.html</url>
+    <content><![CDATA[<p>在个人电脑上使用linux，为了方便，可以设置成在输入sudo时不需要输入密码，这样可以大幅度提高效率。</p>
+<p>方法很简单，运行下面命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;`whoami` ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo <span class="built_in">tee</span> <span class="string">&quot;/etc/sudoers.d/dont-prompt-<span class="variable">$USER</span>-for-sudo-password&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下查看文件的数字权限</title>
+    <url>/posts/25df6da1.html</url>
+    <content><![CDATA[<p>linux下，有时会有以数字方式展示文件的权限，比如<code>755</code>、<code>644</code>等，这样比较直观。</p>
+<p>通过搜索，发现<code>stat</code>命令可以达到这样的效果<br>比如查看<code>test.txt</code>这个文件的权限</p>
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">stat -<span class="keyword">c</span> <span class="variable">%a</span> test.txt </span><br></pre></td></tr></table></figure>
+<p>输出结果直接就是数字</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">644</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>tips</tag>
       </tags>
   </entry>
   <entry>
@@ -239,55 +283,6 @@
       <tags>
         <tag>linux</tag>
         <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux下查看文件的数字权限</title>
-    <url>/posts/25df6da1.html</url>
-    <content><![CDATA[<p>linux下，有时会有以数字方式展示文件的权限，比如<code>755</code>、<code>644</code>等，这样比较直观。</p>
-<p>通过搜索，发现<code>stat</code>命令可以达到这样的效果<br>比如查看<code>test.txt</code>这个文件的权限</p>
-<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">stat -<span class="keyword">c</span> <span class="variable">%a</span> test.txt </span><br></pre></td></tr></table></figure>
-<p>输出结果直接就是数字</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">644</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux使用sudo无需密码设置</title>
-    <url>/posts/fb478fc.html</url>
-    <content><![CDATA[<p>在个人电脑上使用linux，为了方便，可以设置成在输入sudo时不需要输入密码，这样可以大幅度提高效率。</p>
-<p>方法很简单，运行下面命令即可。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;`whoami` ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo <span class="built_in">tee</span> <span class="string">&quot;/etc/sudoers.d/dont-prompt-<span class="variable">$USER</span>-for-sudo-password&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Next主题添加搜索功能</title>
-    <url>/posts/d4489ce4.html</url>
-    <content><![CDATA[<p><code>hexo</code>的<code>NexT</code>主题添加搜索非常简单，而且效果很好，需要用到第三方插件<code>hexo-generator-searchdb</code>。</p>
-<h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改站点配置文件-config-yml"><a href="#修改站点配置文件-config-yml" class="headerlink" title="修改站点配置文件_config.yml"></a>修改站点配置文件_config.yml</h2><p>在<code>_config.yml</code>中添加下面内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="修改NexT配置文件-config-next-yml"><a href="#修改NexT配置文件-config-next-yml" class="headerlink" title="修改NexT配置文件_config.next.yml"></a>修改NexT配置文件_config.next.yml</h2><p>搜索并修改成如下样式：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>网络相关</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>search</tag>
       </tags>
   </entry>
   <entry>
@@ -649,24 +644,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows11恢复成win10右键菜单</title>
-    <url>/posts/69ce0e48.html</url>
-    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
-<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
-<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
-<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
-<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
-<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-        <tag>鼠标</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下安装设置Python绿色版</title>
     <url>/posts/f9c965a9.html</url>
     <content><![CDATA[<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>操作系统: windows 10 ltsc 2019 X64<br>Python:  3.12.5</p>
@@ -700,6 +677,24 @@
       <tags>
         <tag>windows</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows11恢复成win10右键菜单</title>
+    <url>/posts/69ce0e48.html</url>
+    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
+<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
+<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
+<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
+<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>鼠标</tag>
       </tags>
   </entry>
   <entry>
@@ -1022,6 +1017,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Xubuntu24.04 minimal安装后解决samba挂载的问题</title>
+    <url>/posts/4dd0bbc8.html</url>
+    <content><![CDATA[<p>使用minimal方式安装xubuntu 24.04后,发现无法在<code>thunar</code>里挂载samba,经过一番搜索，发现是缺少必要的软件。</p>
+<p>解决方法是：</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install </span>gvfs-<span class="keyword">backends </span>smbclient</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>samba</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用privoxy和trojan来提供https和http代理</title>
     <url>/posts/6d971d09.html</url>
     <content><![CDATA[<p>本文适用于linux和macos，这里以macOS为例。</p>
@@ -1119,6 +1129,54 @@
       </tags>
   </entry>
   <entry>
+    <title>在Ubuntu24.04上运行Qwen2.5大模型</title>
+    <url>/posts/ee4a21e9.html</url>
+    <content><![CDATA[<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>使用<code>ollama</code>安装运行各种大模型，这里选择的是<code>Qwen2.5</code></li>
+<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
+<li>整个后端和前端使用一个<code>docker compose</code>文件来安装、控制</li>
+</ul>
+<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
+<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
+<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
+<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
+<p>此项目库里有2个<code>docker compose</code>文件：</p>
+<ul>
+<li>docker-compose-ollama-gpu.yaml</li>
+<li>docker-compose.yml</li>
+</ul>
+<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，把它删除掉，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
+<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
+<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code>。</p>
+<p>安装完成后，打开<a href="http://localhost:8000/">http://localhost:8000</a>，并进行后续设置</p>
+<h2 id="设置Open-WebUI"><a href="#设置Open-WebUI" class="headerlink" title="设置Open WebUI"></a>设置Open WebUI</h2><p>点击右上角图标，选择管理员面板<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_072841.png"></p>
+<p>选择设置–模型<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_073020.png"></p>
+<p>在<code>从 Ollama.com 拉取一个模型</code>里，输入<code>qwen2.5:32b</code>，这样会自动下载模型。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要选择<code>qwen2.5:32b</code>这个模型呢？是因为32b的大小20G,正好在 RTX 3090 24G显存的范围内。而且经我实测，效果非常好。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>通过<code>docker compose</code>这种方式安装，已经设置好了，可以从局域网内其它电脑上访问服务，这一点很方便。</p>
+<p>至此，所有工作都已完成，愉快的和AI模型对话吧。</p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>各个bbr加速脚本速度对比</title>
     <url>/posts/934677ea.html</url>
     <content><![CDATA[<p>网上有关于bbr各个加速脚本的速度测试和总结，现把总结直接放上：</p>
@@ -1183,54 +1241,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在Ubuntu24.04上运行Qwen2.5大模型</title>
-    <url>/posts/ee4a21e9.html</url>
-    <content><![CDATA[<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
-<li>使用<code>ollama</code>安装运行各种大模型，这里选择的是<code>Qwen2.5</code></li>
-<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
-<li>整个后端和前端使用一个<code>docker compose</code>文件来安装、控制</li>
-</ul>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
-<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
-<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
-<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
-<p>此项目库里有2个<code>docker compose</code>文件：</p>
-<ul>
-<li>docker-compose-ollama-gpu.yaml</li>
-<li>docker-compose.yml</li>
-</ul>
-<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，把它删除掉，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
-<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
-<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code>。</p>
-<p>安装完成后，打开<a href="http://localhost:8000/">http://localhost:8000</a>，并进行后续设置</p>
-<h2 id="设置Open-WebUI"><a href="#设置Open-WebUI" class="headerlink" title="设置Open WebUI"></a>设置Open WebUI</h2><p>点击右上角图标，选择管理员面板<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_072841.png"></p>
-<p>选择设置–模型<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_073020.png"></p>
-<p>在<code>从 Ollama.com 拉取一个模型</code>里，输入<code>qwen2.5:32b</code>，这样会自动下载模型。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>为什么要选择<code>qwen2.5:32b</code>这个模型呢？是因为32b的大小20G,正好在 RTX 3090 24G显存的范围内。而且经我实测，效果非常好。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>通过<code>docker compose</code>这种方式安装，已经设置好了，可以从局域网内其它电脑上访问服务，这一点很方便。</p>
-<p>至此，所有工作都已完成，愉快的和AI模型对话吧。</p>
-]]></content>
-      <categories>
-        <category>编程开发</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>docker</tag>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在ubuntu 24.04上安装vmware workstation 17.5.2</title>
     <url>/posts/7d0c9221.html</url>
     <content><![CDATA[<h3 id="下载vmware内核补丁"><a href="#下载vmware内核补丁" class="headerlink" title="下载vmware内核补丁"></a>下载vmware内核补丁</h3><p>虽然是17.5.1版本的，但经实测，完全兼容17.5.2</p>
@@ -1285,60 +1295,23 @@
       </tags>
   </entry>
   <entry>
-    <title>成都印象</title>
-    <url>/posts/33049aaa.html</url>
-    <content><![CDATA[<blockquote>
-<p>很久之前写的一篇文章，写于2018年9月25日。搬到这里，以作纪念。<br>另，第一次去成都，原来已经是5年之前了，感慨万千。</p>
-</blockquote>
-<p><img src="/../images/%E6%88%90%E9%83%BD%E5%8D%B0%E8%B1%A1_091747.png"><br>因为工作的关系，前些天去成都出差一个星期。</p>
-<p>这是我第一次来成都。俗话说，“少不入川，老不出蜀”，对于成都这座城市，有太多的内容可以书写。</p>
-<p>短短的一个星期的时间，只能够浮光掠影的体验一番，即使如此，也给我留下了一个美好的印象。</p>
-<h2 id="繁华"><a href="#繁华" class="headerlink" title="繁华"></a>繁华</h2><p>由于住的地方就在市中心，近距离的体验了一番成都的繁华景象。</p>
-<p>春熙路上人流如织，路两边有各种大百货商店和名牌专卖店以及美食店。</p>
-<p>来来往往的情侣和小姑娘们往往三两成群，用听不太懂的川音交流着。</p>
-<p>路两边的播放着各种促销信息，店员站在门口不但喊着，还不停的拍着手吸引人们的注意。</p>
-<p>空气中不时传来美食的气息，一派热闹繁华的景象。</p>
-<p>论起繁华的程度来，感觉不比北京、上海差，毕竟也是一个省的都会所在。</p>
-<p>如果用一句话来总结的话，你在其他地方能买到的东西都能在这里买到。</p>
-<h2 id="美食"><a href="#美食" class="headerlink" title="美食"></a>美食</h2><p>这次出去吃饭的时候虽然不多，但是我发现了一个有意思的地方：基本上好吃点的饭店都需要排队。饭店门外有专门的给排队的客人坐的椅子。</p>
-<p>各种各样的美食都有，还是拿春熙路举例，一般来说，购物街是商业最繁华的地方，美食店最多只能算是点缀, 不会太多，可成都不一样。</p>
-<p>据我目测，在春熙路上的购物店和美食店能达到2：1的比例。成都人对吃的喜好可见一斑。</p>
-<p>要说哪种美食最多，肯定是火锅。</p>
-<p>四川的火锅全国出名，可惜我这几年对火锅的兴趣不大，不然肯定要尝尝。</p>
-<p>至于其它的食物，我发现成都人吃兔子头和兔肉很多，可惜我都不感冒。</p>
-<p>这次对于美食的收获，在于吃了正宗的水煮肉片。</p>
-<p>一直想尝尝正宗的水煮肉片是什么样的，在美团上找了个排名第二的私房菜餐馆，专门点了水煮肉片。</p>
-<p>至于感受，只能说没有达到我心目中的水平，感觉和本地吃的没啥区别甚至还不如。</p>
-<p>我发现我非常适应四川的饮食，别的小伙伴们都喊辣的时候，我居然没啥感觉，哈哈。</p>
-<h2 id="景点"><a href="#景点" class="headerlink" title="景点"></a>景点</h2><p>这次时间很紧，抽空去了几个比较近的景点：武侯祠、宽窄巷子、锦里。</p>
-<p>武候祠跟园林一样，到处是树，加上湿润的空气，是个休养的好地方。</p>
-<p>我对武侯祠不太满意的地方是把诸葛亮修的太像神佛了。</p>
-<p>是修的像神佛，从布局到造型，无一不像个庙宇里的神仙，不太像个先贤或者人。</p>
-<p>宽窄巷子和锦里比较像，都是购物吃饭一条街，和西安的回民一条街功能类似，但是感官上比西安的那一条街强太多了。</p>
-<p>这两个地方，所有的建筑都是仿古的，门牌也是一样，古香古色的，很有文化氛围。吃饭娱乐也便宜，一场戏30块钱送茶水，采耳30左右。</p>
-<p>和逛西安那一条街疲累的感觉完全一样，在这里，逛累了你就可以随便进个茶馆喝壶茶休息一下，很有生活的氛围。</p>
-<p>茶馆在不表演戏剧的时候有暖场的驻唱，据说很多都是川音的学生，虽然没啥名气但是水平不低。一个驻唱小哥唱的《钟鼓楼》让我现在都没忘。</p>
-<p>宽窄巷子让我印象最深的地方，是有三个书店。</p>
-<p>像这种来成都必去的地方，一个摊位用寸土寸金来形容一点不为过。</p>
-<p>就是这样的地方，我居然看到了三个书店，让我对成都人的文化理念和传承肃然起敬。</p>
-<p>再联想到四川省图书馆和科技馆建在最繁华的市中心，四川人对文化的重视让我印象深刻。</p>
-<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>四川号称”天府之国”，成都做为四川的中心，无论在气候和人文上，都是一座非常适合生活的城市。</p>
-<p>城市里绿化的非常好，整个城市里随处可闻到芙蓉花的香气，人们的生活节奏也不快。</p>
-<p>印象最深的还是市中心的人民公园，树木郁郁葱葱，遮天蔽日，配合成都特有的湿润气候，空气非常的清新。</p>
-<p>据说成都一年最多有100来天的晴天，本地人没有足够的日照时间，造成了两个结果：1、四川人普遍很矮，2、四川人爱吃辣以驱湿气（都是导游说的）。</p>
-<p>反正我来到成都之后才发现原来我的个子是这么的高，哈哈。</p>
-<p>如果说四川什么最多，我感觉就是茶馆和戏院。这个多是和其它地方相比的，感觉就是这两个地方随处可见一样。</p>
-<p>这次时间紧没去听，下次再去一定补上。</p>
-<h2 id="酒吧"><a href="#酒吧" class="headerlink" title="酒吧"></a>酒吧</h2><p>赵雷的一首《成都》，让我在成都的这几天里总是忍不住啍起，其实我是真想去雨林路的小酒馆去看看，可最终没有成行。</p>
-<p>四川的酒吧非常出名，也很集中，因为是川音的所在地，酒吧的驻唱水平很高。</p>
-<p>留待下次再去体会吧。</p>
-<p>这几天一直想写篇文章来纪念这次的成都之行，生怕时间一长就忘记了，所幸终于写完。写的很简略，再有想起需要写的地方，再补上吧。</p>
+    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
+    <url>/posts/4a671491.html</url>
+    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
+<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
+<p>可以通过指定架构的方式把它取消掉</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
+<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
+<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
 ]]></content>
       <categories>
-        <category>生活记录</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>游记</tag>
+        <tag>ubuntu</tag>
+        <tag>apt</tag>
       </tags>
   </entry>
   <entry>
@@ -1413,23 +1386,60 @@
       </tags>
   </entry>
   <entry>
-    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
-    <url>/posts/4a671491.html</url>
-    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
-<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
-<p>可以通过指定架构的方式把它取消掉</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
-<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
-<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+    <title>成都印象</title>
+    <url>/posts/33049aaa.html</url>
+    <content><![CDATA[<blockquote>
+<p>很久之前写的一篇文章，写于2018年9月25日。搬到这里，以作纪念。<br>另，第一次去成都，原来已经是5年之前了，感慨万千。</p>
+</blockquote>
+<p><img src="/../images/%E6%88%90%E9%83%BD%E5%8D%B0%E8%B1%A1_091747.png"><br>因为工作的关系，前些天去成都出差一个星期。</p>
+<p>这是我第一次来成都。俗话说，“少不入川，老不出蜀”，对于成都这座城市，有太多的内容可以书写。</p>
+<p>短短的一个星期的时间，只能够浮光掠影的体验一番，即使如此，也给我留下了一个美好的印象。</p>
+<h2 id="繁华"><a href="#繁华" class="headerlink" title="繁华"></a>繁华</h2><p>由于住的地方就在市中心，近距离的体验了一番成都的繁华景象。</p>
+<p>春熙路上人流如织，路两边有各种大百货商店和名牌专卖店以及美食店。</p>
+<p>来来往往的情侣和小姑娘们往往三两成群，用听不太懂的川音交流着。</p>
+<p>路两边的播放着各种促销信息，店员站在门口不但喊着，还不停的拍着手吸引人们的注意。</p>
+<p>空气中不时传来美食的气息，一派热闹繁华的景象。</p>
+<p>论起繁华的程度来，感觉不比北京、上海差，毕竟也是一个省的都会所在。</p>
+<p>如果用一句话来总结的话，你在其他地方能买到的东西都能在这里买到。</p>
+<h2 id="美食"><a href="#美食" class="headerlink" title="美食"></a>美食</h2><p>这次出去吃饭的时候虽然不多，但是我发现了一个有意思的地方：基本上好吃点的饭店都需要排队。饭店门外有专门的给排队的客人坐的椅子。</p>
+<p>各种各样的美食都有，还是拿春熙路举例，一般来说，购物街是商业最繁华的地方，美食店最多只能算是点缀, 不会太多，可成都不一样。</p>
+<p>据我目测，在春熙路上的购物店和美食店能达到2：1的比例。成都人对吃的喜好可见一斑。</p>
+<p>要说哪种美食最多，肯定是火锅。</p>
+<p>四川的火锅全国出名，可惜我这几年对火锅的兴趣不大，不然肯定要尝尝。</p>
+<p>至于其它的食物，我发现成都人吃兔子头和兔肉很多，可惜我都不感冒。</p>
+<p>这次对于美食的收获，在于吃了正宗的水煮肉片。</p>
+<p>一直想尝尝正宗的水煮肉片是什么样的，在美团上找了个排名第二的私房菜餐馆，专门点了水煮肉片。</p>
+<p>至于感受，只能说没有达到我心目中的水平，感觉和本地吃的没啥区别甚至还不如。</p>
+<p>我发现我非常适应四川的饮食，别的小伙伴们都喊辣的时候，我居然没啥感觉，哈哈。</p>
+<h2 id="景点"><a href="#景点" class="headerlink" title="景点"></a>景点</h2><p>这次时间很紧，抽空去了几个比较近的景点：武侯祠、宽窄巷子、锦里。</p>
+<p>武候祠跟园林一样，到处是树，加上湿润的空气，是个休养的好地方。</p>
+<p>我对武侯祠不太满意的地方是把诸葛亮修的太像神佛了。</p>
+<p>是修的像神佛，从布局到造型，无一不像个庙宇里的神仙，不太像个先贤或者人。</p>
+<p>宽窄巷子和锦里比较像，都是购物吃饭一条街，和西安的回民一条街功能类似，但是感官上比西安的那一条街强太多了。</p>
+<p>这两个地方，所有的建筑都是仿古的，门牌也是一样，古香古色的，很有文化氛围。吃饭娱乐也便宜，一场戏30块钱送茶水，采耳30左右。</p>
+<p>和逛西安那一条街疲累的感觉完全一样，在这里，逛累了你就可以随便进个茶馆喝壶茶休息一下，很有生活的氛围。</p>
+<p>茶馆在不表演戏剧的时候有暖场的驻唱，据说很多都是川音的学生，虽然没啥名气但是水平不低。一个驻唱小哥唱的《钟鼓楼》让我现在都没忘。</p>
+<p>宽窄巷子让我印象最深的地方，是有三个书店。</p>
+<p>像这种来成都必去的地方，一个摊位用寸土寸金来形容一点不为过。</p>
+<p>就是这样的地方，我居然看到了三个书店，让我对成都人的文化理念和传承肃然起敬。</p>
+<p>再联想到四川省图书馆和科技馆建在最繁华的市中心，四川人对文化的重视让我印象深刻。</p>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>四川号称”天府之国”，成都做为四川的中心，无论在气候和人文上，都是一座非常适合生活的城市。</p>
+<p>城市里绿化的非常好，整个城市里随处可闻到芙蓉花的香气，人们的生活节奏也不快。</p>
+<p>印象最深的还是市中心的人民公园，树木郁郁葱葱，遮天蔽日，配合成都特有的湿润气候，空气非常的清新。</p>
+<p>据说成都一年最多有100来天的晴天，本地人没有足够的日照时间，造成了两个结果：1、四川人普遍很矮，2、四川人爱吃辣以驱湿气（都是导游说的）。</p>
+<p>反正我来到成都之后才发现原来我的个子是这么的高，哈哈。</p>
+<p>如果说四川什么最多，我感觉就是茶馆和戏院。这个多是和其它地方相比的，感觉就是这两个地方随处可见一样。</p>
+<p>这次时间紧没去听，下次再去一定补上。</p>
+<h2 id="酒吧"><a href="#酒吧" class="headerlink" title="酒吧"></a>酒吧</h2><p>赵雷的一首《成都》，让我在成都的这几天里总是忍不住啍起，其实我是真想去雨林路的小酒馆去看看，可最终没有成行。</p>
+<p>四川的酒吧非常出名，也很集中，因为是川音的所在地，酒吧的驻唱水平很高。</p>
+<p>留待下次再去体会吧。</p>
+<p>这几天一直想写篇文章来纪念这次的成都之行，生怕时间一长就忘记了，所幸终于写完。写的很简略，再有想起需要写的地方，再补上吧。</p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>生活记录</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
-        <tag>apt</tag>
+        <tag>游记</tag>
       </tags>
   </entry>
   <entry>

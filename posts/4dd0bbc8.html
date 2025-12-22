@@ -20,31 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="设备：iphone 14 plus IOS:  16.7.2 微软账号：@hotmail.com   折腾了一下午，终于弄好了。 微软日历问题：">
+    <meta name="description" content="使用minimal方式安装xubuntu 24.04后,发现无法在thunar里挂载samba,经过一番搜索，发现是缺少必要的软件。 解决方法是： 1sudo apt install gvfs-backends smbclient">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Iphone上设置微软日历和微软邮箱">
-<meta property="og:url" content="https://dnwzlx.com/posts/2cadad79.html">
+<meta property="og:title" content="Xubuntu24.04 minimal安装后解决samba挂载的问题">
+<meta property="og:url" content="https://dnwzlx.com/posts/4dd0bbc8.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="设备：iphone 14 plus IOS:  16.7.2 微软账号：@hotmail.com   折腾了一下午，终于弄好了。 微软日历问题：">
+<meta property="og:description" content="使用minimal方式安装xubuntu 24.04后,发现无法在thunar里挂载samba,经过一番搜索，发现是缺少必要的软件。 解决方法是： 1sudo apt install gvfs-backends smbclient">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://dnwzlx.com/images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171953.png">
-<meta property="og:image" content="https://dnwzlx.com/images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171859.png">
-<meta property="article:published_time" content="2024-03-09T09:07:50.000Z">
-<meta property="article:modified_time" content="2025-12-22T16:06:11.811Z">
+<meta property="article:published_time" content="2025-12-22T08:03:18.000Z">
+<meta property="article:modified_time" content="2025-12-22T16:06:11.812Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="iphone">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="samba">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dnwzlx.com/images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171953.png">
 
 
-<link rel="canonical" href="https://dnwzlx.com/posts/2cadad79.html">
+<link rel="canonical" href="https://dnwzlx.com/posts/4dd0bbc8.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnwzlx.com/posts/2cadad79.html","path":"posts/2cadad79.html","title":"Iphone上设置微软日历和微软邮箱"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnwzlx.com/posts/4dd0bbc8.html","path":"posts/4dd0bbc8.html","title":"Xubuntu24.04 minimal安装后解决samba挂载的问题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Iphone上设置微软日历和微软邮箱 | 寂静·流年</title>
+<title>Xubuntu24.04 minimal安装后解决samba挂载的问题 | 寂静·流年</title>
   
 
 
@@ -131,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -144,7 +142,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86"><span class="nav-number">1.</span> <span class="nav-text">微软日历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">微软邮箱</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/2cadad79.html">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/4dd0bbc8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,12 +205,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Iphone上设置微软日历和微软邮箱 | 寂静·流年">
+      <meta itemprop="name" content="Xubuntu24.04 minimal安装后解决samba挂载的问题 | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Iphone上设置微软日历和微软邮箱
+          Xubuntu24.04 minimal安装后解决samba挂载的问题
         </h1>
 
         <div class="post-meta-container">
@@ -224,7 +221,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-03-09 17:07:50" itemprop="dateCreated datePublished" datetime="2024-03-09T17:07:50+08:00">2024-03-09</time>
+      <time title="创建时间：2025-12-22 16:03:18" itemprop="dateCreated datePublished" datetime="2025-12-22T16:03:18+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -252,22 +249,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>设备：iphone 14 plus</p>
-<p>IOS:  16.7.2</p>
-<p>微软账号：@hotmail.com </p>
-<hr>
-<p>折腾了一下午，终于弄好了。</p>
-<h2 id="微软日历"><a href="#微软日历" class="headerlink" title="微软日历"></a>微软日历</h2><p><strong>问题</strong>：</p>
-<p>添加微软账号后，无法在iphone的日历里选择使用微软日历。</p>
-<p><strong>原因</strong>：</p>
-<p>在iphone里添加账号的时候，邮箱类型选择了 <code>exchange</code>，而不是<code>outlook</code>。</p>
-<p>解决方法：选择<code>outlook</code>类型即可。</p>
-<p><img src="/../images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171953.png"></p>
-<h2 id="微软邮箱"><a href="#微软邮箱" class="headerlink" title="微软邮箱"></a>微软邮箱</h2><p><strong>问题</strong></p>
-<p>iphone自带的<code>邮件</code>客户端，无法收取hotmail邮箱的邮件</p>
-<p><strong>解决方法</strong>：</p>
-<p>登录页面版hotmail，在<code>设置</code>–<code>同步电子邮件</code>里，关闭<code>允许设备和应用使用POP</code>即可。</p>
-<p><img src="/../images/Iphone%E4%B8%8A%E8%AE%BE%E7%BD%AE%E5%BE%AE%E8%BD%AF%E6%97%A5%E5%8E%86%E5%92%8C%E5%BE%AE%E8%BD%AF%E9%82%AE%E7%AE%B1_171859.png"></p>
+    <div class="post-body" itemprop="articleBody"><p>使用minimal方式安装xubuntu 24.04后,发现无法在<code>thunar</code>里挂载samba,经过一番搜索，发现是缺少必要的软件。</p>
+<p>解决方法是：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install </span>gvfs-<span class="keyword">backends </span>smbclient</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -285,7 +269,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://dnwzlx.com/posts/2cadad79.html" title="Iphone上设置微软日历和微软邮箱">https://dnwzlx.com/posts/2cadad79.html</a>
+      <a href="https://dnwzlx.com/posts/4dd0bbc8.html" title="Xubuntu24.04 minimal安装后解决samba挂载的问题">https://dnwzlx.com/posts/4dd0bbc8.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -294,21 +278,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/iphone/" rel="tag"><i class="fa fa-tag"></i> iphone</a>
+              <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+              <a href="/tags/samba/" rel="tag"><i class="fa fa-tag"></i> samba</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/33049aaa.html" rel="prev" title="成都印象">
-                  <i class="fa fa-angle-left"></i> 成都印象
+                <a href="/posts/d5fe2fef.html" rel="prev" title="PVE安装Windows Server 2012 R2的驱动问题">
+                  <i class="fa fa-angle-left"></i> PVE安装Windows Server 2012 R2的驱动问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/39722288.html" rel="next" title="Ubuntu安装设置zsh">
-                  Ubuntu安装设置zsh <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
