@@ -425,7 +425,7 @@
 <h2 id="删除订阅弹窗"><a href="#删除订阅弹窗" class="headerlink" title="删除订阅弹窗"></a>删除订阅弹窗</h2><p>尽管我们使用的 PVE 是免费版，但如果你没有订阅，每次访问网页时，都会有一个“无有效订阅”的弹窗<br><img src="/../images/PVE9%E6%8D%A2%E6%BA%90%E5%92%8C%E5%88%A0%E9%99%A4%E5%BC%B9%E7%AA%97%E8%AE%BE%E7%BD%AE_2025-15-35-07.png"><br>弹窗代码在 <code>/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js </code>中，通过 <code>void(&#123;...&#125;) </code>可以让弹窗部分代码不执行，实现删除弹窗的效果。</p>
 <p>因此，直接执行以下命令即可实现删除订阅弹窗：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sed -Ezi.bak <span class="string">&quot;s/(Ext.Msg.show\(\&#123;\s+title: gettext\(&#x27;No valid sub)/void\(\&#123; \/\/\1/g&quot;</span> <span class="regexp">/usr/</span>share<span class="regexp">/javascript/</span>proxmox-widget-toolkit/proxmoxlib.js &amp;&amp; systemctl restart pveproxy.service</span><br></pre></td></tr></table></figure>
-
+<p>注意，在更新重启pve后，上面命令需要<strong>重新运行</strong>一次。</p>
 ]]></content>
       <categories>
         <category>操作系统</category>
@@ -1155,54 +1155,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在Ubuntu24.04上运行Qwen2.5大模型</title>
-    <url>/posts/ee4a21e9.html</url>
-    <content><![CDATA[<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
-<li>使用<code>ollama</code>安装运行各种大模型，这里选择的是<code>Qwen2.5</code></li>
-<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
-<li>整个后端和前端使用一个<code>docker compose</code>文件来安装、控制</li>
-</ul>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
-<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
-<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
-<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
-<p>此项目库里有2个<code>docker compose</code>文件：</p>
-<ul>
-<li>docker-compose-ollama-gpu.yaml</li>
-<li>docker-compose.yml</li>
-</ul>
-<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，把它删除掉，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
-<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
-<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code>。</p>
-<p>安装完成后，打开<a href="http://localhost:8000/">http://localhost:8000</a>，并进行后续设置</p>
-<h2 id="设置Open-WebUI"><a href="#设置Open-WebUI" class="headerlink" title="设置Open WebUI"></a>设置Open WebUI</h2><p>点击右上角图标，选择管理员面板<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_072841.png"></p>
-<p>选择设置–模型<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_073020.png"></p>
-<p>在<code>从 Ollama.com 拉取一个模型</code>里，输入<code>qwen2.5:32b</code>，这样会自动下载模型。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>为什么要选择<code>qwen2.5:32b</code>这个模型呢？是因为32b的大小20G,正好在 RTX 3090 24G显存的范围内。而且经我实测，效果非常好。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>通过<code>docker compose</code>这种方式安装，已经设置好了，可以从局域网内其它电脑上访问服务，这一点很方便。</p>
-<p>至此，所有工作都已完成，愉快的和AI模型对话吧。</p>
-]]></content>
-      <categories>
-        <category>编程开发</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>docker</tag>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在ubuntu 24.04上安装vmware workstation 17.5.2</title>
     <url>/posts/7d0c9221.html</url>
     <content><![CDATA[<h3 id="下载vmware内核补丁"><a href="#下载vmware内核补丁" class="headerlink" title="下载vmware内核补丁"></a>下载vmware内核补丁</h3><p>虽然是17.5.1版本的，但经实测，完全兼容17.5.2</p>
@@ -1254,6 +1206,54 @@
         <tag>hexo</tag>
         <tag>vscode</tag>
         <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Ubuntu24.04上运行Qwen2.5大模型</title>
+    <url>/posts/ee4a21e9.html</url>
+    <content><![CDATA[<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>使用<code>ollama</code>安装运行各种大模型，这里选择的是<code>Qwen2.5</code></li>
+<li>使用<code>Open WebUI</code>作为前端聊天界面</li>
+<li>整个后端和前端使用一个<code>docker compose</code>文件来安装、控制</li>
+</ul>
+<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>OS : Ubuntu24.04<br>CPU : 13700k<br>显卡 ：RTX3090 24G显存</p>
+<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p>使用的是<a href="https://github.com/valiantlynx/ollama-docker">这个github项目库</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>看<a href="https://lethescap.com/posts/e1db731e.html">这篇文章</a>，在ubuntu下安装好docker</li>
+<li>看<a href="https://lethescap.com/posts/14b7f016.html">这篇文章</a>，在Ubuntu下安装好nvidia显卡驱动、cuda和cudnn</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装nvidia-container-toolkit"><a href="#安装nvidia-container-toolkit" class="headerlink" title="安装nvidia container toolkit"></a>安装nvidia container toolkit</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nvidia-<span class="built_in">container</span>-toolkit</span><br></pre></td></tr></table></figure>
+<h3 id="克隆项目库"><a href="#克隆项目库" class="headerlink" title="克隆项目库"></a>克隆项目库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/valiantlynx/ollama-docker.git</span><br><span class="line"><span class="built_in">cd</span> ollama-docker</span><br></pre></td></tr></table></figure>
+<p>此项目库里有2个<code>docker compose</code>文件：</p>
+<ul>
+<li>docker-compose-ollama-gpu.yaml</li>
+<li>docker-compose.yml</li>
+</ul>
+<p><code>docker-compose.yml</code>文件是没有GPU加速功能的，把它删除掉，并且把<code>docker-compose-ollama-gpu.yaml</code>这个文件改名为<code>docker-compose.yml</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> docker-compose.yml</span><br><span class="line"><span class="built_in">mv</span> docker-compose-ollama-gpu.yaml docker-compose.yml</span><br></pre></td></tr></table></figure>
+<h3 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker-compose up -d</span></span><br></pre></td></tr></table></figure>
+<p>这样，会自动下载<code>ollama</code>和<code>Open WebUI</code>。</p>
+<p>安装完成后，打开<a href="http://localhost:8000/">http://localhost:8000</a>，并进行后续设置</p>
+<h2 id="设置Open-WebUI"><a href="#设置Open-WebUI" class="headerlink" title="设置Open WebUI"></a>设置Open WebUI</h2><p>点击右上角图标，选择管理员面板<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_072841.png"></p>
+<p>选择设置–模型<br><img src="/../images/%E5%9C%A8Ubuntu24-04%E4%B8%8A%E8%BF%90%E8%A1%8CQwen2-5%E5%A4%A7%E6%A8%A1%E5%9E%8B_073020.png"></p>
+<p>在<code>从 Ollama.com 拉取一个模型</code>里，输入<code>qwen2.5:32b</code>，这样会自动下载模型。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要选择<code>qwen2.5:32b</code>这个模型呢？是因为32b的大小20G,正好在 RTX 3090 24G显存的范围内。而且经我实测，效果非常好。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>通过<code>docker compose</code>这种方式安装，已经设置好了，可以从局域网内其它电脑上访问服务，这一点很方便。</p>
+<p>至此，所有工作都已完成，愉快的和AI模型对话吧。</p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
