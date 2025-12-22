@@ -217,7 +217,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:37:25 / 修改时间：15:50:46" itemprop="dateCreated datePublished" datetime="2025-12-22T07:37:25+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:37:25 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:37:25+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,10 +240,15 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="安装时硬盘设置"><a href="#安装时硬盘设置" class="headerlink" title="安装时硬盘设置"></a>安装时硬盘设置</h2><p>看图：<br><img src="/../images/PVE9%E7%A1%AC%E7%9B%98%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE_2025-15-48-15.png"></p>
-<p>如果，不想让系统生成local-vm，不想预留一部分空间，则可以这样设置：<br>swapsize: 4<br>maxroot: 留空不填<br>minfree: 0<br>maxvz: 0</p>
+<p>如果，不想让系统生成local-vm，不想预留一部分空间，则可以这样设置：</p>
+<ul>
+<li>swapsize: 4</li>
+<li>maxroot: 留空不填</li>
+<li>minfree: 0</li>
+<li>maxvz: 0</li>
+</ul>
 <h2 id="合并-local-与-local-lvm"><a href="#合并-local-与-local-lvm" class="headerlink" title="合并 local 与 local-lvm"></a>合并 local 与 local-lvm</h2><p>PVE 安装过程中会自动创建 local 和 local-lvm，如果你的系统盘不够大，可能会出现一个用满了，另一个却比较空的情况，提前将两者合并就可以避免出现这种尴尬的情况。</p>
 <p>1.删除 local-lvm 分区</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">lvremove</span> /dev/pve/<span class="class"><span class="keyword">data</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/766f2740.html#more" rel="contents">
@@ -307,7 +312,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:32:18 / 修改时间：15:50:46" itemprop="dateCreated datePublished" datetime="2025-12-22T07:32:18+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:32:18 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:32:18+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -329,8 +334,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>PVE 9.0 基于 Debian 13，除了换 Debian 的软件源以外，还需要编辑企业源、Ceph 源、无订阅源以及 CT 模板源。</p>
-<p>Debian 软件源<br>D与常规的 Debian 13 一样，将<code>/etc/apt/sources.list.d/debian.sources</code>中默认源全部删除，将其替换为清华源</p>
+          <p>PVE 9.0 基于 Debian 13，除了换 Debian 的软件源以外，还需要编辑企业源、Ceph 源、无订阅源以及 CT 模板源。</p>
+<h2 id="Debian-软件源"><a href="#Debian-软件源" class="headerlink" title="Debian 软件源"></a>Debian 软件源</h2><p>D与常规的 Debian 13 一样，将<code>/etc/apt/sources.list.d/debian.sources</code>中默认源全部删除，将其替换为清华源</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/debian</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie trixie-updates trixie-backports</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//security.debian.org/debian-security</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie-security</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="企业源"><a href="#企业源" class="headerlink" title="企业源"></a>企业源</h2><p>将 PVE 的企业源 <code>/etc/apt/sources.list.d/pve-enterprise.sources </code>注释掉（也可以直接删除）</p>
@@ -398,7 +403,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 07:26:34 / 修改时间：15:50:46" itemprop="dateCreated datePublished" datetime="2025-12-22T07:26:34+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 07:26:34 / 修改时间：15:54:41" itemprop="dateCreated datePublished" datetime="2025-12-22T07:26:34+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -484,7 +489,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 15:50:46" itemprop="dateModified" datetime="2025-12-22T15:50:46+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-22 15:54:41" itemprop="dateModified" datetime="2025-12-22T15:54:41+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -584,7 +589,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-22 15:50:46" itemprop="dateModified" datetime="2025-12-22T15:50:46+08:00">2025-12-22</time>
+      <time title="修改时间：2025-12-22 15:54:41" itemprop="dateModified" datetime="2025-12-22T15:54:41+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
