@@ -334,7 +334,7 @@
 <p>打开<code>~/.zshrc</code>，找到<code>plugins=(git)</code>这一行，修改成下面的内容：</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump z safe-paste extract zsh-autosuggestions zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
 <p><strong>请注意</strong>：无论启用了多少插件，确保<code>zsh-syntax-highlighting</code>这个插件放在上述配置的最后，否则会报错。</p>
-<p>报错的原因，看我写的另一篇文章。</p>
+<p>报错的原因，看我写的<a href="https://lethescap.cc/posts/58051fc1.html">这篇文章</a>。</p>
 <h2 id="配置文件生效"><a href="#配置文件生效" class="headerlink" title="配置文件生效"></a>配置文件生效</h2><p>终端下运行命令: </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
@@ -423,11 +423,11 @@
     <url>/posts/934a696.html</url>
     <content><![CDATA[<h2 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <h2 id="关闭homebrew升级提示"><a href="#关闭homebrew升级提示" class="headerlink" title="关闭homebrew升级提示"></a>关闭homebrew升级提示</h2><p>将以下内容放入【~&#x2F;.zshrc】文件，重启终端即可</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭自动清理旧版本包（不建议使用）</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HOMEBREW_NO_INSTALL_CLEANUP</span>=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 隐藏提示（建议使用）</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HOMEBREW_NO_ENV_HINTS</span>=<span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭自动清理旧版本包（不建议使用）</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HOMEBREW_NO_INSTALL_CLEANUP</span>=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 隐藏提示（建议使用）</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HOMEBREW_NO_ENV_HINTS</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><h3 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>--cask microsoft-edge iterm2  raycast appcleaner temurin@<span class="number">21</span> visual-studio-code snipaste iina <span class="keyword">orbstack </span>windows-app thunder resilio-<span class="keyword">sync </span> the-unarchiver wechat wireshark</span><br></pre></td></tr></table></figure>
 
-<h3 id="代理软件"><a href="#代理软件" class="headerlink" title="代理软件"></a>代理软件</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>trojan-go privoxy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="代理软件"><a href="#代理软件" class="headerlink" title="代理软件"></a>代理软件</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>trojan-go privoxy</span><br></pre></td></tr></table></figure>
 <h2 id="环境变量设置："><a href="#环境变量设置：" class="headerlink" title="环境变量设置："></a>环境变量设置：</h2><p>终端里运行下面三条命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> &gt;&gt; /Users/lethescap/.zprofile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#x27;</span> &gt;&gt; /Users/lethescap/.zprofile</span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(/opt/homebrew/bin/brew shellenv)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/../images/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8homebrew%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6_2025-00-15-11.png"></p>
@@ -590,6 +590,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu24.04安装Temurin JDK</title>
+    <url>/posts/e63027c0.html</url>
+    <content><![CDATA[<p>以下命令来自官方，需要使用root身份</p>
+<h2 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">apt</span> install -y wget apt-trans<span class="keyword">port</span>-https gpg</span><br></pre></td></tr></table></figure>
+<h2 id="下载GPG-key"><a href="#下载GPG-key" class="headerlink" title="下载GPG key"></a>下载GPG key</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget -qO - https:<span class="regexp">//</span>packages.adoptium.net<span class="regexp">/artifactory/</span>api<span class="regexp">/gpg/</span>key<span class="regexp">/public | gpg --dearmor | tee /</span>etc<span class="regexp">/apt/</span>trusted.gpg.d<span class="regexp">/adoptium.gpg &gt; /</span>dev/null</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置apt软件源"><a href="#设置apt软件源" class="headerlink" title="设置apt软件源"></a>设置apt软件源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://packages.adoptium.net/artifactory/deb <span class="subst">$(awk -F= &#x27;/^VERSION_CODENAME/&#123;print$2&#125;&#x27; /etc/os-release)</span> main&quot;</span> | <span class="built_in">tee</span> /etc/apt/sources.list.d/adoptium.list</span><br></pre></td></tr></table></figure>
+<h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
+<p><img src="/../images/Ubuntu24-04%E5%AE%89%E8%A3%85Temurin-JDK_085812.png"></p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 24.04安装Docker</title>
     <url>/posts/e1db731e.html</url>
     <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
@@ -612,29 +635,6 @@
       <tags>
         <tag>ubuntu</tag>
         <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu24.04安装Temurin JDK</title>
-    <url>/posts/e63027c0.html</url>
-    <content><![CDATA[<p>以下命令来自官方，需要使用root身份</p>
-<h2 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">apt</span> install -y wget apt-trans<span class="keyword">port</span>-https gpg</span><br></pre></td></tr></table></figure>
-<h2 id="下载GPG-key"><a href="#下载GPG-key" class="headerlink" title="下载GPG key"></a>下载GPG key</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget -qO - https:<span class="regexp">//</span>packages.adoptium.net<span class="regexp">/artifactory/</span>api<span class="regexp">/gpg/</span>key<span class="regexp">/public | gpg --dearmor | tee /</span>etc<span class="regexp">/apt/</span>trusted.gpg.d<span class="regexp">/adoptium.gpg &gt; /</span>dev/null</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置apt软件源"><a href="#设置apt软件源" class="headerlink" title="设置apt软件源"></a>设置apt软件源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://packages.adoptium.net/artifactory/deb <span class="subst">$(awk -F= &#x27;/^VERSION_CODENAME/&#123;print$2&#125;&#x27; /etc/os-release)</span> main&quot;</span> | <span class="built_in">tee</span> /etc/apt/sources.list.d/adoptium.list</span><br></pre></td></tr></table></figure>
-<h2 id="安装Temurin-JDK"><a href="#安装Temurin-JDK" class="headerlink" title="安装Temurin JDK"></a>安装Temurin JDK</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> update </span><br><span class="line"><span class="attribute">apt</span> install temurin-<span class="number">21</span>-jdk</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置默认的java版本"><a href="#设置默认的java版本" class="headerlink" title="设置默认的java版本"></a>设置默认的java版本</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span><span class="operator">-</span>alternatives <span class="comment">--config java</span></span><br></pre></td></tr></table></figure>
-<p><img src="/../images/Ubuntu24-04%E5%AE%89%E8%A3%85Temurin-JDK_085812.png"></p>
-]]></content>
-      <categories>
-        <category>编程开发</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -755,13 +755,12 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo的永久链接设置</title>
-    <url>/posts/4dbd6b59.html</url>
-    <content><![CDATA[<p>使用<code>hexo-abbrlink</code>插件即可。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在<code>_config.yml</code>中修改添加下面内容：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> </span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> </span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>hexo自动摘要设置</title>
+    <url>/posts/31ada5df.html</url>
+    <content><![CDATA[<p><code>NexT</code>主题最新版本已经不支持自动摘要设置了，需要用的第三方插件<code>hexo-abbrlink</code></p>
+<h2 id="安装hexo-exerpt"><a href="#安装hexo-exerpt" class="headerlink" title="安装hexo-exerpt"></a>安装hexo-exerpt</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置hexo-excerpt"><a href="#设置hexo-excerpt" class="headerlink" title="设置hexo-excerpt"></a>设置hexo-excerpt</h2><p>在<code>hexo</code>的配置文件<code>_config.yml</code>中，加入下面的内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>网络相关</category>
       </categories>
@@ -770,12 +769,13 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo自动摘要设置</title>
-    <url>/posts/31ada5df.html</url>
-    <content><![CDATA[<p><code>NexT</code>主题最新版本已经不支持自动摘要设置了，需要用的第三方插件<code>hexo-abbrlink</code></p>
-<h2 id="安装hexo-exerpt"><a href="#安装hexo-exerpt" class="headerlink" title="安装hexo-exerpt"></a>安装hexo-exerpt</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<h2 id="设置hexo-excerpt"><a href="#设置hexo-excerpt" class="headerlink" title="设置hexo-excerpt"></a>设置hexo-excerpt</h2><p>在<code>hexo</code>的配置文件<code>_config.yml</code>中，加入下面的内容：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>hexo的永久链接设置</title>
+    <url>/posts/4dbd6b59.html</url>
+    <content><![CDATA[<p>使用<code>hexo-abbrlink</code>插件即可。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在<code>_config.yml</code>中修改添加下面内容：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> </span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> </span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>网络相关</category>
       </categories>
