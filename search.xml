@@ -218,22 +218,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux下删除vmware workstation</title>
-    <url>/posts/4a4c5348.html</url>
-    <content><![CDATA[<p>这里以ubuntu为例</p>
-<p>首先切换到root用户</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后执行下面命令：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>vmware</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux下更改用户目录为英文名称</title>
     <url>/posts/4ad8d8d7.html</url>
     <content><![CDATA[<p>安装<code>xdg-user-dirs-gtk</code>这个软件。</p>
@@ -252,6 +236,22 @@
       <tags>
         <tag>linux</tag>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下删除vmware workstation</title>
+    <url>/posts/4a4c5348.html</url>
+    <content><![CDATA[<p>这里以ubuntu为例</p>
+<p>首先切换到root用户</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后执行下面命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -297,6 +297,64 @@
       <tags>
         <tag>linux</tag>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装设置zsh</title>
+    <url>/posts/39722288.html</url>
+    <content><![CDATA[<h2 id="查看当前默认系统shell"><a href="#查看当前默认系统shell" class="headerlink" title="查看当前默认系统shell"></a>查看当前默认系统shell</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh-my-zsh"></a>安装zsh和oh-my-zsh</h2><h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> zsh</span><br></pre></td></tr></table></figure>
+
+<h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要系统中有curl和git</li>
+<li>安装完oh-my-zsh后，会自动提示是否切换到zsh。</li>
+<li>如果没有提示切换系统shell，使用chsh -s &#x2F;bin&#x2F;zsh来切换。</li>
+</ul>
+<h2 id="安装zsh常用插件"><a href="#安装zsh常用插件" class="headerlink" title="安装zsh常用插件"></a>安装zsh常用插件</h2><p>最有用的就是3个：</p>
+<ul>
+<li>高亮插件<code>zsh-syntax-highlighting</code>、</li>
+<li>自动实例插件<code>zsh-autosuggestions</code>、</li>
+<li>跳转插件<code>autojump</code></li>
+</ul>
+<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">sudo apt install <span class="built_in">auto</span>jump</span><br></pre></td></tr></table></figure>
+
+<h2 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h2><p>除了上面的插件，<code>oh-my-zsh</code>自带了几个插件，建议一起启用：</p>
+<ul>
+<li>z</li>
+<li>extract</li>
+<li>safe-paste</li>
+</ul>
+<p>打开<code>~/.zshrc</code>，找到<code>plugins=(git)</code>这一行，修改成下面的内容：</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump  z safe-paste extract zsh-autosuggestions zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+<p><strong>请注意</strong>：无论启用了多少插件，确保<code>zsh-syntax-highlighting</code>这个插件放在上述配置的最后，否则会报错。</p>
+<p>报错的原因，看我写的另一篇文章。</p>
+<h2 id="配置文件生效"><a href="#配置文件生效" class="headerlink" title="配置文件生效"></a>配置文件生效</h2><p>终端下运行命令: </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Powerlevel10k主题"><a href="#安装Powerlevel10k主题" class="headerlink" title="安装Powerlevel10k主题"></a>安装Powerlevel10k主题</h2><blockquote>
+<p>为什么要安装<code>Powerlevel10k</code>呢？除了确实漂亮以外，更重要的是，这个主题和<code>miniconda</code>配合的非常好。</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>修改<code>~/.zshrc</code>,找到<code>ZSH_THEME</code>，修改成下面内容：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">ZSH_THEME</span>=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>重新打开终端，按照提示一步步来即可。</p>
+<p>最终效果如图<br><img src="/../images/Ubuntu%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEzsh_092107.png"></p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>zsh</tag>
       </tags>
   </entry>
   <entry>
@@ -591,63 +649,6 @@
       </categories>
       <tags>
         <tag>RDP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu安装设置zsh</title>
-    <url>/posts/39722288.html</url>
-    <content><![CDATA[<h2 id="查看当前默认系统shell"><a href="#查看当前默认系统shell" class="headerlink" title="查看当前默认系统shell"></a>查看当前默认系统shell</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh-my-zsh"></a>安装zsh和oh-my-zsh</h2><h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> zsh</span><br></pre></td></tr></table></figure>
-
-<h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>需要系统中有curl和git</li>
-<li>安装完oh-my-zsh后，会自动提示是否切换到zsh。</li>
-<li>如果没有提示切换系统shell，使用chsh -s &#x2F;bin&#x2F;zsh来切换。</li>
-</ul>
-<h2 id="安装zsh常用插件"><a href="#安装zsh常用插件" class="headerlink" title="安装zsh常用插件"></a>安装zsh常用插件</h2><p>最有用的就是3个：</p>
-<ul>
-<li>高亮插件<code>zsh-syntax-highlighting</code>、</li>
-<li>自动实例插件<code>zsh-autosuggestions</code>、</li>
-<li>跳转插件<code>autojump</code></li>
-</ul>
-<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$ZSH</span>/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$ZSH</span>/custom/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">sudo apt install <span class="built_in">auto</span>jump</span><br></pre></td></tr></table></figure>
-
-<h2 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h2><p>除了上面的插件，<code>oh-my-zsh</code>自带了几个插件，建议一起启用：</p>
-<ul>
-<li>z</li>
-<li>extract</li>
-<li>safe-paste</li>
-</ul>
-<p>打开<code>~/.zshrc</code>，找到<code>plugins=(git)</code>这一行，修改成下面的内容：</p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump zsh-autosuggestions zsh-syntax-highlighting z safe-paste extract)</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置文件生效"><a href="#配置文件生效" class="headerlink" title="配置文件生效"></a>配置文件生效</h2><p>终端下运行命令: </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装Powerlevel10k主题"><a href="#安装Powerlevel10k主题" class="headerlink" title="安装Powerlevel10k主题"></a>安装Powerlevel10k主题</h2><blockquote>
-<p>为什么要安装<code>Powerlevel10k</code>呢？除了确实漂亮以外，更重要的是，这个主题和<code>miniconda</code>配合的非常好。</p>
-</blockquote>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>修改<code>~/.zshrc</code>,找到<code>ZSH_THEME</code>，修改成下面内容：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">ZSH_THEME</span>=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>重新打开终端，按照提示一步步来即可。</p>
-<p>最终效果如图<br><img src="/../images/Ubuntu%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AEzsh_092107.png"></p>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>zsh</tag>
       </tags>
   </entry>
   <entry>
@@ -1280,43 +1281,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在vscode里配置hexo粘贴图片</title>
-    <url>/posts/8e4647c9.html</url>
-    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
-<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
-<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
-<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
-<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
-<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
-<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
-<p>有两种设置方式：</p>
-<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
-<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
-<ul>
-<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
-<li>自动在博客里插入图片链接</li>
-<li>插入的图片名称是当前文章名+插入时间。</li>
-</ul>
-<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
-<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
-<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
-<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
-<p>非常的方便和流畅。</p>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>vscode</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>成都印象</title>
     <url>/posts/33049aaa.html</url>
     <content><![CDATA[<blockquote>
@@ -1371,6 +1335,43 @@
       </categories>
       <tags>
         <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在vscode里配置hexo粘贴图片</title>
+    <url>/posts/8e4647c9.html</url>
+    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
+<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
+<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
+<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
+<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
+<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
+<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
+<p>有两种设置方式：</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
+<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
+<ul>
+<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
+<li>自动在博客里插入图片链接</li>
+<li>插入的图片名称是当前文章名+插入时间。</li>
+</ul>
+<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
+<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
+<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
+<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
+<p>非常的方便和流畅。</p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
