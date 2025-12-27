@@ -218,6 +218,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下删除vmware workstation</title>
+    <url>/posts/4a4c5348.html</url>
+    <content><![CDATA[<p>这里以ubuntu为例</p>
+<p>首先切换到root用户</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后执行下面命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux下更改用户目录为英文名称</title>
     <url>/posts/4ad8d8d7.html</url>
     <content><![CDATA[<p>安装<code>xdg-user-dirs-gtk</code>这个软件。</p>
@@ -236,22 +252,6 @@
       <tags>
         <tag>linux</tag>
         <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux下删除vmware workstation</title>
-    <url>/posts/4a4c5348.html</url>
-    <content><![CDATA[<p>这里以ubuntu为例</p>
-<p>首先切换到root用户</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sudo -<span class="selector-tag">i</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后执行下面命令：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">vmware-installer -u vmware-workstation</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -332,7 +332,7 @@
 <li>safe-paste</li>
 </ul>
 <p>打开<code>~/.zshrc</code>，找到<code>plugins=(git)</code>这一行，修改成下面的内容：</p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump  z safe-paste extract zsh-autosuggestions zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="operator">=</span>(git autojump z safe-paste extract zsh-autosuggestions zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
 <p><strong>请注意</strong>：无论启用了多少插件，确保<code>zsh-syntax-highlighting</code>这个插件放在上述配置的最后，否则会报错。</p>
 <p>报错的原因，看我写的另一篇文章。</p>
 <h2 id="配置文件生效"><a href="#配置文件生效" class="headerlink" title="配置文件生效"></a>配置文件生效</h2><p>终端下运行命令: </p>
@@ -1281,6 +1281,43 @@
       </tags>
   </entry>
   <entry>
+    <title>在vscode里配置hexo粘贴图片</title>
+    <url>/posts/8e4647c9.html</url>
+    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
+<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
+<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
+<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
+<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
+<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
+<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
+<p>有两种设置方式：</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
+<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
+<ul>
+<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
+<li>自动在博客里插入图片链接</li>
+<li>插入的图片名称是当前文章名+插入时间。</li>
+</ul>
+<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
+<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
+<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
+<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
+<p>非常的方便和流畅。</p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>成都印象</title>
     <url>/posts/33049aaa.html</url>
     <content><![CDATA[<blockquote>
@@ -1335,43 +1372,6 @@
       </categories>
       <tags>
         <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在vscode里配置hexo粘贴图片</title>
-    <url>/posts/8e4647c9.html</url>
-    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
-<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
-<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
-<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
-<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
-<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
-<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
-<p>有两种设置方式：</p>
-<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
-<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
-<ul>
-<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
-<li>自动在博客里插入图片链接</li>
-<li>插入的图片名称是当前文章名+插入时间。</li>
-</ul>
-<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
-<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
-<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
-<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
-<p>非常的方便和流畅。</p>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>vscode</tag>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -1463,6 +1463,30 @@
       <tags>
         <tag>ubuntu</tag>
         <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题</title>
+    <url>/posts/58051fc1.html</url>
+    <content><![CDATA[<p>在安装完成<code>oh-my-zsh</code>，并在<code>~/.zshrc</code>配置文件里设置了<code>zsh-syntax-highlighting</code>后，下一步就是执行<code>source ~/.zshrc</code>，以使用插件配置生效。</p>
+<p>这时候有可能会报错，内容如下图：</p>
+<p><img src="/../images/%E8%A7%A3%E5%86%B3oh-my-zsh%E4%B8%8Bzsh-syntax-highlighting%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98_2025-17-06-33.png"></p>
+<p>这个问题困扰我很长时间，今天终于解决了。</p>
+<p>答案就写在官方的github说明里：</p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">**Why must be sourced <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">file</span>?**</span><br><span class="line"></span><br><span class="line">zsh-syntax-highlighting works <span class="keyword">by</span> hooking <span class="keyword">into</span> <span class="keyword">the</span> Zsh Line Editor (ZLE) <span class="keyword">and</span> computing syntax highlighting <span class="keyword">for</span> <span class="keyword">the</span> command-line buffer <span class="keyword">as</span> <span class="keyword">it</span> stands <span class="keyword">at</span> <span class="keyword">the</span> <span class="built_in">time</span> z-sy-h&#x27;s hook <span class="keyword">is</span> invoked.</span><br><span class="line"></span><br><span class="line">In zsh <span class="number">5.2</span> <span class="keyword">and</span> older, hooks <span class="keyword">into</span> ZLE <span class="keyword">by</span> wrapping ZLE widgets. It must be sourced <span class="keyword">after</span> all custom widgets have been created (i.e., <span class="keyword">after</span> all calls <span class="keyword">and</span> <span class="keyword">after</span> <span class="built_in">running</span> ) <span class="keyword">in</span> order <span class="keyword">to</span> be able <span class="keyword">to</span> wrap all <span class="keyword">of</span> them. Widgets created <span class="keyword">after</span> z-sy-h <span class="keyword">is</span> sourced will work, <span class="keyword">but</span> will <span class="keyword">not</span> update <span class="keyword">the</span> syntax highlighting.zsh-syntax-highlighting.zshzle -Ncompinit</span><br><span class="line"></span><br><span class="line">In zsh newer than <span class="number">5.8</span> (<span class="keyword">not</span> including <span class="number">5.8</span> itself), zsh-syntax-highlighting uses <span class="keyword">the</span> facility <span class="keyword">to</span> install a hook. Hooks are <span class="built_in">run</span> <span class="keyword">in</span> order <span class="keyword">of</span> registration, therefore, z-sy-h must be sourced (<span class="keyword">and</span> register <span class="keyword">its</span> hook) <span class="keyword">after</span> anything <span class="keyword">else</span> <span class="keyword">that</span> adds hooks <span class="keyword">that</span> modify <span class="keyword">the</span> command-line buffer.add-zle-hook-widgetzle-line-pre-redraw</span><br></pre></td></tr></table></figure>
+
+<p>简单来说，就是<code>zsh-syntax-highlighting</code>这个插件，必须放在<code>~/.zshrc</code>配置文件的启用插件列表</p>
+<p><code>plugins=(git .... zsh-syntax-highlighting)</code></p>
+<p>的最后面。</p>
+<p>也就是说无论你在<code>plugins</code>里启用了多少个插件，<code>zsh-syntax-highlighting</code>必须是最后一个被启用的。</p>
+<p>再执行<code>source ~/.zshrc</code>就不会报错了。</p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>zsh</tag>
       </tags>
   </entry>
   <entry>

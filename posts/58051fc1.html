@@ -20,31 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。 下面介绍设置方法 打开设置，左侧最下方找到系统，右侧点击远程桌面：桌面共享这里不用管，点击远程登录，看下图设置：">
+    <meta name="description" content="在安装完成oh-my-zsh，并在~&#x2F;.zshrc配置文件里设置了zsh-syntax-highlighting后，下一步就是执行source ~&#x2F;.zshrc，以使用插件配置生效。 这时候有可能会报错，内容如下图：  这个问题困扰我很长时间，今天终于解决了。 答案就写在官方的github说明里： 1234567**Why must be sourced at the end of the fil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu24.04开启RDP远程桌面访问">
-<meta property="og:url" content="https://dnwzlx.com/posts/c466930e.html">
+<meta property="og:title" content="解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题">
+<meta property="og:url" content="https://dnwzlx.com/posts/58051fc1.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。 下面介绍设置方法 打开设置，左侧最下方找到系统，右侧点击远程桌面：桌面共享这里不用管，点击远程登录，看下图设置：">
+<meta property="og:description" content="在安装完成oh-my-zsh，并在~&#x2F;.zshrc配置文件里设置了zsh-syntax-highlighting后，下一步就是执行source ~&#x2F;.zshrc，以使用插件配置生效。 这时候有可能会报错，内容如下图：  这个问题困扰我很长时间，今天终于解决了。 答案就写在官方的github说明里： 1234567**Why must be sourced at the end of the fil">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://dnwzlx.com/images/17179236170199.jpg">
-<meta property="og:image" content="https://dnwzlx.com/images/17179236351583.jpg">
-<meta property="article:published_time" content="2024-05-18T08:57:11.000Z">
-<meta property="article:modified_time" content="2025-12-27T09:21:24.730Z">
+<meta property="og:image" content="https://dnwzlx.com/images/%E8%A7%A3%E5%86%B3oh-my-zsh%E4%B8%8Bzsh-syntax-highlighting%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98_2025-17-06-33.png">
+<meta property="article:published_time" content="2025-12-27T01:05:31.000Z">
+<meta property="article:modified_time" content="2025-12-27T09:21:24.732Z">
 <meta property="article:author" content="Laphael">
-<meta property="article:tag" content="RDP">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="zsh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dnwzlx.com/images/17179236170199.jpg">
+<meta name="twitter:image" content="https://dnwzlx.com/images/%E8%A7%A3%E5%86%B3oh-my-zsh%E4%B8%8Bzsh-syntax-highlighting%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98_2025-17-06-33.png">
 
 
-<link rel="canonical" href="https://dnwzlx.com/posts/c466930e.html">
+<link rel="canonical" href="https://dnwzlx.com/posts/58051fc1.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnwzlx.com/posts/c466930e.html","path":"posts/c466930e.html","title":"Ubuntu24.04开启RDP远程桌面访问"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnwzlx.com/posts/58051fc1.html","path":"posts/58051fc1.html","title":"解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Ubuntu24.04开启RDP远程桌面访问 | 寂静·流年</title>
+<title>解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题 | 寂静·流年</title>
   
 
 
@@ -194,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/c466930e.html">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/58051fc1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -207,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Ubuntu24.04开启RDP远程桌面访问 | 寂静·流年">
+      <meta itemprop="name" content="解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题 | 寂静·流年">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Ubuntu24.04开启RDP远程桌面访问
+          解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题
         </h1>
 
         <div class="post-meta-container">
@@ -222,15 +222,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-05-18 16:57:11" itemprop="dateCreated datePublished" datetime="2024-05-18T16:57:11+08:00">2024-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
+      <time title="创建时间：2025-12-27 09:05:31 / 修改时间：17:21:24" itemprop="dateCreated datePublished" datetime="2025-12-27T09:05:31+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +232,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件应用</span></a>
         </span>
     </span>
 
@@ -251,9 +245,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Ubuntu 24.04系统内建了RDP远程桌面访问，终于不用再安装设置xrdp了。</p>
-<p>下面介绍设置方法</p>
-<p>打开<code>设置</code>，左侧最下方找到<code>系统</code>，右侧点击<code>远程桌面</code>：<br><img src="/images/17179236170199.jpg"><br><code>桌面共享</code>这里不用管，点击<code>远程登录</code>，看下图设置：<br><img src="/images/17179236351583.jpg"></p>
+    <div class="post-body" itemprop="articleBody"><p>在安装完成<code>oh-my-zsh</code>，并在<code>~/.zshrc</code>配置文件里设置了<code>zsh-syntax-highlighting</code>后，下一步就是执行<code>source ~/.zshrc</code>，以使用插件配置生效。</p>
+<p>这时候有可能会报错，内容如下图：</p>
+<p><img src="/../images/%E8%A7%A3%E5%86%B3oh-my-zsh%E4%B8%8Bzsh-syntax-highlighting%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98_2025-17-06-33.png"></p>
+<p>这个问题困扰我很长时间，今天终于解决了。</p>
+<p>答案就写在官方的github说明里：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**Why must be sourced <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">file</span>?**</span><br><span class="line"></span><br><span class="line">zsh-syntax-highlighting works <span class="keyword">by</span> hooking <span class="keyword">into</span> <span class="keyword">the</span> Zsh Line Editor (ZLE) <span class="keyword">and</span> computing syntax highlighting <span class="keyword">for</span> <span class="keyword">the</span> command-line buffer <span class="keyword">as</span> <span class="keyword">it</span> stands <span class="keyword">at</span> <span class="keyword">the</span> <span class="built_in">time</span> z-sy-h&#x27;s hook <span class="keyword">is</span> invoked.</span><br><span class="line"></span><br><span class="line">In zsh <span class="number">5.2</span> <span class="keyword">and</span> older, hooks <span class="keyword">into</span> ZLE <span class="keyword">by</span> wrapping ZLE widgets. It must be sourced <span class="keyword">after</span> all custom widgets have been created (i.e., <span class="keyword">after</span> all calls <span class="keyword">and</span> <span class="keyword">after</span> <span class="built_in">running</span> ) <span class="keyword">in</span> order <span class="keyword">to</span> be able <span class="keyword">to</span> wrap all <span class="keyword">of</span> them. Widgets created <span class="keyword">after</span> z-sy-h <span class="keyword">is</span> sourced will work, <span class="keyword">but</span> will <span class="keyword">not</span> update <span class="keyword">the</span> syntax highlighting.zsh-syntax-highlighting.zshzle -Ncompinit</span><br><span class="line"></span><br><span class="line">In zsh newer than <span class="number">5.8</span> (<span class="keyword">not</span> including <span class="number">5.8</span> itself), zsh-syntax-highlighting uses <span class="keyword">the</span> facility <span class="keyword">to</span> install a hook. Hooks are <span class="built_in">run</span> <span class="keyword">in</span> order <span class="keyword">of</span> registration, therefore, z-sy-h must be sourced (<span class="keyword">and</span> register <span class="keyword">its</span> hook) <span class="keyword">after</span> anything <span class="keyword">else</span> <span class="keyword">that</span> adds hooks <span class="keyword">that</span> modify <span class="keyword">the</span> command-line buffer.add-zle-hook-widgetzle-line-pre-redraw</span><br></pre></td></tr></table></figure>
+
+<p>简单来说，就是<code>zsh-syntax-highlighting</code>这个插件，必须放在<code>~/.zshrc</code>配置文件的启用插件列表</p>
+<p><code>plugins=(git .... zsh-syntax-highlighting)</code></p>
+<p>的最后面。</p>
+<p>也就是说无论你在<code>plugins</code>里启用了多少个插件，<code>zsh-syntax-highlighting</code>必须是最后一个被启用的。</p>
+<p>再执行<code>source ~/.zshrc</code>就不会报错了。</p>
 
     </div>
 
@@ -271,7 +274,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://dnwzlx.com/posts/c466930e.html" title="Ubuntu24.04开启RDP远程桌面访问">https://dnwzlx.com/posts/c466930e.html</a>
+      <a href="https://dnwzlx.com/posts/58051fc1.html" title="解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题">https://dnwzlx.com/posts/58051fc1.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -280,21 +283,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/RDP/" rel="tag"><i class="fa fa-tag"></i> RDP</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/zsh/" rel="tag"><i class="fa fa-tag"></i> zsh</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/c0c4bf60.html" rel="prev" title="让Lightdm的登录界面默认显示用户账号">
-                  <i class="fa fa-angle-left"></i> 让Lightdm的登录界面默认显示用户账号
+                <a href="/posts/934a696.html" rel="prev" title="Mac下使用homebrew安装常用软件">
+                  <i class="fa fa-angle-left"></i> Mac下使用homebrew安装常用软件
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/8e710f05.html" rel="next" title="tmux安装和设置">
-                  tmux安装和设置 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

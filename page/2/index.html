@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -178,6 +178,103 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/54210921.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Laphael">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寂静·流年">
+      <meta itemprop="description" content="记录我的生活、学习、兴趣">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 寂静·流年">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/54210921.html" class="post-title-link" itemprop="url">PVE9换源和删除弹窗设置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 07:32:18" itemprop="dateCreated datePublished" datetime="2025-12-22T07:32:18+08:00">2025-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>PVE 9.0 基于 Debian 13，除了换 Debian 的软件源以外，还需要编辑企业源、Ceph 源、无订阅源以及 CT 模板源。</p>
+<h2 id="Debian-软件源"><a href="#Debian-软件源" class="headerlink" title="Debian 软件源"></a>Debian 软件源</h2><p>D与常规的 Debian 13 一样，将<code>/etc/apt/sources.list.d/debian.sources</code>中默认源全部删除，将其替换为清华源</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/debian</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie trixie-updates trixie-backports</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">Types:</span> deb</span><br><span class="line"><span class="symbol">URIs:</span> https:<span class="comment">//security.debian.org/debian-security</span></span><br><span class="line"><span class="symbol">Suites:</span> trixie-security</span><br><span class="line"><span class="symbol">Components:</span> main contrib non-free non-free-firmware</span><br><span class="line">Signed-By: <span class="keyword">/usr/</span>share<span class="keyword">/keyrings/</span>debian-archive-keyring.gpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="企业源"><a href="#企业源" class="headerlink" title="企业源"></a>企业源</h2><p>将 PVE 的企业源 <code>/etc/apt/sources.list.d/pve-enterprise.sources </code>注释掉（也可以直接删除）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Types: deb</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">URIs: https://enterprise.proxmox.com/debian/pve</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Suites: trixie</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Components: pve-enterprise</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/54210921.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -223,7 +320,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 16:58:53" itemprop="dateModified" datetime="2025-12-27T16:58:53+08:00">2025-12-27</time>
+      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +406,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 16:58:53" itemprop="dateModified" datetime="2025-12-27T16:58:53+08:00">2025-12-27</time>
+      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -409,7 +506,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 16:58:53" itemprop="dateModified" datetime="2025-12-27T16:58:53+08:00">2025-12-27</time>
+      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -497,7 +594,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 16:58:53" itemprop="dateModified" datetime="2025-12-27T16:58:53+08:00">2025-12-27</time>
+      <time title="修改时间：2025-12-27 17:21:24" itemprop="dateModified" datetime="2025-12-27T17:21:24+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -525,104 +622,6 @@
 <p>内容如下：</p>
 <p>把想释放的地址那一行删除后，保存文件，然后重启服务：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span><span class="keyword">init</span>.d<span class="operator">/</span>dnsmasq restart</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://dnwzlx.com/posts/6d971d09.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Laphael">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寂静·流年">
-      <meta itemprop="description" content="记录我的生活、学习、兴趣">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 寂静·流年">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/6d971d09.html" class="post-title-link" itemprop="url">使用privoxy和trojan来提供https和http代理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-10-11 03:54:24" itemprop="dateCreated datePublished" datetime="2025-10-11T03:54:24+08:00">2025-10-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 16:58:53" itemprop="dateModified" datetime="2025-12-27T16:58:53+08:00">2025-12-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">网络相关</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文适用于linux和macos，这里以macOS为例。</p>
-<p>Trojan只能提供socks5代理，适用性是不如http和https的。可以使用privoxy这个软件，来把socks5代理转换成http和https来使用。<br>还有一个好处，就是可以在zsh等终端里设置代理相关参数，以随时启用。</p>
-<h2 id="一、安装trojan-go"><a href="#一、安装trojan-go" class="headerlink" title="一、安装trojan-go"></a>一、安装trojan-go</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>trojan-go</span><br></pre></td></tr></table></figure>
-
-<p>默认配置文件在<code>/opt/homebrew/etc/trojan-go/config.json</code></p>
-<p>若想正常运行的话，还需要<code>geoip.dat</code>和<code>geosite.dat</code>这2个文件：</p>
-<p><a href="assets/geoip-20250923175403-upnif7s.dat">geoip.dat</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/6d971d09.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
