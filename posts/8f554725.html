@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png">
 <meta property="article:published_time" content="2025-12-19T18:40:45.000Z">
-<meta property="article:modified_time" content="2025-12-27T09:26:01.478Z">
+<meta property="article:modified_time" content="2025-12-31T13:36:46.341Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="openwrt">
 <meta property="article:tag" content="tailscale">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85openwrt"><span class="nav-number">1.</span> <span class="nav-text">安装openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tailscale"><span class="nav-number">2.</span> <span class="nav-text">安装tailscale</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%85%88%E8%A7%A3%E5%8E%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">下载之后，先解压：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E4%BE%9D%E8%B5%96"><span class="nav-number">2.2.</span> <span class="nav-text">安装必要依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEtailscale%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">2.3.</span> <span class="nav-text">设置tailscale开机自启</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwrt%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">openwrt端口和防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.2.</span> <span class="nav-text">创建防火墙区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE41641%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.</span> <span class="nav-text">开放41641端口</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85openwrt"><span class="nav-number">1.</span> <span class="nav-text">安装openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tailscale"><span class="nav-number">2.</span> <span class="nav-text">安装tailscale</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%85%88%E8%A7%A3%E5%8E%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">下载之后，先解压：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E4%BE%9D%E8%B5%96"><span class="nav-number">2.2.</span> <span class="nav-text">安装必要依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEtailscale%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">2.3.</span> <span class="nav-text">设置tailscale开机自启</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwrt%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">openwrt端口和防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.2.</span> <span class="nav-text">创建防火墙区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE41641%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.</span> <span class="nav-text">开放41641端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%94%99%E8%AF%AF%EF%BC%8C%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text">遇到的一些错误，及解决</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-27 17:26:01" itemprop="dateModified" datetime="2025-12-27T17:26:01+08:00">2025-12-27</time>
+      <time title="修改时间：2025-12-31 21:36:46" itemprop="dateModified" datetime="2025-12-31T21:36:46+08:00">2025-12-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,6 +308,13 @@
 <p>防火墙–&gt;通信规则–&gt;添加，源区域选wan，目标区域选“此设备”，目标端口41641，保存并应用，如下图：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-51.png"></p>
 <p>一般来说，经过上面的设置，已经可以正常使用tailscale连接了，如果还有问题，在防火墙的常规设置里可以这样：</p>
 <p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png"></p>
+<h2 id="遇到的一些错误，及解决"><a href="#遇到的一些错误，及解决" class="headerlink" title="遇到的一些错误，及解决"></a>遇到的一些错误，及解决</h2><p>1、安装kmod-tun失败，版本与内核不匹配，一般可以不必理会，系统自带，建议固件版本不要太老</p>
+<p>2、服务启动不了</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">failed <span class="keyword">to</span> connect <span class="keyword">to</span> <span class="keyword">local</span> tailscaled (which appears <span class="keyword">to</span> be <span class="built_in">running</span> <span class="keyword">as</span> tailscaled, pid <span class="number">9773</span>).</span><br><span class="line"> Got <span class="keyword">error</span>: Failed <span class="keyword">to</span> connect <span class="keyword">to</span> <span class="keyword">local</span> Tailscale daemon <span class="keyword">for</span> /localapi/v0/status; <span class="keyword">not</span> <span class="built_in">running</span>? </span><br><span class="line"> Error: dial unix /var/<span class="built_in">run</span>/tailscale/tailscaled.sock: connect: no such <span class="built_in">file</span> <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure>
+<p>可以杀死进程，退出登录 ，然后重新启动</p>
+<p>依次执行下面命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tailscale down</span><br><span class="line">tailscale logout</span><br><span class="line">tailscale up --accept-routes --accept-dns=false --advertise-<span class="keyword">exit</span>-node --advertise-routes=<span class="number">192.168</span>.<span class="number">7.0</span>/<span class="number">24</span> --netfilter-mode=off</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
