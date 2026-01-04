@@ -20,17 +20,22 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="记录我的生活、学习、兴趣">
+    <meta name="description" content="MacOS下，在使用squirrel时，如果想让某一程序默认输入法状态是英文，则可以在squirrel.custom.yaml里做相应的设置，例如： 123456# --- 特定程序定义初始状态的英文输入 ---  app_options:    com.raycast.macos: # Raycast      ascii_mode: true    com.googlecode.iterm2:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MacOS下查找应用程序的Bundle Identifier">
 <meta property="og:url" content="https://dnwzlx.com/posts/60d418e7.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="记录我的生活、学习、兴趣">
+<meta property="og:description" content="MacOS下，在使用squirrel时，如果想让某一程序默认输入法状态是英文，则可以在squirrel.custom.yaml里做相应的设置，例如： 123456# --- 特定程序定义初始状态的英文输入 ---  app_options:    com.raycast.macos: # Raycast      ascii_mode: true    com.googlecode.iterm2:">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dnwzlx.com/images/MacOS%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84Bundle%20Identifier_2026-11-42-45.png">
 <meta property="article:published_time" content="2026-01-03T19:32:27.000Z">
-<meta property="article:modified_time" content="2026-01-04T03:43:34.065Z">
+<meta property="article:modified_time" content="2026-01-04T06:48:48.631Z">
 <meta property="article:author" content="Laphael">
+<meta property="article:tag" content="输入法">
+<meta property="article:tag" content="RIME">
+<meta property="article:tag" content="MacOS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dnwzlx.com/images/MacOS%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84Bundle%20Identifier_2026-11-42-45.png">
 
 
 <link rel="canonical" href="https://dnwzlx.com/posts/60d418e7.html">
@@ -220,7 +225,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-01-04 03:32:27 / 修改时间：11:43:34" itemprop="dateCreated datePublished" datetime="2026-01-04T03:32:27+08:00">2026-01-04</time>
+      <time title="创建时间：2026-01-04 03:32:27 / 修改时间：14:48:48" itemprop="dateCreated datePublished" datetime="2026-01-04T03:32:27+08:00">2026-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">软件应用</span></a>
+        </span>
     </span>
 
   
@@ -232,7 +246,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody"><p>MacOS下，在使用<code>squirrel</code>时，如果想让某一程序默认输入法状态是英文，则可以在<code>squirrel.custom.yaml</code>里做相应的设置，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --- 特定程序定义初始状态的英文输入 ---</span></span><br><span class="line">  <span class="attr">app_options:</span></span><br><span class="line">    <span class="attr">com.raycast.macos:</span> <span class="comment"># Raycast</span></span><br><span class="line">      <span class="attr">ascii_mode:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">com.googlecode.iterm2:</span> <span class="comment"># iTerm2</span></span><br><span class="line">      <span class="attr">ascii_mode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这里有个问题，如果不知道目标应用程序的<code>Bundle Identifier</code>，则无法添加。</p>
+<p>所以首要任务是找到目标应用程序的<code>Bundle Identifier</code>。</p>
+<p>在macOS里，查找<code>Bundle Identifier</code>的命令如下：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e <span class="symbol">&#x27;id</span> <span class="keyword">of</span> app <span class="string">&quot;应用名称&quot;</span>&#x27;</span><br></pre></td></tr></table></figure>
+<p>例如，要获取<code>Termora</code>这个ssh工具的标识符，就输入</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e <span class="symbol">&#x27;id</span> <span class="keyword">of</span> app <span class="string">&quot;Google Chrome&quot;</span>&#x27;</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/MacOS%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84Bundle%20Identifier_2026-11-42-45.png"></p>
+
     </div>
 
     
@@ -257,6 +281,11 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 输入法</a>
+              <a href="/tags/RIME/" rel="tag"><i class="fa fa-tag"></i> RIME</a>
+              <a href="/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
+          </div>
 
         
 

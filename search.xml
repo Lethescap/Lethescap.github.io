@@ -421,7 +421,25 @@
   <entry>
     <title>MacOS下查找应用程序的Bundle Identifier</title>
     <url>/posts/60d418e7.html</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>MacOS下，在使用<code>squirrel</code>时，如果想让某一程序默认输入法状态是英文，则可以在<code>squirrel.custom.yaml</code>里做相应的设置，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># --- 特定程序定义初始状态的英文输入 ---</span></span><br><span class="line">  <span class="attr">app_options:</span></span><br><span class="line">    <span class="attr">com.raycast.macos:</span> <span class="comment"># Raycast</span></span><br><span class="line">      <span class="attr">ascii_mode:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">com.googlecode.iterm2:</span> <span class="comment"># iTerm2</span></span><br><span class="line">      <span class="attr">ascii_mode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这里有个问题，如果不知道目标应用程序的<code>Bundle Identifier</code>，则无法添加。</p>
+<p>所以首要任务是找到目标应用程序的<code>Bundle Identifier</code>。</p>
+<p>在macOS里，查找<code>Bundle Identifier</code>的命令如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">osascript -e <span class="symbol">&#x27;id</span> <span class="keyword">of</span> app <span class="string">&quot;应用名称&quot;</span>&#x27;</span><br></pre></td></tr></table></figure>
+<p>例如，要获取<code>Termora</code>这个ssh工具的标识符，就输入</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">osascript -e <span class="symbol">&#x27;id</span> <span class="keyword">of</span> app <span class="string">&quot;Google Chrome&quot;</span>&#x27;</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/MacOS%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84Bundle%20Identifier_2026-11-42-45.png"></p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>输入法</tag>
+        <tag>RIME</tag>
+        <tag>MacOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Mac下使用homebrew安装常用软件</title>
@@ -466,9 +484,9 @@
         <category>软件应用</category>
       </categories>
       <tags>
-        <tag>MacOS</tag>
-        <tag>RIME</tag>
         <tag>输入法</tag>
+        <tag>RIME</tag>
+        <tag>MacOS</tag>
       </tags>
   </entry>
   <entry>
@@ -672,24 +690,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows11恢复成win10右键菜单</title>
-    <url>/posts/69ce0e48.html</url>
-    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
-<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
-<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
-<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
-<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
-<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-        <tag>鼠标</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows下安装设置Python绿色版</title>
     <url>/posts/f9c965a9.html</url>
     <content><![CDATA[<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>操作系统: windows 10 ltsc 2019 X64<br>Python:  3.12.5</p>
@@ -723,6 +723,24 @@
       <tags>
         <tag>windows</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows11恢复成win10右键菜单</title>
+    <url>/posts/69ce0e48.html</url>
+    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
+<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
+<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
+<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
+<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>鼠标</tag>
       </tags>
   </entry>
   <entry>
@@ -760,13 +778,12 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo的永久链接设置</title>
-    <url>/posts/4dbd6b59.html</url>
-    <content><![CDATA[<p>使用<code>hexo-abbrlink</code>插件即可。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在<code>_config.yml</code>中修改添加下面内容：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> </span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> </span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>hexo自动摘要设置</title>
+    <url>/posts/31ada5df.html</url>
+    <content><![CDATA[<p><code>NexT</code>主题最新版本已经不支持自动摘要设置了，需要用的第三方插件<code>hexo-abbrlink</code></p>
+<h2 id="安装hexo-exerpt"><a href="#安装hexo-exerpt" class="headerlink" title="安装hexo-exerpt"></a>安装hexo-exerpt</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置hexo-excerpt"><a href="#设置hexo-excerpt" class="headerlink" title="设置hexo-excerpt"></a>设置hexo-excerpt</h2><p>在<code>hexo</code>的配置文件<code>_config.yml</code>中，加入下面的内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>网络相关</category>
       </categories>
@@ -775,12 +792,13 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo自动摘要设置</title>
-    <url>/posts/31ada5df.html</url>
-    <content><![CDATA[<p><code>NexT</code>主题最新版本已经不支持自动摘要设置了，需要用的第三方插件<code>hexo-abbrlink</code></p>
-<h2 id="安装hexo-exerpt"><a href="#安装hexo-exerpt" class="headerlink" title="安装hexo-exerpt"></a>安装hexo-exerpt</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<h2 id="设置hexo-excerpt"><a href="#设置hexo-excerpt" class="headerlink" title="设置hexo-excerpt"></a>设置hexo-excerpt</h2><p>在<code>hexo</code>的配置文件<code>_config.yml</code>中，加入下面的内容：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>hexo的永久链接设置</title>
+    <url>/posts/4dbd6b59.html</url>
+    <content><![CDATA[<p>使用<code>hexo-abbrlink</code>插件即可。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>在<code>_config.yml</code>中修改添加下面内容：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> </span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> </span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>网络相关</category>
       </categories>
@@ -1293,43 +1311,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在vscode里配置hexo粘贴图片</title>
-    <url>/posts/8e4647c9.html</url>
-    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
-<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
-<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
-<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
-<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
-<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
-<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
-<p>有两种设置方式：</p>
-<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
-<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
-<ul>
-<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
-<li>自动在博客里插入图片链接</li>
-<li>插入的图片名称是当前文章名+插入时间。</li>
-</ul>
-<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
-<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
-<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
-<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
-<p>非常的方便和流畅。</p>
-]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>vscode</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>成都印象</title>
     <url>/posts/33049aaa.html</url>
     <content><![CDATA[<blockquote>
@@ -1384,6 +1365,43 @@
       </categories>
       <tags>
         <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在vscode里配置hexo粘贴图片</title>
+    <url>/posts/8e4647c9.html</url>
+    <content><![CDATA[<p><code>hexo</code>博客是部署在<code>github</code>上的，除了域名花钱买的，其它所有资源都是用的免费的。图床当然也是如此。</p>
+<p>使用<code>hexo</code>写博客，尤其是技术类的，难免要用到配图，俗话说:<strong>一图胜千言</strong>。因此有一个方便易用的图片插入方式就很重要了。</p>
+<p>下面介绍使用<code>vscode</code>管理<code>hexo</code>博客时，如何方便的插图。</p>
+<h2 id="安装插件Paste-Image"><a href="#安装插件Paste-Image" class="headerlink" title="安装插件Paste Image"></a>安装插件Paste Image</h2><p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_173659.png"></p>
+<p>这个插件功能很简单，就是向文章里插入图片，却有着43万的下载量，说明确实好用。经我实测，也的确好用。</p>
+<h2 id="配置Paste-Image"><a href="#配置Paste-Image" class="headerlink" title="配置Paste Image"></a>配置Paste Image</h2><p>首先说明，我的博客图片组织形式如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">blog</span><br><span class="line"><span class="comment">-- source</span></span><br><span class="line"><span class="comment">---- _post (存放md文档)</span></span><br><span class="line"><span class="comment">---- images (存放图片)</span></span><br></pre></td></tr></table></figure>
+<p>也就是把所有图片保存在<code>source</code>目录下的<code>images</code>文件夹里。</p>
+<p>有两种设置方式：</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><p>设置开关：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174518.png"><br>需要设置的地方有4个，直接看图吧<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174611.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174629.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174648.png"><br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_174713.png"></p>
+<h3 id="工作区设置"><a href="#工作区设置" class="headerlink" title="工作区设置"></a>工作区设置</h3><p>优点是只影响当前工作区，不影响别的地方；缺点是无法使用<code>vscode</code>自带的设置同步功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;settings&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/_post&quot;</span>, </span><br><span class="line">	<span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/images&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line">	<span class="string">&quot;pasteImage.defaultName&quot;</span>: <span class="string">&quot;HHmmss&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，其实只是把图形界面里配置的内容，写成了配置文件的形式。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>按下<code>Ctrl</code>+<code>Alt</code>+<code>v</code>后，自动做了几件事：</p>
+<ul>
+<li>把图片存在在<code>source下</code>的<code>images</code>目录里。</li>
+<li>自动在博客里插入图片链接</li>
+<li>插入的图片名称是当前文章名+插入时间。</li>
+</ul>
+<p>上面的第3点很重要，即保障了图片将来的区分和管理方便，又保障了同一博客里图片名称的唯一性。<br>具体效果看图：<br><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175306.png"></p>
+<p><img src="/../images/%E5%9C%A8vscode%E9%87%8C%E9%85%8D%E7%BD%AEhexo%E7%B2%98%E8%B4%B4%E5%9B%BE%E7%89%87_175341.png"></p>
+<h2 id="给文章配图的工作流"><a href="#给文章配图的工作流" class="headerlink" title="给文章配图的工作流"></a>给文章配图的工作流</h2><p>可以安装一个软件叫<code>snipaste</code>,然后就可以：</p>
+<p><code>F1</code>截图–&gt;<code>Ctrl</code>+<code>c</code>复制图片-&gt;vscode里<code>Ctrl</code>+<code>Alt</code>_<code>v</code>粘贴图片。</p>
+<p>非常的方便和流畅。</p>
+]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
