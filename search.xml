@@ -690,6 +690,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows11恢复成win10右键菜单</title>
+    <url>/posts/69ce0e48.html</url>
+    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
+<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
+<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
+<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
+<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>鼠标</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows下安装设置Python绿色版</title>
     <url>/posts/f9c965a9.html</url>
     <content><![CDATA[<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>操作系统: windows 10 ltsc 2019 X64<br>Python:  3.12.5</p>
@@ -723,24 +741,6 @@
       <tags>
         <tag>windows</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows11恢复成win10右键菜单</title>
-    <url>/posts/69ce0e48.html</url>
-    <content><![CDATA[<p>Windows 11的右键菜单设计的太失败了，极其地反人类、反直觉，很多常用的功能都必须去点“显示更多”选项才能找到。</p>
-<p>其实这个“显示更多”就是旧版本的右键菜单，微软这么设计就是在给用户去人为制造麻烦。</p>
-<p>在网上找到了方法，可以把win11的右键菜单改回win10的样式。</p>
-<p>以下操作需要<strong>管理员权限</strong>的<code>powershell</code></p>
-<h2 id="改成win10的右键菜单样式"><a href="#改成win10的右键菜单样式" class="headerlink" title="改成win10的右键菜单样式"></a>改成win10的右键菜单样式</h2><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> <span class="string">&quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot;</span> /f /ve</span></span><br></pre></td></tr></table></figure>
-<p>效果如下图：<br><img src="/../images/Windows11%E6%81%A2%E5%A4%8D%E6%88%90win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95_093937.png"></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-        <tag>鼠标</tag>
       </tags>
   </entry>
   <entry>
@@ -1070,6 +1070,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Xubuntu24.04 minimal安装后解决samba挂载的问题</title>
+    <url>/posts/4dd0bbc8.html</url>
+    <content><![CDATA[<p>使用minimal方式安装xubuntu 24.04后,发现无法在<code>thunar</code>里挂载samba,经过一番搜索，发现是缺少必要的软件。</p>
+<p>解决方法是：</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install </span>gvfs-<span class="keyword">backends </span>smbclient</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>samba</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用privoxy和trojan来提供https和http代理</title>
     <url>/posts/6d971d09.html</url>
     <content><![CDATA[<p>本文适用于linux和macos，这里以macOS为例。</p>
@@ -1098,21 +1113,6 @@
         <tag>linux</tag>
         <tag>MacOS</tag>
         <tag>proxy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xubuntu24.04 minimal安装后解决samba挂载的问题</title>
-    <url>/posts/4dd0bbc8.html</url>
-    <content><![CDATA[<p>使用minimal方式安装xubuntu 24.04后,发现无法在<code>thunar</code>里挂载samba,经过一番搜索，发现是缺少必要的软件。</p>
-<p>解决方法是：</p>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install </span>gvfs-<span class="keyword">backends </span>smbclient</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>samba</tag>
       </tags>
   </entry>
   <entry>
@@ -1476,6 +1476,26 @@
       </tags>
   </entry>
   <entry>
+    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
+    <url>/posts/4a671491.html</url>
+    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
+<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
+<p>可以通过指定架构的方式把它取消掉</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
+<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
+<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决oh-my-zsh下zsh-syntax-highlighting插件报错的问题</title>
     <url>/posts/58051fc1.html</url>
     <content><![CDATA[<p>在安装完成<code>oh-my-zsh</code>，并在<code>~/.zshrc</code>配置文件里设置了<code>zsh-syntax-highlighting</code>后，下一步就是执行<code>source ~/.zshrc</code>，以使用插件配置生效。</p>
@@ -1500,23 +1520,28 @@
       </tags>
   </entry>
   <entry>
-    <title>解决Ubuntu关于&#39;不支持 &#39;i386&#39; 体系结构，跳过配置文件&#39;提示的问题</title>
-    <url>/posts/4a671491.html</url>
-    <content><![CDATA[<p>在安装完resilio-sync后，运行<code>sudo apt update</code>,出现了一个错误提示：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">N: 鉴于仓库 &#x27;http://linux-packages.resilio.com/resilio-sync/deb resilio-sync InRelease&#x27; 不支持 &#x27;i386&#x27; 体系结构，跳过配置文件 &#x27;non-free/binary-i386/Packages&#x27; 的获取。</span><br></pre></td></tr></table></figure>
-<p>这其实是个无害的警告，说明当前仓库没有32位的包，因此可以忽略它不做处理，但是看着会觉得很碍眼。</p>
-<p>可以通过指定架构的方式把它取消掉</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>resilio-sync.lis</span><br></pre></td></tr></table></figure>
-<p>添加<code>arch=amd64</code>以指定架构，改完后的文件如下：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> [arch=amd64] http://linux-packages.resilio.<span class="keyword">com</span>/resilio-<span class="keyword">sync</span>/<span class="keyword">deb</span> resilio-<span class="keyword">sync</span> non-free</span><br></pre></td></tr></table></figure>
-<p>如此即可。其它apt源若有相同问题，可参照解决。</p>
+    <title>解决ssh-copy-id复制错误的问题</title>
+    <url>/posts/1bfeb13e.html</url>
+    <content><![CDATA[<p>linux下，可以使用<code>ssh-copy-id</code>命令，把密钥复制到远程主机，以实现无密码登录。<br>相关用法可以看我另一篇文章：<a href="https://lethescap.cc/posts/ab32b638.html">Linux服务器使用密钥登录</a></p>
+<p><code>ssh-copy-id</code>基本用法如下：</p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">ssh-<span class="keyword">copy</span>-<span class="built_in">id</span> -i  myid.pub  foo@remotehost</span><br></pre></td></tr></table></figure>
+<p>其中，<code>-i</code>是指定密钥文件的具体位置。</p>
+<p>但是在实际使用过程中，经常会出现错误，具体如下：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">  ~ ssh-copy-id -i /xxx/my_key.pub foo@<span class="number">192.168</span><span class="number">.1</span><span class="number">.23</span></span><br><span class="line"></span><br><span class="line">/usr/bin/ssh-copy-id: ERROR: failed <span class="built_in">to</span> <span class="built_in">open</span> ID <span class="built_in">file</span> <span class="string">&#x27;/xxx/my_key&#x27;</span>: No such <span class="built_in">file</span> <span class="keyword">or</span> <span class="built_in">directory</span></span><br><span class="line">	(<span class="built_in">to</span> install <span class="keyword">the</span> contents <span class="keyword">of</span> <span class="string">&#x27;/xxx/my_key.pub&#x27;</span> anyway, look <span class="keyword">at</span> <span class="keyword">the</span> -f option)</span><br></pre></td></tr></table></figure>
+<p>上面的错误提示，意思是找不到密钥文件，但其实密钥文件是存在的。</p>
+<p>错误提示还建议使用<code>-f</code>参数来强制写入，经我测试，确实可以正确写入，但是有个大坑要注意：</p>
+<p>在使用<code>-f</code>参数时，<code>-f</code>参数一定要写在<code>-i</code>的前面，不然还是报一样的错误，如下：</p>
+<p>正确的格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">~ ssh-<span class="keyword">copy</span><span class="language-bash">-<span class="built_in">id</span> -f -i /xxx/my_key.pub foo@192.168.1.23</span></span><br></pre></td></tr></table></figure>
+
+<p>错误的格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">~ ssh-<span class="keyword">copy</span><span class="language-bash">-<span class="built_in">id</span> -i /xxx/my_key.pub foo@192.168.1.23 -f</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>软件应用</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
-        <tag>apt</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
