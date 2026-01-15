@@ -20,15 +20,13 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnwzlx.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+    <meta name="description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为: ssh无法登录； open">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openwrt上安装tailscale实现内网穿透">
 <meta property="og:url" content="https://dnwzlx.com/posts/8f554725.html">
 <meta property="og:site_name" content="寂静·流年">
-<meta property="og:description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、op">
+<meta property="og:description" content="最近在折腾网络，目的是在openwrt上安装tailscale实现三个不同地域的网络互通。 在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。 但是现在却不行了，有以下几个现象:  只要安装完tailscale并登录，openwrt必死机。具体表现为: ssh无法登录； open">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png">
-<meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-05-25.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-04-24.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-31.png">
@@ -36,12 +34,12 @@
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png">
 <meta property="og:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png">
 <meta property="article:published_time" content="2025-12-19T18:40:45.000Z">
-<meta property="article:modified_time" content="2026-01-14T23:32:12.540Z">
+<meta property="article:modified_time" content="2026-01-15T00:03:09.182Z">
 <meta property="article:author" content="Laphael">
 <meta property="article:tag" content="openwrt">
 <meta property="article:tag" content="tailscale">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png">
+<meta name="twitter:image" content="https://dnwzlx.com/images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-05-25.png">
 
 
 <link rel="canonical" href="https://dnwzlx.com/posts/8f554725.html">
@@ -151,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85openwrt"><span class="nav-number">1.</span> <span class="nav-text">安装openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tailscale"><span class="nav-number">2.</span> <span class="nav-text">安装tailscale</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%85%88%E8%A7%A3%E5%8E%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">下载之后，先解压：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E4%BE%9D%E8%B5%96"><span class="nav-number">2.2.</span> <span class="nav-text">安装必要依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEtailscale%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">2.3.</span> <span class="nav-text">设置tailscale开机自启</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwrt%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">openwrt端口和防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.2.</span> <span class="nav-text">创建防火墙区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE41641%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.</span> <span class="nav-text">开放41641端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%94%99%E8%AF%AF%EF%BC%8C%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text">遇到的一些错误，及解决</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85openwrt"><span class="nav-number">1.</span> <span class="nav-text">安装openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tailscale"><span class="nav-number">2.</span> <span class="nav-text">安装tailscale</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4%E6%9D%A5%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">执行下面命令来安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Ctailscale%E5%B9%B6%E6%B3%A8%E5%86%8C"><span class="nav-number">2.2.</span> <span class="nav-text">运行tailscale并注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwrt%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">openwrt端口和防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.2.</span> <span class="nav-text">创建防火墙区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE41641%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.</span> <span class="nav-text">开放41641端口</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +236,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-01-15 07:32:12" itemprop="dateModified" datetime="2026-01-15T07:32:12+08:00">2026-01-15</time>
+      <time title="修改时间：2026-01-15 08:03:09" itemprop="dateModified" datetime="2026-01-15T08:03:09+08:00">2026-01-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,32 +261,29 @@
 <p>在24年折腾有时候，还是很方便的，使用openwrt.ai上下载的kwrt版本的openwrt，自带tailscale和前端UI界面，安装完后通过UI界面操作就能互通了。</p>
 <p>但是现在却不行了，有以下几个现象:</p>
 <ul>
-<li>只要安装完tailscale并登录，openwrt必死机。具体表现为:1、ssh无法登录；2、openwrt界面无法打开。</li>
+<li>只要安装完tailscale并登录，openwrt必死机。具体表现为:</li>
+<li>ssh无法登录；</li>
+<li>openwrt界面无法打开。</li>
 <li>kwrt自带的tailscale版本是1.80，而最新版是1.92。</li>
 </ul>
 <p>折腾了近一周，终于找到了在openwrt上安装设置tailscale的正确方法了。</p>
-<h2 id="安装openwrt"><a href="#安装openwrt" class="headerlink" title="安装openwrt"></a>安装openwrt</h2><p>推荐使用kwrt编译的版本，下载地址在<a target="_blank" rel="noopener" href="https://openwrt.ai/">https://openwrt.ai</a></p>
-<p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025181111.png" alt="openwrt.ai"></p>
-<p>选这个版本的openwrt，一是因为自带passwall，二是因为支持的架构多，一些常见的能安装openwrt的路由都能支持。</p>
-<h2 id="安装tailscale"><a href="#安装tailscale" class="headerlink" title="安装tailscale"></a>安装tailscale</h2><p>推荐使用<a target="_blank" rel="noopener" href="https://github.com/adyanth/openwrt-tailscale-enabler">openwrt-tailscale-enabler</a>来安装.</p>
-<p>最新版本是<code>v1.60.0-e428948-autoupdate</code><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-14-55-09.png"></p>
-<h3 id="下载之后，先解压："><a href="#下载之后，先解压：" class="headerlink" title="下载之后，先解压："></a>下载之后，先解压：</h3><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar <span class="keyword">x</span> -zvC / -f openwrt-tailscale-enabler*</span><br></pre></td></tr></table></figure>
+<h2 id="安装openwrt"><a href="#安装openwrt" class="headerlink" title="安装openwrt"></a>安装openwrt</h2><p>推荐使用<code>immortalwrt</code>，地址在<a target="_blank" rel="noopener" href="https://fwselector.kyarucloud.moe/">immortalwrt</a>。</p>
+<p>可在线安装<code>homeproxy</code>，安装<code>mosdns</code>也很方便。</p>
+<h2 id="安装tailscale"><a href="#安装tailscale" class="headerlink" title="安装tailscale"></a>安装tailscale</h2><p>推荐使用<a target="_blank" rel="noopener" href="https://github.com/GuNanOvO/openwrt-tailscale">openwrt-tailscale</a>来安装.</p>
+<p>这个安装脚本经测试，重装自动启动、连接、路由等功能一切正常。</p>
+<h3 id="执行下面命令来安装"><a href="#执行下面命令来安装" class="headerlink" title="执行下面命令来安装"></a>执行下面命令来安装</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O <span class="regexp">/usr/</span>sbin<span class="regexp">/install.sh https:/</span><span class="regexp">/ghfast.top/</span>https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/GuNanOvO/</span>openwrt-tailscale<span class="regexp">/main/i</span>nstall.sh &amp;&amp; chmod +x <span class="regexp">/usr/</span>sbin<span class="regexp">/install.sh &amp;&amp; /u</span>sr<span class="regexp">/sbin/i</span>nstall.sh</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装必要依赖"><a href="#安装必要依赖" class="headerlink" title="安装必要依赖"></a>安装必要依赖</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg <span class="keyword">install </span>libustream-openssl ca-<span class="keyword">bundle </span>kmod-tun</span><br></pre></td></tr></table></figure>
+<p>如果安装不成功，把上面命令中的<code>https://ghfast.top/</code>去掉再试试。</p>
+<h3 id="运行tailscale并注册"><a href="#运行tailscale并注册" class="headerlink" title="运行tailscale并注册"></a>运行tailscale并注册</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale up --accept-routes --accept-dns=false --advertise-<span class="keyword">exit</span>-node --advertise-routes=<span class="number">192.168</span>.<span class="number">8.0</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure>
 
-<p>###运行并注册</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d/tailscale start</span><br><span class="line"></span><br><span class="line">tailscale up --accept-routes --accept-dns=false --advertise-<span class="keyword">exit</span>-node --advertise-routes=<span class="number">192.168</span>.<span class="number">7.0</span>/<span class="number">24</span> --netfilter-mode=off</span><br></pre></td></tr></table></figure>
-<p>这条命令非常重要，执行参数有误的话，极易造成openwrt死机，详解如下：</p>
 <ul>
 <li>tailscale up: 启动 Tailscale。</li>
 <li>–accept-routes: 接受其他节点通过 Tailscale 网络提供的路由。</li>
-<li>–accept-dns&#x3D;false: 不接受 Tailscale 网络提供的 DNS 设置。</li>
-<li>–advertise-exit-node: 将当前节点作为出口节点进行广告，使其可以作为其他节点的互联网出口。</li>
-<li>–advertise-routes&#x3D;192.168.7.0&#x2F;24: 将当前节点<code>192.168.7.0</code>的子网进行广告，使其可以通过 Tailscale 网络访问。</li>
-<li>–netfilter-mode&#x3D;off: 关闭 netfilter 模式，不对流量进行过滤。</li>
+<li>–accept-dns&#x3D;false: 不使用 Tailscale 网络提供的 DNS 设置。</li>
+<li>–advertise-exit-node: 将当前节点作为出口节点进行广播，使其可以作为其他节点的互联网出口。</li>
+<li>–advertise-routes&#x3D;192.168.8.0&#x2F;24: 将<code>openwrt</code>所在的子网<code>192.168.8.0/24</code>进行广播。</li>
 </ul>
 <p>执行后会给出一个链接，复制后在浏览器打开并注册即可。</p>
-<h3 id="设置tailscale开机自启"><a href="#设置tailscale开机自启" class="headerlink" title="设置tailscale开机自启"></a>设置tailscale开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/tailscale <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
 <h2 id="openwrt端口和防火墙设置"><a href="#openwrt端口和防火墙设置" class="headerlink" title="openwrt端口和防火墙设置"></a>openwrt端口和防火墙设置</h2><h3 id="添加端口"><a href="#添加端口" class="headerlink" title="添加端口"></a>添加端口</h3><p>通过 LuCI 创建一个新的非托管接口：网络→接口→添加新接口</p>
 <p>名称：tailscale</p>
 <p>协议：Unmanaged(不配置协议)</p>
@@ -308,13 +303,6 @@
 <p>防火墙–&gt;通信规则–&gt;添加，源区域选wan，目标区域选“此设备”，目标端口41641，保存并应用，如下图：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-08-51.png"></p>
 <p>一般来说，经过上面的设置，已经可以正常使用tailscale连接了，如果还有问题，在防火墙的常规设置里可以这样：</p>
 <p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-24.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85tailscale%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F_2025-15-10-38.png"></p>
-<h2 id="遇到的一些错误，及解决"><a href="#遇到的一些错误，及解决" class="headerlink" title="遇到的一些错误，及解决"></a>遇到的一些错误，及解决</h2><p>1、安装kmod-tun失败，版本与内核不匹配，一般可以不必理会，系统自带，建议固件版本不要太老</p>
-<p>2、服务启动不了</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">failed <span class="keyword">to</span> connect <span class="keyword">to</span> <span class="keyword">local</span> tailscaled (which appears <span class="keyword">to</span> be <span class="built_in">running</span> <span class="keyword">as</span> tailscaled, pid <span class="number">9773</span>).</span><br><span class="line"> Got <span class="keyword">error</span>: Failed <span class="keyword">to</span> connect <span class="keyword">to</span> <span class="keyword">local</span> Tailscale daemon <span class="keyword">for</span> /localapi/v0/status; <span class="keyword">not</span> <span class="built_in">running</span>? </span><br><span class="line"> Error: dial unix /var/<span class="built_in">run</span>/tailscale/tailscaled.sock: connect: no such <span class="built_in">file</span> <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure>
-<p>可以杀死进程，退出登录 ，然后重新启动</p>
-<p>依次执行下面命令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tailscale down</span><br><span class="line">tailscale logout</span><br><span class="line">tailscale up --accept-routes --accept-dns=false --advertise-<span class="keyword">exit</span>-node --advertise-routes=<span class="number">192.168</span>.<span class="number">7.0</span>/<span class="number">24</span> --netfilter-mode=off</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
