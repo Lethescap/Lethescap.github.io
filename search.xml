@@ -902,7 +902,7 @@
   <entry>
     <title>openwrt上安装MosDNS</title>
     <url>/posts/5d4fa794.html</url>
-    <content><![CDATA[<p>这里以immortalwrt 24.10为例进行安装</p>
+    <content><![CDATA[<p>这里以immortalwrt 24.10为例进行安装。</p>
 <h2 id="一、使用luci-app-mosdns进行安装"><a href="#一、使用luci-app-mosdns进行安装" class="headerlink" title="一、使用luci-app-mosdns进行安装"></a>一、使用luci-app-mosdns进行安装</h2><p>不要使用openwrt软件源自带的，功能有所缺失，版本也比较旧。</p>
 <p>推荐使用<a href="https://github.com/sbwml/luci-app-mosdns">luci-app-mosdns</a>来安装。</p>
 <p>ssh登录进入openwrt,命令如下：</p>
