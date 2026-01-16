@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git的一些必要设置</title>
+    <url>/posts/3f67efa6.html</url>
+    <content><![CDATA[<h2 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;Your Name&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱:"></a>配置邮箱:</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">git</span> config --global user.email <span class="string">&quot;email<span class="variable">@example</span>.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="保存密码"><a href="#保存密码" class="headerlink" title="保存密码"></a>保存密码</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> credential.helper <span class="keyword">store</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.proxy</span> http:<span class="comment">//127.0.0.1:8118</span></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> https<span class="selector-class">.proxy</span> https:<span class="comment">//127.0.0.1:8118</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> http<span class="selector-class">.proxy</span></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看git配置信息"><a href="#查看git配置信息" class="headerlink" title="查看git配置信息"></a>查看git配置信息</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>软件应用</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dell R730XD调整风扇转速</title>
     <url>/posts/f76d94ce.html</url>
     <content><![CDATA[<p>今年7月份，买了台Dell R730XD的服务器搞Homelab。</p>
@@ -30,26 +50,6 @@
       </categories>
       <tags>
         <tag>dell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git的一些必要设置</title>
-    <url>/posts/3f67efa6.html</url>
-    <content><![CDATA[<h2 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;Your Name&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱:"></a>配置邮箱:</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">git</span> config --global user.email <span class="string">&quot;email<span class="variable">@example</span>.com&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="保存密码"><a href="#保存密码" class="headerlink" title="保存密码"></a>保存密码</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> credential.helper <span class="keyword">store</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.proxy</span> http:<span class="comment">//127.0.0.1:8118</span></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> https<span class="selector-class">.proxy</span> https:<span class="comment">//127.0.0.1:8118</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> http<span class="selector-class">.proxy</span></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> https.proxy</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看git配置信息"><a href="#查看git配置信息" class="headerlink" title="查看git配置信息"></a>查看git配置信息</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>软件应用</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -587,6 +587,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 24.04安装Docker</title>
+    <url>/posts/e1db731e.html</url>
+    <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
+<h3 id="安装一些必要的软件包："><a href="#安装一些必要的软件包：" class="headerlink" title="安装一些必要的软件包："></a>安装一些必要的软件包：</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt upgrade -<span class="keyword">y</span></span><br><span class="line"></span><br><span class="line">apt install curl <span class="keyword">vim</span> wget gnupg dpkg apt-transport-https lsb-release <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker-GPG-公钥-和apt源"><a href="#安装docker-GPG-公钥-和apt源" class="headerlink" title="安装docker GPG 公钥 和apt源"></a>安装docker GPG 公钥 和apt源</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">curl -sSL https:<span class="regexp">//</span>download.docker.com<span class="regexp">/linux/</span>debian<span class="regexp">/gpg | gpg --dearmor &gt; /u</span>sr<span class="regexp">/share/</span>keyrings/docker-ce.gpg</span><br><span class="line"></span><br><span class="line">echo <span class="string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot;</span> &gt; <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>docker.list</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt install docker-ce docker-ce-<span class="keyword">cli</span> containerd.io docker-compose-<span class="keyword">plugin</span></span><br></pre></td></tr></table></figure>
+<p>此时，可以使用<code>docker version</code>查看安装是否成功</p>
+<p><img src="/../images/Ubuntu-24-04%E5%AE%89%E8%A3%85Docker_091825.png"></p>
+<h2 id="当前用户可以以rootless模式运行docker"><a href="#当前用户可以以rootless模式运行docker" class="headerlink" title="当前用户可以以rootless模式运行docker"></a>当前用户可以以rootless模式运行docker</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">install </span>docker-ce-rootless-<span class="keyword">extras</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h2><p>以下配置会增加一段自定义内网 IPv6 地址，开启容器的 IPv6 功能，以及限制日志文件大小，防止 Docker 日志塞满硬盘</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">cat &gt; <span class="regexp">/etc/</span>docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">    <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;20m&quot;</span>,</span><br><span class="line">        <span class="string">&quot;max-file&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;ipv6&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;fixed-cidr-v6&quot;</span>: <span class="string">&quot;fd00:dead:beef:c0::/80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;experimental&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;ip6tables&quot;</span>:<span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>重启系统。</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Thinkpad X1 Carbon Gen 8使用体验</title>
     <url>/posts/324d5a02.html</url>
     <content><![CDATA[<p>2025年8月25日，花2500元在闲鱼上买了台<code>Thinkpad X1 Carbon Gen 8</code>（2019款）。</p>
@@ -612,31 +637,6 @@
       <tags>
         <tag>linux</tag>
         <tag>thinkpad</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 24.04安装Docker</title>
-    <url>/posts/e1db731e.html</url>
-    <content><![CDATA[<h2 id="使用官方源安装-Docker"><a href="#使用官方源安装-Docker" class="headerlink" title="使用官方源安装 Docker"></a>使用官方源安装 Docker</h2><p>以下操作需要在 <code>root</code> 用户下完成，请使用 <code>sudo -i</code> 切换到 <code>root</code> 用户进行操作。</p>
-<h3 id="安装一些必要的软件包："><a href="#安装一些必要的软件包：" class="headerlink" title="安装一些必要的软件包："></a>安装一些必要的软件包：</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt upgrade -<span class="keyword">y</span></span><br><span class="line"></span><br><span class="line">apt install curl <span class="keyword">vim</span> wget gnupg dpkg apt-transport-https lsb-release <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装docker-GPG-公钥-和apt源"><a href="#安装docker-GPG-公钥-和apt源" class="headerlink" title="安装docker GPG 公钥 和apt源"></a>安装docker GPG 公钥 和apt源</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">curl -sSL https:<span class="regexp">//</span>download.docker.com<span class="regexp">/linux/</span>debian<span class="regexp">/gpg | gpg --dearmor &gt; /u</span>sr<span class="regexp">/share/</span>keyrings/docker-ce.gpg</span><br><span class="line"></span><br><span class="line">echo <span class="string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot;</span> &gt; <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>docker.list</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">apt install docker-ce docker-ce-<span class="keyword">cli</span> containerd.io docker-compose-<span class="keyword">plugin</span></span><br></pre></td></tr></table></figure>
-<p>此时，可以使用<code>docker version</code>查看安装是否成功</p>
-<p><img src="/../images/Ubuntu-24-04%E5%AE%89%E8%A3%85Docker_091825.png"></p>
-<h2 id="当前用户可以以rootless模式运行docker"><a href="#当前用户可以以rootless模式运行docker" class="headerlink" title="当前用户可以以rootless模式运行docker"></a>当前用户可以以rootless模式运行docker</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">apt <span class="keyword">install </span>docker-ce-rootless-<span class="keyword">extras</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h2><p>以下配置会增加一段自定义内网 IPv6 地址，开启容器的 IPv6 功能，以及限制日志文件大小，防止 Docker 日志塞满硬盘</p>
-<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">cat &gt; <span class="regexp">/etc/</span>docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">    <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;20m&quot;</span>,</span><br><span class="line">        <span class="string">&quot;max-file&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;ipv6&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;fixed-cidr-v6&quot;</span>: <span class="string">&quot;fd00:dead:beef:c0::/80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;experimental&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;ip6tables&quot;</span>:<span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<p>重启系统。</p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -902,7 +902,7 @@
   <entry>
     <title>openwrt上安装MosDNS</title>
     <url>/posts/5d4fa794.html</url>
-    <content><![CDATA[<p>这里以immortalwrt 24.10为例进行安装</p>
+    <content><![CDATA[<p>MosDNS作用是防DNS泄露，加速网站访问，可以完全替代openwrt自带的DNSMASQ</p>
 <h2 id="一、使用luci-app-mosdns进行安装"><a href="#一、使用luci-app-mosdns进行安装" class="headerlink" title="一、使用luci-app-mosdns进行安装"></a>一、使用luci-app-mosdns进行安装</h2><p>不要使用openwrt软件源自带的，功能有所缺失，版本也比较旧。</p>
 <p>推荐使用<a href="https://github.com/sbwml/luci-app-mosdns">luci-app-mosdns</a>来安装。</p>
 <p>ssh登录进入openwrt,命令如下：</p>
@@ -1011,6 +1011,47 @@
       </tags>
   </entry>
   <entry>
+    <title>ubuntu24.04安装nvidia cuda和cudnn</title>
+    <url>/posts/14b7f016.html</url>
+    <content><![CDATA[<p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时报错:</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
+<p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
+<p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
+<p>由此也就有了本文。</p>
+<h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
+<h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
+<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list</span><br></pre></td></tr></table></figure>
+<h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia官方源设置完毕</p>
+<h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
+<blockquote>
+<blockquote>
+<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install nvidia-driver-<span class="number">560</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装cuda"><a href="#安装cuda" class="headerlink" title="安装cuda"></a>安装cuda</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> cuda-toolkit</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-cudnn"><a href="#安装-cudnn" class="headerlink" title="安装 cudnn"></a>安装 cudnn</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install cudnn-cuda-<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>至此，nvidia驱动、cuda以及cudnn安装完毕。</p>
+<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><h3 id="查询设备信息"><a href="#查询设备信息" class="headerlink" title="查询设备信息"></a>查询设备信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png"></p>
+<h3 id="测试带宽"><a href="#测试带宽" class="headerlink" title="测试带宽"></a>测试带宽</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png"></p>
+]]></content>
+      <categories>
+        <category>编程开发</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>nvidia</tag>
+        <tag>cuda</tag>
+        <tag>cudnn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tmux安装和设置</title>
     <url>/posts/8e710f05.html</url>
     <content><![CDATA[<p><code>tmux</code>可谓是Linux下的神器。一般退出远程Linux服务器后，相关的进程、文件等就一并关闭了。而<code>tmux</code>可以在远程Linux服务器上完整保留你打开的窗口、文件等内容，方便在另一台电脑上登录远程终端后继续工作。</p>
@@ -1055,47 +1096,6 @@
       <tags>
         <tag>ubuntu</tag>
         <tag>samba</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu24.04安装nvidia cuda和cudnn</title>
-    <url>/posts/14b7f016.html</url>
-    <content><![CDATA[<p>全新安装的ubuntu 24.04,最近安装完stable-diffusion后，在使用命令<code>./webui.sh</code>启动时报错:</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">RuntimeError:</span> Torch <span class="built_in">is</span> <span class="built_in">not</span> able <span class="keyword">to</span> use GPU</span><br></pre></td></tr></table></figure>
-<p>经过查询得知，stable-diffusion-webui默认你已经安装好了<code>cuda</code>,而在<code>ubuntu</code>下安装完nvidia的私有驱动后，并不会安装<code>cuda</code>和<code>cudnn</code>库。</p>
-<p>使用<code>nvidia-smi</code>查询，显示的<code>cuda</code>版本只是最高能兼容的版本，并不代表已经安装好<code>cuda</code>了。<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_180939.png"></p>
-<p>由此也就有了本文。</p>
-<h2 id="设置nvidia官方源"><a href="#设置nvidia官方源" class="headerlink" title="设置nvidia官方源"></a>设置nvidia官方源</h2><p>使用nvidia官方安装源的方式，来在线安装nvidia 驱动、<code>cuda</code>和<code>cudnn</code>。</p>
-<h3 id="安装官方源的keyring"><a href="#安装官方源的keyring" class="headerlink" title="安装官方源的keyring"></a>安装官方源的keyring</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br><span class="line"><span class="attribute">sudo</span> dpkg -i cuda-keyring_1.<span class="number">1</span>-<span class="number">1</span>_all.deb</span><br></pre></td></tr></table></figure>
-<h3 id="安装设置官方源"><a href="#安装设置官方源" class="headerlink" title="安装设置官方源"></a>安装设置官方源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list</span><br></pre></td></tr></table></figure>
-<h3 id="给官方源添加pin文件"><a href="#给官方源添加pin文件" class="headerlink" title="给官方源添加pin文件"></a>给官方源添加pin文件</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>developer.download.nvidia.com<span class="regexp">/compute/</span>cuda<span class="regexp">/repos/u</span>buntu2404<span class="regexp">/x86_64/</span>cuda-ubuntu2404.pin</span><br><span class="line">sudo mv cuda-ubuntu2404.pin <span class="regexp">/etc/</span>apt<span class="regexp">/preferences.d/</span>cuda-repository-pin-<span class="number">600</span></span><br></pre></td></tr></table></figure>
-<p>至此，nvidia官方源设置完毕</p>
-<h2 id="升级nvidia驱动"><a href="#升级nvidia驱动" class="headerlink" title="升级nvidia驱动"></a>升级nvidia驱动</h2><blockquote>
-<blockquote>
-<blockquote>
-<p>为什么要升级为官方源里nvidia驱动呢？这是因为ubuntu 24.04自带的驱动是550版本，最高支持到cuda 12.4，而nvidia官方源里的<code>cuda</code>版本是12.6。所以需要把nvidia驱动升级到官方源里的560版本以适配<code>cuda</code>版本。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install nvidia-driver-<span class="number">560</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装cuda"><a href="#安装cuda" class="headerlink" title="安装cuda"></a>安装cuda</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> cuda-toolkit</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-cudnn"><a href="#安装-cudnn" class="headerlink" title="安装 cudnn"></a>安装 cudnn</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install cudnn-cuda-<span class="number">12</span></span><br></pre></td></tr></table></figure>
-<p>至此，nvidia驱动、cuda以及cudnn安装完毕。</p>
-<h2 id="测试cuda是否正常"><a href="#测试cuda是否正常" class="headerlink" title="测试cuda是否正常"></a>测试cuda是否正常</h2><h3 id="查询设备信息"><a href="#查询设备信息" class="headerlink" title="查询设备信息"></a>查询设备信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA/cuda-samples.git</span><br><span class="line"><span class="built_in">cd</span> ./cuda-samples/Samples/1_Utilities/deviceQuery</span><br><span class="line">make</span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure>
-<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182751.png"></p>
-<h3 id="测试带宽"><a href="#测试带宽" class="headerlink" title="测试带宽"></a>测试带宽</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/cuda-samples/Samples/1_Utilities/bandwidthTest</span><br><span class="line">make</span><br><span class="line">./bandwidthTest</span><br></pre></td></tr></table></figure>
-<p>输出如下：<br><img src="/../images/ubuntu24-04%E5%AE%89%E8%A3%85nvidia-cuda%E5%92%8Ccudnn_182910.png"></p>
-]]></content>
-      <categories>
-        <category>编程开发</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>nvidia</tag>
-        <tag>cuda</tag>
-        <tag>cudnn</tag>
       </tags>
   </entry>
   <entry>
