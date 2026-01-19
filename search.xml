@@ -904,11 +904,13 @@
     <url>/posts/5d4fa794.html</url>
     <content><![CDATA[<p>这里以immortalwrt 24.10为例进行安装。</p>
 <h2 id="一、使用luci-app-mosdns进行安装"><a href="#一、使用luci-app-mosdns进行安装" class="headerlink" title="一、使用luci-app-mosdns进行安装"></a>一、使用luci-app-mosdns进行安装</h2><p>不要使用openwrt软件源自带的，功能有所缺失，版本也比较旧。</p>
-<p>推荐使用<a href="https://github.com/sbwml/luci-app-mosdns">luci-app-mosdns</a>来安装。</p>
+<p>推荐使用<a href="https://github.com/sbwml/luci-app-mosdns">luci-app-mosdns</a>安装。</p>
 <p>ssh登录进入openwrt,命令如下：</p>
 <figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg <span class="keyword">install </span>curl</span><br><span class="line"></span><br><span class="line"><span class="keyword">sh </span>-c <span class="string">&quot;$(curl -ksS https://raw.githubusercontent.com/sbwml/luci-app-mosdns/v5/install.sh)&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="二、openwrt设置"><a href="#二、openwrt设置" class="headerlink" title="二、openwrt设置"></a>二、openwrt设置</h2><h3 id="MosDNS设置"><a href="#MosDNS设置" class="headerlink" title="MosDNS设置"></a>MosDNS设置</h3><p>进行openwrt的web界面，打开MosDNS页面，依照下图进行设置：<br>1、 基本设置:<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-54-31.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-54-57.png"></p>
-<p>2、 高级设置：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-55-24.png"><br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-56-19.png"></p>
+<h2 id="二、openwrt设置"><a href="#二、openwrt设置" class="headerlink" title="二、openwrt设置"></a>二、openwrt设置</h2><h3 id="MosDNS设置"><a href="#MosDNS设置" class="headerlink" title="MosDNS设置"></a>MosDNS设置</h3><p>进行openwrt的web界面，打开MosDNS页面，依照下图进行设置：<br>1、 基本设置:<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-54-31.png"></p>
+<p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-54-57.png"></p>
+<p>2、 高级设置：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-55-24.png"></p>
+<p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-56-19.png"></p>
 <h3 id="系统DHCP-DNS设置"><a href="#系统DHCP-DNS设置" class="headerlink" title="系统DHCP&#x2F;DNS设置"></a>系统DHCP&#x2F;DNS设置</h3><p>打开<code>网络</code>-<code>DHCP/DNS</code>，确保<code>DNS重定向</code>未被选中。</p>
 <p><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-20-58-18.png"></p>
 <p>打开<code>转发</code>，确保有下图的内容：<br><img src="/../images/openwrt%E4%B8%8A%E5%AE%89%E8%A3%85mosdns_2026-21-00-08.png"></p>
